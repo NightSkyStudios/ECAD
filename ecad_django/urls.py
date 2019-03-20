@@ -24,9 +24,11 @@ urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('blog/', views.blog, name='blog'),
     re_path(r'^$', views.index, name='index'),
+    path('map_project/<ar>', views.map_project, name='map_project'),
     prefix_default_language=False
 )
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

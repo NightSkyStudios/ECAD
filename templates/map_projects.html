@@ -1,0 +1,13 @@
+<div class="title">Наші проекти в {{ area_name }}</div>
+<div class="projects">
+{% if projects|length %}
+    <ul>
+        {% for prj in projects %}
+            <li><a href=""> - {{ prj.name }} - {{ prj.power }}wt</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    Проекти у цій області відсутні
+{% endif %}
+</div>
+<div class="stats"><i class="fas fa-bolt"></i>{{ power }}Bт</div>

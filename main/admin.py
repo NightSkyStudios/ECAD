@@ -1,5 +1,6 @@
 from django.contrib import admin
-from main.models import Post
+
+from .models import MapProject, Post
 
 admin.site.register(Post)
-# Register your models here.
+admin.site.register(MapProject)
