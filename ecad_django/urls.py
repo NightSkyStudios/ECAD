@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', views.blog, name='blog'),
     re_path(r'^$', views.index, name='index'),
+    path('map_project/<ar>', views.map_project, name='map_project'),
 ]
