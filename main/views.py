@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from main.models import MapProject
+from main.models import MapProject, Post
+from random import random
 
 
 def get_area_name(name):
@@ -44,7 +45,12 @@ def index(request):
 
 
 def blog(request):
-    return render(request, 'blog.html')
+
+    post = Post.objects.all().order_by('-date')
+    ctx = {
+        'posts': post
+    }
+    return render(request, 'blog.html', ctx)
 
 
 def map_project(request, ar):
@@ -60,3 +66,4 @@ def map_project(request, ar):
            'area_name': area_name}
 
     return render(request, 'map_projects.html', ctx)
+
