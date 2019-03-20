@@ -16,31 +16,27 @@
 <body>
 {% include 'navbar.html' %}
 {% for post in posts %}
+    {% if post.isHidden == False %}
   <div class="blog-card">
     <div class="meta">
       <div class="photo" style="background-image: url({{ post.image.url }})"></div>
       <ul class="details">
-        <li class="author"><a href="#">John Doe</a></li>
+        <li class="author">Lorem ipsum</li>
         <li class="date">{{ post.date }}</li>
         <li class="tags">
-          <ul>
-            <li><a href="#">Learn</a></li>
-            <li><a href="#">Code</a></li>
-            <li><a href="#">HTML</a></li>
-            <li><a href="#">CSS</a></li>
-          </ul>
         </li>
       </ul>
     </div>
     <div class="description">
       <h1>{{ post.title }}</h1>
-      <h2>Opening a door to the future</h2>
+      <h2>{{ post.date }}</h2>
         <p>{{ post.text }}</p>
       <p class="read-more">
         <a href="#">Read More</a>
       </p>
     </div>
   </div>
+    {% endif %}
 {% endfor %}
 </body>
 </html>

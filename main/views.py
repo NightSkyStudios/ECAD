@@ -5,6 +5,10 @@ from random import random
 # Create your views here.
 
 def index(request):
+    post = Post.objects.all().order_by('-date')
+    ctx = {
+        'posts': post
+    }
     return render(request, 'index.html')
 
 
