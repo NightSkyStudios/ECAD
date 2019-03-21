@@ -27,7 +27,6 @@ nav {
   height: 90px;
   font-size: 13px;
 }
-
 nav .logo {
   display: inline-block;
   position: relative;
@@ -35,8 +34,8 @@ nav .logo {
   top: 5px;
   width: 25%;
   left: 20px;
+  cursor: pointer;
 }
-
 nav ul.menu {
   display: flex;
   width: 73%;
@@ -45,13 +44,11 @@ nav ul.menu {
   height: 100%;
   margin-right: 2%;
 }
-
 nav ul.menu > li {
   display: inline-block;
   height: 100%;
   padding: 0 1.1em;
 }
-
 nav ul.menu > li > a {
   line-height: 90px;
   text-decoration: none;
@@ -60,15 +57,12 @@ nav ul.menu > li > a {
   font-size: 1.3em;
   font-weight: 300;
 }
-
 nav ul.menu > li > a .pointer {
   display: none;
 }
-
 nav ul.menu > li > a:hover {
   color: #ffc212;
 }
-
 nav ul.menu > li:after {
   display: block;
   content: "";
@@ -78,15 +72,12 @@ nav ul.menu > li:after {
   transition: width 0.3s ease-in-out;
   transform: translateY(-100%);
 }
-
 nav ul.menu > li:hover:after {
   width: 100%;
 }
-
 nav ul.menu > li:hover .submenu {
   display: flex;
 }
-
 nav ul.menu > li ul.submenu {
   display: none;
   position: absolute;
@@ -97,24 +88,20 @@ nav ul.menu > li ul.submenu {
   height: 35px;
   z-index: 0;
 }
-
 nav ul.menu > li ul.submenu li {
   display: inline-block;
   line-height: 35px;
   padding: 0 1em;
 }
-
 nav ul.menu > li ul.submenu li a {
   color: black;
   text-decoration: none;
   font-size: 1.2em;
   font-weight: 300;
 }
-
 nav ul.menu > li ul.submenu li a:hover {
   color: #ffc212;
 }
-
 nav .navdd {
   display: none;
 }
@@ -124,12 +111,10 @@ nav .navdd {
   height: 600px;
   background-color: black;
 }
-
 .slider .slide-images {
   height: 100%;
   width: 100%;
 }
-
 .slider .slide-images img {
   position: absolute;
   display: none;
@@ -137,11 +122,9 @@ nav .navdd {
   height: 100%;
   animation: slideFade 0.5s linear;
 }
-
 .slider .slide-images img.active {
   display: block;
 }
-
 .slider .dots {
   position: absolute;
   display: flex;
@@ -152,14 +135,12 @@ nav .navdd {
   text-align: center;
   height: 5px;
 }
-
 .slider .dots .dot {
   margin: 0 2px;
   width: 100%;
   height: 5px;
   background-color: white;
 }
-
 .slider .dots .dot:after {
   display: block;
   content: "";
@@ -167,7 +148,6 @@ nav .navdd {
   width: 0;
   background-color: #ffc212;
 }
-
 .slider .dots .dot.active:after {
   width: 100%;
   transition: width 5s linear;
@@ -180,7 +160,6 @@ nav .navdd {
   width: fit-content;
   margin-bottom: 1em;
 }
-
 .header p {
   line-height: 60px;
   font-size: 2.5em;
@@ -188,7 +167,6 @@ nav .navdd {
   text-align: left;
   padding: 0 1em;
 }
-
 .header:after {
   position: relative;
   display: block;
@@ -207,7 +185,6 @@ nav .navdd {
   background-color: white;
   padding-top: 75px;
 }
-
 .content .pads {
   margin-top: 75px;
   padding: 0 75px;
@@ -215,18 +192,15 @@ nav .navdd {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1em;
 }
-
 .content .pads .pad {
   min-height: 300px;
   padding: 1em;
 }
-
 .content .pads .pad .icon {
   text-align: center;
   font-size: 2.5em;
   color: #232323;
 }
-
 .content .pads .pad .title {
   font-size: 1.3em;
   text-align: center;
@@ -235,27 +209,23 @@ nav .navdd {
   color: #232323;
   font-family: "Overpass", sans-serif;
 }
-
 .content .pads .pad .txt {
-  text-align: justify;
+  text-align: center;
   font-size: 1em;
   font-weight: 300;
   color: #232323;
   font-family: "Overpass", sans-serif;
 }
-
 .content .mapsector {
   position: relative;
   padding-top: 3em;
   height: fit-content;
   width: 100%;
 }
-
 .content .mapsector .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
 .content .mapsector .grid .info {
   position: relative;
   width: fit-content;
@@ -264,14 +234,12 @@ nav .navdd {
   margin-top: 0em;
   padding: 1em 3em;
 }
-
 .content .mapsector .grid .info .title {
   font-family: Roboto, sans-serif;
   font-size: 1.8em;
   font-weight: 400;
   line-height: 2em;
 }
-
 .content .mapsector .grid .info .projects {
   font-family: Roboto, sans-serif;
   width: fit-content;
@@ -279,16 +247,13 @@ nav .navdd {
   font-size: 1.5em;
   margin: 0 auto;
 }
-
 .content .mapsector .grid .info .projects ul {
   list-style-type: none;
 }
-
 .content .mapsector .grid .info .projects ul li a {
   text-decoration: none;
   color: black;
 }
-
 .content .mapsector .grid .info .stats {
   height: fit-content;
   font-family: Roboto, sans-serif;
@@ -301,18 +266,15 @@ nav .navdd {
   margin-top: 1em;
   border-top: 2px solid #ffc212;
 }
-
 .content .mapsector .grid .info .stats i {
   transform: translateY(20%);
   position: relative;
   font-size: 1.5em;
 }
-
 .content .mapsector .grid .map {
   display: inline-block;
   width: 100%;
 }
-
 .content .newspanel {
   margin: 0 2em;
   margin-top: 2em;
@@ -322,11 +284,9 @@ nav .navdd {
   overflow: hidden;
   padding-bottom: 4em;
 }
-
 .content .newspanel .newsblock {
   border: 0.2em solid #ffc212;
 }
-
 .content .newspanel .newsblock .img {
   position: relative;
   min-height: 5em;
@@ -334,7 +294,6 @@ nav .navdd {
   width: 100%;
   overflow: hidden;
 }
-
 .content .newspanel .newsblock .img img {
   position: absolute;
   top: 50%;
@@ -342,7 +301,6 @@ nav .navdd {
   width: 100%;
   object-fit: cover;
 }
-
 .content .newspanel .newsblock .img .title {
   position: absolute;
   font-weight: 400;
@@ -351,13 +309,11 @@ nav .navdd {
   padding-top: 0.2em;
   color: white;
 }
-
 .content .newspanel .newsblock p {
   padding: 0.2em 1em;
   font-weight: 300;
   font-size: 0.8em;
 }
-
 .content .newspanel .newsblock button {
   border: 0;
   border-radius: 0;
@@ -366,39 +322,32 @@ nav .navdd {
   color: white;
   margin-bottom: 0.5em;
 }
-
 .content .newspanel .newsblock.main .img {
   height: 20em;
 }
-
 .content .newspanel .newsblock.main .title {
   font-size: 1.8em;
   padding-top: 0.5em;
 }
-
 .content .newspanel .newsblock.main p {
   font-size: 1em;
   padding-top: 0.5em;
 }
-
 .content .newspanel .sm {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 1em;
 }
-
 .content .contacts .contactbox {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
 .content .contacts .contactbox .form form {
   width: 75%;
   padding: 0 4em;
   margin: 3em auto;
 }
-
 .content .contacts .contactbox .form form input {
   width: 100%;
   height: 1.8em;
@@ -410,7 +359,6 @@ nav .navdd {
   font-family: Roboto, sans-serif;
   font-weight: 300;
 }
-
 .content .contacts .contactbox .form form input.submit {
   background-color: #ffc212;
   color: white;
@@ -420,7 +368,6 @@ nav .navdd {
   border: 2px solid #ffc212;
   box-sizing: content-box;
 }
-
 .content .contacts .contactbox .form form textarea {
   width: 100%;
   height: 10em;
@@ -432,28 +379,23 @@ nav .navdd {
   font-size: 1em;
   font-weight: 300;
 }
-
 .content .contacts .contactbox .form form input:focus, .content .contacts .contactbox .form form textarea:focus {
   outline: none;
 }
-
 .content .contacts .contactbox .numbers {
   width: fit-content;
   height: fit-content;
   margin: 3em 0;
   padding-left: 3em;
 }
-
 .content .contacts .contactbox .numbers .number {
   font-size: 1.3em;
   line-height: 1.7em;
 }
-
 .content .contacts .contactbox .numbers .number .title {
   color: #ffc212;
   font-weight: 700;
 }
-
 .content .contacts .contactbox .numbers .number .num {
   display: inline-block;
   color: #232323;
@@ -461,18 +403,57 @@ nav .navdd {
   padding-left: 0.5em;
 }
 
-.content .footer {
+.project-page {
+  background-color: white;
+  padding-top: 2em;
+  min-height: 1000px;
+}
+.project-page .header {
+  display: block;
+  position: relative;
+  height: 60px;
+  width: fit-content;
+  margin: 0 auto 1em auto;
+}
+.project-page .header p {
+  line-height: 60px;
+  font-size: 2.5em;
+  font-weight: 300;
+  text-align: left;
+  padding: 0 1em;
+}
+.project-page .header:after {
+  position: relative;
+  display: block;
+  bottom: 0;
+  content: "";
+  width: 100%;
+  left: -6px;
+  top: -6px;
+  border: 6px solid transparent;
+  border-bottom: 6px solid #ffc212;
+}
+.project-page .list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.project-page .list .project {
+  width: 100%;
+}
+.project-page .list .project .img img {
+  width: 100%;
+}
+
+.footer {
   height: 10em;
   background-color: #232323;
   overflow: hidden;
 }
-
-.content .footer .links {
+.footer .links {
   height: 7em;
   line-height: 7em;
 }
-
-.content .footer .links img {
+.footer .links img {
   position: relative;
   display: inline-block;
   width: 15%;
@@ -480,21 +461,18 @@ nav .navdd {
   top: 50%;
   transform: translateY(-50%);
 }
-
-.content .footer .links div {
+.footer .links div {
   text-align: center;
   float: right;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
-
-.content .footer .links div a {
+.footer .links div a {
   color: #e1e1e1;
   text-decoration: none;
   font-size: 1em;
 }
-
-.content .footer .credits {
+.footer .credits {
   height: 3em;
   border-top: 1px solid #e1e1e1;
   color: #e1e1e1;
@@ -503,13 +481,11 @@ nav .navdd {
   line-height: 3em;
   vertical-align: center;
 }
-
-.content .footer .credits a {
+.footer .credits a {
   text-decoration: none;
   color: #e1e1e1;
 }
-
-.content .footer .credits a:hover {
+.footer .credits a:hover {
   color: #ffc212;
 }
 
@@ -521,36 +497,34 @@ nav .navdd {
   .content .pads {
     font-size: 12px;
   }
-
   .content .mapsector .grid .info .title {
     font-size: 1.3em;
   }
-
   .content .mapsector .grid .info .projects {
     font-size: 1.1em;
   }
-
   .content .newspanel .newsblock .img .title {
     font-size: 1.1em;
   }
-
   .content .newspanel .newsblock.main .img .title {
     font-size: 1.5em;
   }
 }
 @media only screen and (max-width: 800px) {
+  body {
+    font-size: 12px;
+  }
+
   nav {
     position: fixed;
     width: 100%;
     height: 70px;
   }
-
   nav .logo {
     height: 60px;
     width: 200px;
     left: 0;
   }
-
   nav > ul.menu {
     display: none;
     transform: translateY(-100%);
@@ -560,7 +534,6 @@ nav .navdd {
     margin: 0;
     height: 70px;
   }
-
   nav > ul.menu > li {
     position: relative;
     height: 60px;
@@ -569,28 +542,22 @@ nav .navdd {
     padding: 0;
     background-color: white;
   }
-
   nav > ul.menu > li > a {
     line-height: 60px;
   }
-
   nav > ul.menu > li > a .pointer {
     display: inline-block;
     color: #232323;
   }
-
   nav > ul.menu > li:hover:after {
     width: 0;
   }
-
   nav > ul.menu > li:hover {
     height: fit-content;
   }
-
   nav > ul.menu > li:hover .submenu {
     display: block;
   }
-
   nav > ul.menu > li ul.submenu {
     position: relative;
     display: none;
@@ -599,18 +566,15 @@ nav .navdd {
     box-shadow: inset 0px 4px 6px -4px rgba(0, 0, 0, 0.75);
     height: fit-content;
   }
-
   nav > ul.menu > li ul.submenu li {
     width: 100%;
     padding: 0;
     height: 60px;
   }
-
   nav > ul.menu > li ul.submenu li a {
     line-height: 60px;
     width: 100%;
   }
-
   nav .navdd {
     display: inline-block;
     position: relative;
@@ -629,58 +593,46 @@ nav .navdd {
   .content .header {
     margin: 0 auto;
   }
-
   .content .pads {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 1em;
+    grid-gap: 0.5em;
     padding: 0 1em;
   }
-
   .content .mapsector .grid {
     grid-template-columns: 1fr;
   }
-
   .content .mapsector .grid .info .title {
     font-size: 1.5em;
   }
-
   .content .mapsector .grid .info .projects {
     text-align: center;
   }
-
   .content .newspanel {
     grid-template-columns: 1fr;
   }
-
   .content .contacts .contactbox {
     grid-template-columns: 1fr;
   }
-
   .content .contacts .contactbox .form form {
     width: unset;
     -webkit-appearance: none;
   }
-
   .content .contacts .contactbox .numbers {
     margin: 0 auto;
     padding: 0 0 2em 0;
     -webkit-appearance: none;
   }
-
   .content .footer {
     height: 5em;
   }
-
   .content .footer .links {
     display: none;
   }
-
   .content .footer .credits {
     position: relative;
     height: 5em;
   }
-
   .content .footer .credits p {
     height: 5em;
     line-height: 5em;
@@ -689,6 +641,5 @@ nav .navdd {
     font-weight: 300;
   }
 }
-/*# sourceMappingURL=style.css.map */
 
 /*# sourceMappingURL=style.css.map */

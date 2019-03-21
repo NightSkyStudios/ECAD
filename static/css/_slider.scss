@@ -1,0 +1,53 @@
+.slider {
+   position: relative;
+   height: 600px;
+   background-color: black;
+
+   .slide-images {
+      height: 100%;
+      width: 100%;
+
+      img {
+         position: absolute;
+         display: none;
+         width: 100%;
+         height: 100%;
+         animation: slideFade 0.5s linear;
+
+         &.active {
+            display: block;
+         }
+      }
+   }
+
+   .dots {
+      position: absolute;
+      display: flex;
+      justify-content: space-evenly;
+      align-content: stretch;
+      bottom: 0px;
+      width: 100%;
+      text-align: center;
+      height: 5px;
+
+      .dot {
+         margin: 0 2px;
+         width: 100%;
+         height: 5px;
+         background-color: white;
+
+         &:after {
+            display: block;
+            content: "";
+            height: 100%;
+            width: 0;
+            background-color: $color1;
+         }
+
+         &.active:after {
+            width: 100%;
+            transition: width 5s linear;
+         }
+      }
+   }
+}

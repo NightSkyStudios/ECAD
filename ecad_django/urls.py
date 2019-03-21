@@ -22,6 +22,9 @@ from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
+    path('equipment/', views.equipment, name='equipment'),
+    path('projects/', views.projects, name='projects'),
+    path('events/', views.events, name='events'),
     path('blog/', views.blog, name='blog'),
     re_path(r'^$', views.index, name='index'),
     path('map_project/<ar>', views.map_project, name='map_project'),
