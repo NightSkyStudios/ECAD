@@ -75,6 +75,7 @@ class MapProject(models.Model):
 
         return self.name
 
+
 class Post(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='media')
