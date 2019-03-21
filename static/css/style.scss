@@ -35,6 +35,7 @@ body, html {
    position: relative;
    height: 60px;
    width: fit-content;
+   width: -moz-fit-content;
    margin-bottom: 1em;
 
    &.center{
