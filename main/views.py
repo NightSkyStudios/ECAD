@@ -41,7 +41,14 @@ def get_area_name(name):
 
 
 def index(request):
-    return render(request, 'index.html')
+    posts = Post.objects.all().order_by('-date')
+    big_post = posts[0]
+    small_post = posts[1:5]
+    ctx = {
+        'big': big_post,
+        'small': small_post,
+    }
+    return render(request, 'index.html', ctx)
 
 
 def blog(request):
