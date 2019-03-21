@@ -6,7 +6,6 @@ $color2: #232323;
 $color3: #e1e1e1;
 
 body, html {
-   background-color: darkgray;
    color: #000;
    font-family: Roboto, sans-serif;
    overflow-x: hidden;
@@ -37,6 +36,10 @@ body, html {
    height: 60px;
    width: fit-content;
    margin-bottom: 1em;
+
+   &.center{
+      margin: 0 auto 1em auto;
+   }
 
    p {
       line-height: 60px;

@@ -46,7 +46,7 @@ def index(request):
     try:
         big_post = posts[0]
     except IndexError:
-        big_post = []
+        big_post = None
     small_post = posts[1:5]
     ctx = {
         'big': big_post,
