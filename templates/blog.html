@@ -14,9 +14,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-{% include 'navbar.html' %}
+{% include 'nav.html' %}
 {% for post in posts %}
-<<<<<<< HEAD
     {% if post.isHidden == False %}
   <div class="blog-card">
     <div class="meta">
@@ -38,7 +37,6 @@
     </div>
   </div>
     {% endif %}
-=======
     <div class="blog-card">
         <div class="meta">
             <div class="photo" style="background-image: url({{ post.image.url }})"></div>
@@ -56,7 +54,6 @@
             </p>
         </div>
     </div>
->>>>>>> 73026351e0e1026da897e10127edddb69668f921
 {% endfor %}
 </body>
 </html>

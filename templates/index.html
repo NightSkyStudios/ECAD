@@ -419,13 +419,16 @@
         <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>Останні новини</p></div>
         <div class="newspanel">
             <div class="newsblock main" data-aos="flip-left" data-aos-duration="1000">
-
+            {% if big|length %}
                 <div class="img"><img src="{{ big.image.url }}" alt="">
                     <div class="title">{{ big.title }}</div>
                 </div>
                 <p>{{ big.text }}</p>
                 <button>Детальніше <i class="fas fa-arrow"></i></button>
             </div>
+            {% else %}
+                <h1>Ще немає новин</h1>
+            {% endif %}
 
             <div class="sm">
                 {% for sm in small %}
