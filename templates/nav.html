@@ -1,0 +1,138 @@
+<nav>
+        <svg class="logo" onclick="return location.href = '{% url 'index' %}'" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 9701.34 3041.01">
+            <defs>
+                <style>.cls-1 {
+                    fill: url(#Безымянный_градиент_22);
+                }
+
+                .cls-2, .cls-4 {
+                    fill: #fcfcfc;
+                }
+
+                .cls-3 {
+                    fill: url(#Безымянный_градиент_20);
+                }
+
+                .cls-4, .cls-6 {
+                    font-size: 800px;
+                    font-family: Roboto-Medium, Roboto;
+                    font-weight: 500;
+                }
+
+                .cls-5 {
+                    fill: url(#Безымянный_градиент_17);
+                }
+
+                .cls-6 {
+                    fill: #fff;
+                }
+
+                .cls-7 {
+                    fill: url(#Безымянный_градиент_13);
+                }
+
+                .cls-8 {
+                    fill: none;
+                    stroke: #fff;
+                    stroke-miterlimit: 10;
+                    stroke-width: 10px;
+                }
+
+                .cls-9 {
+                    font-size: 670px;
+                    fill: #151538;
+                    font-family: Roboto-Regular, Roboto;
+                }
+
+                .cls-10 {
+                    letter-spacing: -0.02em;
+                }</style>
+                <linearGradient id="Безымянный_градиент_22" x1="1612.69" y1="1603.24" x2="2966.78" y2="2957.32"
+                                gradientUnits="userSpaceOnUse">
+                    <stop offset="0.01" stop-color="#0e1621"/>
+                    <stop offset="1" stop-color="#010102"/>
+                </linearGradient>
+                <linearGradient id="Безымянный_градиент_20" x1="73.22" y1="1603.24" x2="1425.37" y2="2955.38"
+                                gradientUnits="userSpaceOnUse">
+                    <stop offset="0.01" stop-color="#025002"/>
+                    <stop offset="1" stop-color="#011b01"/>
+                </linearGradient>
+                <linearGradient id="Безымянный_градиент_17" x1="1612.69" y1="73.22" x2="2966.62" y2="1427.15"
+                                gradientUnits="userSpaceOnUse">
+                    <stop offset="0.01" stop-color="#035e84"/>
+                    <stop offset="1" stop-color="#01202c"/>
+                </linearGradient>
+                <linearGradient id="Безымянный_градиент_13" x1="73.22" y1="74.22" x2="1425.37" y2="1426.37"
+                                gradientUnits="userSpaceOnUse">
+                    <stop offset="0.01" stop-color="#bcb52b"/>
+                    <stop offset="1" stop-color="#66671b"/>
+                </linearGradient>
+            </defs>
+            <title>Logo</title>
+            <g id="BlackSquare">
+                <rect class="cls-1" x="1539.47" y="1530.01" width="1500.53" height="1500.53" rx="250"/>
+                <polygon class="cls-2"
+                         points="2289.74 2239.37 2462.87 1831.7 2070.42 2319.99 2354.87 2319.99 2190.59 2732.21 2578.48 2242.41 2289.74 2239.37"/>
+            </g>
+            <g id="GreenSquare">
+                <rect class="cls-3" y="1530.01" width="1498.59" height="1498.59" rx="250"/>
+                <g id="Letter_A" data-name="Letter A">
+                    <text class="cls-4" transform="translate(483.38 2556.15)">A</text>
+                </g>
+            </g>
+            <g id="BlueSquare">
+                <rect class="cls-5" x="1539.47" width="1500.37" height="1500.37" rx="250"/>
+                <g id="Letter_C" data-name="Letter C">
+                    <text class="cls-6" transform="translate(2013.08 1039.99)">C</text>
+                </g>
+            </g>
+            <g id="YellowSquare">
+                <rect class="cls-7" y="1" width="1498.59" height="1498.59" rx="250"/>
+                <g id="Letter_E" data-name="Letter E">
+                    <text id="E" class="cls-6" transform="translate(505.11 1039.99)">E</text>
+                </g>
+            </g>
+            <g id="Lines">
+                <line class="cls-8" x1="371" x2="371" y2="3040"/>
+                <line class="cls-8" x1="1133" y1="1" x2="1140" y2="3041"/>
+                <line class="cls-8" x1="1894" x2="1894" y2="3040"/>
+                <line class="cls-8" x1="2677" x2="2677" y2="3040"/>
+            </g>
+            <g id="Dev_text" data-name="Dev text">
+                <text x="-249.19" y="-947.85"/>
+                <text class="cls-9" transform="translate(3154.41 1740.46)">
+                    <tspan xml:space="preserve"> D E V E L O P M E N</tspan>
+                    <tspan class="cls-10" x="5973.08" y="0" xml:space="preserve"> T</tspan>
+                </text>
+            </g>
+        </svg>
+        <a class="navdd" href="javascript:void(0)" onclick="dropDown()"><i class="fas fa-bars"></i></a>
+        <ul class="menu">
+            <li><a href="#">Про нас</a></li>
+            <li><a href="{% url "projects" %}" class="dd">Проекти <i class="pointer fas fa-angle-down"></i></a>
+                <ul class="submenu">
+                    <li><a href=#>Проект 1</a></li>
+                    <li><a href=#>Проект 2</a></li>
+                    <li><a href=#>Проект 3</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url "equipment" %}" class="dd">Обладнання <i class="pointer fas fa-angle-down"></i></a>
+                <ul class="submenu">
+                    <li><a href=#>Пристрій 1</a></li>
+                    <li><a href=#>Пристрій 2</a></li>
+                    <li><a href=#>Пристрій 3</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url "events" %}" class="dd">Події <i class="pointer fas fa-angle-down"></i></a>
+                <ul class="submenu">
+                    <li><a href=#>Подія 1</a></li>
+                    <li><a href=#>Подія 2</a></li>
+                    <li><a href=#>Подія 3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Матеріали</a></li>
+            <li><a href="#">Нормативна база</a></li>
+            <li><a href="#">Блог</a></li>
+        </ul>
+    </nav>

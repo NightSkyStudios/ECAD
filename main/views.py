@@ -51,6 +51,18 @@ def index(request):
     return render(request, 'index.html', ctx)
 
 
+def projects(request):
+    return render(request, 'projects.html')
+
+
+def equipment(request):
+    return render(request, 'equipment.html')
+
+
+def events(request):
+    return render(request, 'events.html')
+
+
 def blog(request):
 
     post = Post.objects.all().order_by('-date')
