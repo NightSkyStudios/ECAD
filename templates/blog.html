@@ -13,30 +13,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
+
 {% include 'nav.html' %}
-{% for post in posts %}
-    {% if post.isHidden == False %}
-  <div class="blog-card">
-    <div class="meta">
-      <div class="photo" style="background-image: url({{ post.image.url }})"></div>
-      <ul class="details">
-        <li class="author">Lorem ipsum</li>
-        <li class="date">{{ post.date }}</li>
-        <li class="tags">
-        </li>
-      </ul>
+
+
+<div class="page">
+    <div class="header center"><p>Наш блог</p></div>
+
+    <div class="blog">
+        {% for post in posts %}
+            {% if post.isHidden == False %}
+                <div class="blogpost" data-aos="flip-up" data-aos-duration="1000">
+                    <div class="img"><img src="{{ post.image.url }}" alt="">
+                        <div class="title">{{ post.title }}</div>
+                    </div>
+                    <p>{{ post.text|truncatechars:400 }}</p>
+                    <button>Детальніше <i class="fas fa-arrow-right"></i></button>
+                    <h5>{{ post.date }}</h5>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
-    <div class="description">
-      <h1>{{ post.title }}</h1>
-      <h2>{{ post.date }}</h2>
-        <p>{{ post.text|truncatechars:122 }}</p>
-      <p class="read-more">
-        <a href="#">Read More</a>
-      </p>
-    </div>
-  </div>
-    {% endif %}
-{% endfor %}
-{% include 'footer.html' %}
+
+</div>
+
+{% include "footer.html" %}
+
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+<script
+        src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        startEvent: 'DOMContentLoaded',
+        once: true,
+        ease: 'ease-out',
+        anchorPlacement: 'top-bottom'
+    });
+</script>
 </body>
 </html>

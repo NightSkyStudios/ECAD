@@ -423,7 +423,7 @@
                 <div class="img"><img src="{{ big.image.url }}" alt="">
                     <div class="title">{{ big.title }}</div>
                 </div>
-                <p>{{ big.text|truncatechars:500 }}</p>
+                <p>{{ big.text|truncatechars:800 }}</p>
                 <button>Детальніше <i class="fas fa-arrow"></i></button>
             </div>
             {% else %}
@@ -480,8 +480,8 @@
             </div>
         </div>
     </div>
-
-{% include 'footer.html' %}
+</div>
+  {% include 'footer.html' %}
 
 
 <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
