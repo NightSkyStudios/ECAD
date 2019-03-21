@@ -10,14 +10,15 @@
           crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     {% include 'nav.html' %}
     <div class="content">
 
     </div>
-    <script type="text/javascript" src="js/index.js"></script>
+    {% include 'footer.html' %}
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({

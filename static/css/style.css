@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&subset=cyrillic,cyrillic-ext");
 @import url("https://fonts.googleapis.com/css?family=Overpass:300,400,600,700|Roboto+Condensed&subset=cyrillic,cyrillic-ext");
 body, html {
+  background-color: darkgray;
   color: #000;
   font-family: Roboto, sans-serif;
   overflow-x: hidden;
@@ -158,9 +159,6 @@ nav .navdd {
   height: 60px;
   width: fit-content;
   margin-bottom: 1em;
-}
-.header.center {
-  margin: 0 auto 1em auto;
 }
 .header p {
   line-height: 60px;

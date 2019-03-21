@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Blog</title>
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity=""
           crossorigin="anonymous">
@@ -15,10 +14,7 @@
 </head>
 <body>
 {% include 'nav.html' %}
-<div class="header center"><p>Наш блог</p></div>
-<div class="blog">
-
-    {% for post in posts %}
+{% for post in posts %}
     {% if post.isHidden == False %}
   <div class="blog-card">
     <div class="meta">
@@ -33,7 +29,7 @@
     <div class="description">
       <h1>{{ post.title }}</h1>
       <h2>{{ post.date }}</h2>
-        <p>{{ post.text }}</p>
+        <p>{{ post.text|truncatechars:122 }}</p>
       <p class="read-more">
         <a href="#">Read More</a>
       </p>
@@ -41,6 +37,6 @@
   </div>
     {% endif %}
 {% endfor %}
-</div>
+{% include 'footer.html' %}
 </body>
 </html>
