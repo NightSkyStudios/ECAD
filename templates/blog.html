@@ -16,6 +16,7 @@
 <body>
 {% include 'navbar.html' %}
 {% for post in posts %}
+<<<<<<< HEAD
     {% if post.isHidden == False %}
   <div class="blog-card">
     <div class="meta">
@@ -37,6 +38,25 @@
     </div>
   </div>
     {% endif %}
+=======
+    <div class="blog-card">
+        <div class="meta">
+            <div class="photo" style="background-image: url({{ post.image.url }})"></div>
+            <ul class="details">
+                <li class="author">{{ post.title }}</li>
+                <li class="date">{{ post.date }}</li>
+            </ul>
+        </div>
+        <div class="description">
+            <h1>{{ post.title }}</h1>
+            <h2>Opening a door to the future</h2>
+            <p>{{ post.text }}</p>
+            <p class="read-more">
+                <a href="#">Read More</a>
+            </p>
+        </div>
+    </div>
+>>>>>>> 73026351e0e1026da897e10127edddb69668f921
 {% endfor %}
 </body>
 </html>

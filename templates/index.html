@@ -419,51 +419,26 @@
         <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>Останні новини</p></div>
         <div class="newspanel">
             <div class="newsblock main" data-aos="flip-left" data-aos-duration="1000">
-                <div class="img"><img src="{% static 'images/slide1.jpg' %}" alt="">
-                    <div class="title">Заголовок новини</div>
+
+                <div class="img"><img src="{{ big.image.url }}" alt="">
+                    <div class="title">{{ big.title }}</div>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Aperiam consequuntur dolorum, eius molestias nostrum obcaecati quasi sint vitae
-                    voluptas. Eum! Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad architecto at, autem
-                    blanditiis commodi dolores eius eveniet ex facilis, fugit inventore ipsa ipsum, maxime modi mollitia
-                    nobis obcaecati optio perferendis perspiciatis quia quibusdam quis saepe temporibus tenetur ullam
-                    ut. A alias esse itaque magnam numquam officiis provident soluta tempore ut velit.</p>
+                <p>{{ big.text }}</p>
                 <button>Детальніше <i class="fas fa-arrow"></i></button>
             </div>
+
             <div class="sm">
+                {% for sm in small %}
                 <div class="newsblock" data-aos="flip-left" data-aos-duration="1000">
-                    <div class="img"><img src="{% static 'images/slide1.jpg' %}" alt="">
-                        <div class="title">Заголовок новини</div>
+                    <div class="img"><img src="{{ sm.image.url }}" alt="">
+                        <div class="title">{{ sm.title }}</div>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias esse itaque magnam numquam
-                        officiis provident soluta tempore ut velit.</p>
+                    <p>{{ sm.text }}</p>
                     <button>Детальніше <i class="fas fa-arrow"></i></button>
                 </div>
-                <div class="newsblock" data-aos="flip-left" data-aos-duration="1000">
-                    <div class="img"><img src="{% static 'images/slide1.jpg' %}" alt="">
-                        <div class="title">Заголовок новини</div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias esse itaque magnam numquam
-                        officiis provident soluta tempore ut velit.</p>
-                    <button>Детальніше <i class="fas fa-arrow"></i></button>
-                </div>
-                <div class="newsblock" data-aos="flip-left" data-aos-duration="1000">
-                    <div class="img"><img src="{% static 'images/slide1.jpg' %}" alt="">
-                        <div class="title">Заголовок новини</div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias esse itaque magnam numquam
-                        officiis provident soluta tempore ut velit.</p>
-                    <button>Детальніше <i class="fas fa-arrow"></i></button>
-                </div>
-                <div class="newsblock" data-aos="flip-left" data-aos-duration="1000">
-                    <div class="img"><img src="{% static 'images/slide1.jpg' %}" alt="">
-                        <div class="title">Заголовок новини</div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias esse itaque magnam numquam
-                        officiis provident soluta tempore ut velit.</p>
-                    <button>Детальніше <i class="fas fa-arrow"></i></button>
-                </div>
+                    {% endfor %}
             </div>
+
 
         </div>
     </div>
