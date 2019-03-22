@@ -42,6 +42,7 @@ def get_area_name(name):
 
 def index(request):
     posts = Post.objects.all().order_by('-date')
+    print(posts)
     try:
         big_post = posts[0]
     except IndexError:
