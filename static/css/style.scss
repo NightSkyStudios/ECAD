@@ -110,6 +110,24 @@ a, button {
         }
     }
 
+    .partners{
+        .partnerlist{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            justify-items: center;
+            justify-content: space-around;
+            margin: 3em;
+            grid-gap: 3em;
+            .partner{
+                width: 100%;
+                img{
+                    width: 100%;
+                    filter: grayscale(100%);
+                }
+            }
+        }
+    }
+
     .mapsector {
         position: relative;
         padding-top: 3em;

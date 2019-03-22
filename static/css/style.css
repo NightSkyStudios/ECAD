@@ -223,6 +223,21 @@ nav .navdd {
   color: #232323;
   font-family: "Overpass", sans-serif;
 }
+.content .partners .partnerlist {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  justify-content: space-around;
+  margin: 3em;
+  grid-gap: 3em;
+}
+.content .partners .partnerlist .partner {
+  width: 100%;
+}
+.content .partners .partnerlist .partner img {
+  width: 100%;
+  filter: grayscale(100%);
+}
 .content .mapsector {
   position: relative;
   padding-top: 3em;
