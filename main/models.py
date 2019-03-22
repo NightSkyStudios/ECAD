@@ -1,9 +1,21 @@
 from django.db import models
 from datetime import datetime
 from django.utils.safestring import mark_safe
+from PIL import Image
+from io import BytesIO
+from django.core.files import File
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 
 
 # Create your models here.
+
+def compress(image):
+    im = Image.open(image)
+    im_io = BytesIO()
+    im.save(im_io, 'JPEG', quality=50)
+    new_image = File(im_io, name=image.name)
+    return new_image
 
 
 class MapProject(models.Model):
@@ -79,10 +91,15 @@ class MapProject(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='media')
+    image = models.ImageField(upload_to='media', null=True)
     text = models.TextField()
     date = models.DateTimeField(default=datetime.now, blank=True)
     isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
+    if image == True:
+        def save(self, *args, **kwargs):
+            new_image = compress(self.image)
+            self.image = new_image
+            super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -97,6 +114,11 @@ class Event(models.Model):
     text = models.TextField()
     date = models.DateTimeField(default=datetime.now, blank=True)
     isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
+    if image == True:
+        def save(self, *args, **kwargs):
+            new_image = compress(self.image)
+            self.image = new_image
+            super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -112,8 +134,30 @@ class Project(models.Model):
     power = models.IntegerField(help_text=mark_safe("Потужність"))
     date = models.DateTimeField(default=datetime.now, blank=True)
     isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
+    if image == True:
+        def save(self, *args, **kwargs):
+            new_image = compress(self.image)
+            self.image = new_image
+            super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
 
 
+class Slider(models.Model):
+    image = models.ImageField(upload_to='media', null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        new_image = compress(self.image)
+        self.image = new_image
+        super().save(*args, **kwargs)
+
+
+@receiver(post_delete)
+def submission_delete(sender, instance, **kwargs):
+    instance.image.delete(False)
+
+
+@receiver(post_delete)
+def submission_delete(sender, instance, **kwargs):
+    instance.video.delete(False)
