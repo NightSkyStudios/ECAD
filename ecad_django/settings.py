@@ -105,8 +105,9 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'uk-uk'
 
 LANGUAGES = (
-    ('en', 'English'),
     ('uk', 'Ukrainian'),
+    ('en', 'English'),
+    ('pl', 'Polish'),
 )
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'uk'
