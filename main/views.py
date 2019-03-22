@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from main.models import MapProject, Post, Event, Project
+from main.models import MapProject, Post, Event, Project, Slider
 from random import random
 
 
@@ -42,7 +42,7 @@ def get_area_name(name):
 
 def index(request):
     posts = Post.objects.all().order_by('-date')
-    print(posts)
+    sliders = Slider.objects.all()
     try:
         big_post = posts[0]
     except IndexError:
@@ -51,6 +51,7 @@ def index(request):
     ctx = {
         'big': big_post,
         'small': small_post,
+        'sliders': sliders
     }
     return render(request, 'index.html', ctx)
 

@@ -4,7 +4,7 @@ from django.utils.safestring import mark_safe
 from PIL import Image
 from io import BytesIO
 from django.core.files import File
-from django.db.models.signals import post_delete
+from django.db.models.signals import post_delete, pre_delete
 from django.dispatch import receiver
 
 
@@ -16,6 +16,7 @@ def compress(image):
     im.save(im_io, 'JPEG', quality=50)
     new_image = File(im_io, name=image.name)
     return new_image
+
 
 
 class MapProject(models.Model):
@@ -95,11 +96,12 @@ class Post(models.Model):
     text = models.TextField()
     date = models.DateTimeField(default=datetime.now, blank=True)
     isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
-    if image == True:
-        def save(self, *args, **kwargs):
-            new_image = compress(self.image)
-            self.image = new_image
-            super().save(*args, **kwargs)
+
+    def save(self, *args, **kwargs):
+        new_image = compress(self.image)
+        self.image = new_image
+        super().save(*args, **kwargs)
+
 
     def __str__(self):
         return self.title
@@ -114,8 +116,9 @@ class Event(models.Model):
     text = models.TextField()
     date = models.DateTimeField(default=datetime.now, blank=True)
     isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
-    if image == True:
-        def save(self, *args, **kwargs):
+
+    def save(self, *args, **kwargs):
+        if image is not None:
             new_image = compress(self.image)
             self.image = new_image
             super().save(*args, **kwargs)
@@ -134,11 +137,13 @@ class Project(models.Model):
     power = models.IntegerField(help_text=mark_safe("Потужність"))
     date = models.DateTimeField(default=datetime.now, blank=True)
     isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
-    if image == True:
-        def save(self, *args, **kwargs):
-            new_image = compress(self.image)
-            self.image = new_image
-            super().save(*args, **kwargs)
+
+    def save(self, *args, **kwargs):
+        if image is not None:
+                new_image = compress(self.image)
+                self.image = new_image
+                super().save(*args, **kwargs)
+
 
     def __str__(self):
         return self.title
@@ -158,6 +163,11 @@ def submission_delete(sender, instance, **kwargs):
     instance.image.delete(False)
 
 
-@receiver(post_delete)
+@receiver(post_delete, sender=Project)
+def submission_delete(sender, instance, **kwargs):
+    instance.video.delete(False)
+
+
+@receiver(post_delete, sender=Event)
 def submission_delete(sender, instance, **kwargs):
     instance.video.delete(False)

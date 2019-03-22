@@ -15,12 +15,16 @@
 <body>
 {% include 'nav.html' %}
 <div class="slider">
-    <div class="slide-images">
-        <img class="active" src="{% static 'images/slide1.jpg' %}" alt="">
-        <img src="{% static 'images/slide2.jpg' %}" alt="">
-        <img src="{% static 'images/slide3.jpg' %}" alt="">
-        <img src="{% static 'images/slide4.jpg' %}" alt="">
+    {% for slide in sliders %}
+        {% if forloop.first %}
+            <div class="slide-images">
+            <img class="active" src="{{ slide.image.url }}" alt="">
+        {% else %}
+            <img src="{{ slide.image.url }}" alt="">
+        {% endif %}
+    {% endfor %}
     </div>
+
     <div class="dots"></div>
 </div>
 <div class="content">
@@ -74,6 +78,7 @@
         stroke: #ffc212;
         stroke-width: 0.64;
     }
+
     .st2 {
         fill: #ffc212;
         stroke: #232323;
@@ -441,27 +446,27 @@
         <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>Останні новини</p></div>
         <div class="newspanel">
             <div class="newsblock main" data-aos="flip-left" data-aos-duration="1000">
-            {% if big %}
-                <div class="img"><img src="{{ big.image.url }}" alt="">
-                    <div class="title">{{ big.title }}</div>
-                </div>
-                <p>{{ big.text|truncatewords:80 }}</p>
-                <button>Детальніше <i class="fas fa-arrow"></i></button>
-            </div>
-            {% else %}
-                <h1>Ще немає новин</h1>
-            {% endif %}
+                {% if big %}
+                    <div class="img"><img src="{{ big.image.url }}" alt="">
+                        <div class="title">{{ big.title }}</div>
+                    </div>
+                    <p>{{ big.text|truncatewords:80 }}</p>
+                    <button>Детальніше <i class="fas fa-arrow"></i></button>
+                    </div>
+                {% else %}
+                    <h1>Ще немає новин</h1>
+                {% endif %}
 
             <div class="sm">
                 {% for sm in small %}
-                <div class="newsblock" data-aos="flip-left" data-aos-duration="1000">
-                    <div class="img"><img src="{{ sm.image.url }}" alt="">
-                        <div class="title">{{ sm.title }}</div>
+                    <div class="newsblock" data-aos="flip-left" data-aos-duration="1000">
+                        <div class="img"><img src="{{ sm.image.url }}" alt="">
+                            <div class="title">{{ sm.title }}</div>
+                        </div>
+                        <p>{{ sm.text|truncatewords:30 }}</p>
+                        <button>Детальніше <i class="fas fa-arrow"></i></button>
                     </div>
-                    <p>{{ sm.text|truncatewords:30 }}</p>
-                    <button>Детальніше <i class="fas fa-arrow"></i></button>
-                </div>
-                    {% endfor %}
+                {% endfor %}
             </div>
 
 
@@ -503,7 +508,7 @@
         </div>
     </div>
 </div>
-  {% include 'footer.html' %}
+{% include 'footer.html' %}
 
 
 <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
@@ -529,6 +534,7 @@
         xhttp.open("GET", "/map_project/" + area, true);
         xhttp.send();
     }
+
     loadProjects('KV')
 </script>
 </body>
