@@ -17,20 +17,27 @@
 {% include 'nav.html' %}
 
 <div class="project-page">
+
     <div class="header center"><p>Наші проекти</p></div>
     <div class="list">
+       {% for project in projects %}
+            {% if project.isHidden == False %}
         <div class="project" data-aos="flip-left" data-aos-duration="1000">
             <div class="img">
-                <img src="{% static "/images/slide1.jpg" %}" alt="">
-                <div class="title">Назва проекту</div>
+                {% if project.video %}
+                <video width="530" height="440" controls playsinline>
+                    <source src="{{ project.video.url }}" type="video/mp4">
+                </video>
+                {% else %}
+                <img src="{{ project.image.url }}" alt="">
+                {% endif %}
+
+                <div class="title">{{ project.title }}</div>
+            <h6>{{ project.power }}</h6>
             </div>
         </div>
-        <div class="project" data-aos="flip-left" data-aos-duration="1000">
-            <div class="img">
-                <img src="{% static "/images/slide1.jpg" %}" alt="">
-                <div class="title">Назва проекту</div>
-            </div>
-        </div>
+            {% endif %}
+        {% endfor %}
     </div>
 </div>
 {% include 'footer.html' %}

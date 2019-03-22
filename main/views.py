@@ -1,10 +1,9 @@
 from django.shortcuts import render
-from main.models import MapProject, Post
+from main.models import MapProject, Post, Event, Project
 from random import random
 
 
 def get_area_name(name):
-
     dict = {
         'CK': 'Черкаська',
         'CH': 'Чернігівська',
@@ -37,11 +36,11 @@ def get_area_name(name):
 
     return dict[name]
 
+
 # Create your views here.
 
 
 def index(request):
-
     posts = Post.objects.all().order_by('-date')
     try:
         big_post = posts[0]
@@ -56,7 +55,11 @@ def index(request):
 
 
 def projects(request):
-    return render(request, 'projects.html')
+    projects = Project.objects.all().order_by('-date')
+    ctx = {
+        'projects': projects
+    }
+    return render(request, 'projects.html', ctx)
 
 
 def equipment(request):
@@ -64,11 +67,14 @@ def equipment(request):
 
 
 def events(request):
-    return render(request, 'events.html')
+    events = Event.objects.all().order_by('-date')
+    ctx = {
+        'events': events
+    }
+    return render(request, 'events.html', ctx)
 
 
 def blog(request):
-
     post = Post.objects.all().order_by('-date')
     ctx = {
         'posts': post
@@ -89,4 +95,3 @@ def map_project(request, ar):
            'area_name': area_name}
 
     return render(request, 'map_projects.html', ctx)
-

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&subset=cyrillic,cyrillic-ext");
 @import url('https://fonts.googleapis.com/css?family=Overpass:300,400,600,700|Roboto+Condensed&subset=cyrillic,cyrillic-ext');
 
+
 $color1: #ffc212;
 $color2: #232323;
 $color3: #e1e1e1;
@@ -235,16 +236,16 @@ a, button {
 
       &.main {
         .img {
-          height: 20em;
+          height: 25em;
         }
 
         .title {
-          font-size: 1.8em;
+          font-size: 2em;
           padding-top: 0.5em;
         }
 
         p {
-          font-size: 1em;
+          font-size: 1.2em;
           padding-top: 0.5em;
         }
       }
