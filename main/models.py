@@ -1,5 +1,7 @@
 from django.db import models
 from datetime import datetime
+from django.utils.safestring import mark_safe
+
 
 # Create your models here.
 
@@ -72,7 +74,6 @@ class MapProject(models.Model):
     power = models.IntegerField()
 
     def __str__(self):
-
         return self.name
 
 
@@ -81,8 +82,38 @@ class Post(models.Model):
     image = models.ImageField(upload_to='media')
     text = models.TextField()
     date = models.DateTimeField(default=datetime.now, blank=True)
-    isHidden = models.BooleanField(default=False)
+    isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
 
     def __str__(self):
         return self.title
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=225)
+    image = models.ImageField(upload_to='media', null=True, blank=True,
+                              help_text=mark_safe("Якщо для публікації потрібна фотографія"))
+    video = models.FileField(upload_to='videos', null=True, blank=True,
+                             help_text=mark_safe("Якщо для публікації потрібне відео"))
+    text = models.TextField()
+    date = models.DateTimeField(default=datetime.now, blank=True)
+    isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
+
+    def __str__(self):
+        return self.title
+
+
+class Project(models.Model):
+    title = models.CharField(max_length=225)
+    image = models.ImageField(upload_to='media', null=True, blank=True,
+                              help_text=mark_safe("Якщо для публікації потрібна фотографія"))
+    video = models.FileField(upload_to='videos', null=True, blank=True,
+                             help_text=mark_safe("Якщо для публікації потрібне відео"))
+    text = models.TextField()
+    power = models.IntegerField(help_text=mark_safe("Потужність"))
+    date = models.DateTimeField(default=datetime.now, blank=True)
+    isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
+
+    def __str__(self):
+        return self.title
+
 

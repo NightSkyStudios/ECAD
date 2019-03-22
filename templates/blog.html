@@ -28,7 +28,7 @@
                     <div class="img"><img src="{{ post.image.url }}" alt="">
                         <div class="title">{{ post.title }}</div>
                     </div>
-                    <p>{{ post.text|truncatechars:400 }}</p>
+                    <p>{{ post.text|truncatewords:50 }}</p>
                     <button>Детальніше <i class="fas fa-arrow-right"></i></button>
                     <h5>{{ post.date }}</h5>
                 </div>
