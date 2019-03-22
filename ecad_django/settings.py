@@ -106,8 +106,9 @@ LANGUAGE_CODE = 'uk-uk'
 LANGUAGES = (
     ('en', 'English'),
     ('uk', 'Ukrainian'),
-
 )
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'uk'
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
