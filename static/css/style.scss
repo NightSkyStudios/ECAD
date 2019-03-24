@@ -409,6 +409,8 @@ a, button {
 
 @import "blog";
 
+@import "blog-post";
+
 @media only screen and (min-width: 800px) and (max-width: 1100px) {
     nav ul.menu li a {
         font-size: 0.8em;

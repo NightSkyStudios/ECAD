@@ -26,6 +26,7 @@ urlpatterns = i18n_patterns(
     path('projects/', views.projects, name='projects'),
     path('events/', views.events, name='events'),
     path('blog/', views.blog, name='blog'),
+    path('blog/blogpost/', views.blogpost, name='blogpost'),
     re_path(r'^$', views.index, name='index'),
     path('map_project/<ar>', views.map_project, name='map_project'),
     prefix_default_language=False
@@ -34,4 +35,3 @@ urlpatterns = i18n_patterns(
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

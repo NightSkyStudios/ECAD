@@ -84,6 +84,10 @@ def blog(request):
     return render(request, 'blog.html', ctx)
 
 
+def blogpost(request):
+    return render(request, 'blog_post.html')
+
+
 def map_project(request, ar):
     projects = MapProject.objects.filter(area=ar)
     area_name = get_area_name(ar)
