@@ -84,8 +84,12 @@ def blog(request):
     return render(request, 'blog.html', ctx)
 
 
-def blogpost(request):
-    return render(request, 'blog_post.html')
+def blogpost(request, id):
+    post = Post.objects.get(pk=id)
+    ctx = {
+        'post': post,
+    }
+    return render(request, 'blog_post.html', ctx)
 
 
 def map_project(request, ar):

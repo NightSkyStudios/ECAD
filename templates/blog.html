@@ -30,7 +30,7 @@
                     </div>
                     <p>{{ post.text|truncatewords:50 }}</p>
                     <!-- -->
-                    <a href="{% url 'blogpost' %}">Детальніше <i class="fas fa-arrow-right"></i></a>
+                    <a href="{% url 'blogpost' post.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
                     <!-- -->
                     <a class="date">{{ post.date }}</a>
                     <!-- -->
