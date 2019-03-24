@@ -209,7 +209,7 @@ a, button {
       grid-gap: 1em;
       overflow: hidden;
       padding-bottom: 4em;
-
+      height: fit-content;
       .newsblock {
          border: 0.2em solid $color1;
 
