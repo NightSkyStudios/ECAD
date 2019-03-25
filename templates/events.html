@@ -33,7 +33,7 @@
                     <div class="event-title">{{ event.title }}</div>
                 </div>
                 <p>{{ event.text }}</p>
-                <a href="{% url 'blogpost' event.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
+                <a href="{% url 'event' event.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
                 <!-- -->
                 <a class="date"> Відбудеться: {{ event.date }}</a>
             </div>

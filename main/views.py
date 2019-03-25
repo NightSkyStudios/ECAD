@@ -80,12 +80,20 @@ def events(request):
     return render(request, 'events.html', ctx)
 
 
+def event(request, id):
+    event = Event.objects.get(pk=id)
+    ctx = {
+        'event': event,
+    }
+    return render(request, 'event_post.html', ctx)
+
+
 def blog(request):
     post = Post.objects.all().order_by('-date')
     ctx = {
         'posts': post
     }
-    return render(request, 'blog.html', ctx)
+    return render(request, 'blog.html', ctx)    
 
 
 def blogpost(request, id):
