@@ -30,15 +30,27 @@
       font-size: 1.2em;
       top: -0.23em
    }
+
+   .post-date {
+      padding-right: 0.5em;
+      p {
+         text-align: right;
+         font-family: 'Roboto Condensed', sans-serif;
+         font-weight: 600;
+         font-size: 1em;
+      }
+   }
 }
 
-@media only screen and (max-width: 800px){
-   .post{
+@media only screen and (max-width: 800px) {
+   .post {
       width: 90%;
-      .post-title{
+
+      .post-title {
          font-size: 3em;
       }
-      .post-text{
+
+      .post-text {
          font-size: 1.4em;
       }
    }
