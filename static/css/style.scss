@@ -11,16 +11,13 @@ body, html {
    font-family: Roboto, sans-serif;
    overflow-x: hidden;
 }
-
 * {
    margin: 0;
    padding: 0;
 }
-
 a, button {
    cursor: pointer;
 }
-
 .header {
    display: block;
    position: relative;
@@ -64,5 +61,5 @@ a, button {
 
 @import "blog";
 
-@import "blog-post";
+@import "events";
 

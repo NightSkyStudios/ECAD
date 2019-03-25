@@ -16,28 +16,32 @@
 <body>
 {% include 'nav.html' %}
 
-<div class="project-page">
-    <div class="header center"><p>Події</p></div>
-    <div class="list">
-        {% for event in events %}
-            {% if event.isHidden == False %}
-        <div class="project" data-aos="flip-left" data-aos-duration="1000">
-            <div class="img">
-                {% if event.video %}
-                <video width="530" height="440" controls playsinline>
-                    <source src="{{ event.video.url }}" type="video/mp4">
-                </video>
-                {% else %}
-                <img src="{{ event.image.url }}" alt="">
-                {% endif %}
+<div class="header center"><p>Наші події</p></div>
 
-                <div class="title">{{ event.title }}</div>
+<div class="events">
+    {% for event in events %}
+        {% if event.isHidden == False %}
+            <div class="event" data-aos="flip-left" data-aos-duration="1000">
+                <div class="event-img">
+                    {% if event.video %}
+                        <video width="530" height="440" controls playsinline>
+                            <source src="{{ event.video.url }}" type="video/mp4">
+                        </video>
+                    {% else %}
+                        <img src="{{ event.image.url }}" alt="">
+                    {% endif %}
+                    <div class="event-title">{{ event.title }}</div>
+                </div>
+                <p>{{ event.text }}</p>
+                <a href="{% url 'blogpost' event.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
+                <!-- -->
+                <a class="date"> Відбудеться: {{ event.date }}</a>
             </div>
-        </div>
-            {% endif %}
-        {% endfor %}
-    </div>
+        {% endif %}
+    {% endfor %}
 </div>
+
+
 {% include 'footer.html' %}
 
 <script type="text/javascript" src="{% static 'js/index.js' %}"></script>

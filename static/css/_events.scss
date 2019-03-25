@@ -1,4 +1,4 @@
-.blog {
+.events {
    margin: 0 5em;
    margin-top: 2em;
    display: grid;
@@ -7,17 +7,17 @@
    overflow: hidden;
    padding-bottom: 4em;
 
-   .blogpost {
+   .event {
       border: 0.23em solid $color1;
       position: relative;
 
-      .img {
+      .event-img {
          position: relative;
          height: 14em;
          width: 100%;
          overflow: hidden;
 
-         img {
+         img, video {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -26,7 +26,7 @@
             z-index: 0;
          }
 
-         .title {
+         .event-title {
             position: absolute;
             font-weight: 400;
             font-size: 1.5em;
@@ -47,6 +47,9 @@
       }
 
       a {
+         position: relative;
+         bottom: -1px;
+         left: -1px;
          text-decoration: none;
          border: 0;
          border-radius: 0;
@@ -54,32 +57,27 @@
          padding: 0.2em 1em;
          color: $color2;
          margin-bottom: 0.5em;
-         font-size: 0.7em;
+         font-size: 0.9em;
          font-weight: 500;
 
          &.date {
             display: block;
             position: relative;
             bottom: -1px;
+            left: 0;
             right: -1px;
             float: right;
-            font-weight: 400;
+            font-weight: 500;
             color: $color2;
             background-color: $color1;
             padding: 0.2em 1em;
-            font-size: 0.7em;
+            font-size: 0.9em;
             margin: 0;
             cursor: default;
          }
       }
-
    }
 }
 
-@media only screen and (max-width: 800px) {
-   .blog {
-      grid-template-columns: 1fr;
-   }
-}
 
-@import "blog-post";
+@import "events-post";
