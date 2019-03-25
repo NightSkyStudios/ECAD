@@ -451,7 +451,7 @@
                         <div class="title">{{ big.title }}</div>
                     </div>
                     <p>{{ big.text|truncatewords:80 }}</p>
-                    <a href="">Детальніше <i class="fas fa-arrow-right"></i></a>
+                    <a href="{% url 'blogpost' big.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
                     </div>
                 {% else %}
                     <h1>Ще немає новин</h1>
@@ -464,7 +464,7 @@
                             <div class="title">{{ sm.title }}</div>
                         </div>
                         <p>{{ sm.text|truncatewords:30 }}</p>
-                        <a href="">Детальніше <i class="fas fa-arrow-right"></i></a>
+                        <a href="{% url 'blogpost' sm.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
                     </div>
                 {% endfor %}
             </div>

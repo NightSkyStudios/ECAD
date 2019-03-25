@@ -107,6 +107,9 @@ class Post(models.Model):
         return self.title
 
 
+
+
+
 class Event(models.Model):
     title = models.CharField(max_length=225)
     image = models.ImageField(upload_to='media', null=True, blank=True,
@@ -117,8 +120,8 @@ class Event(models.Model):
     date = models.DateTimeField(default=datetime.now, blank=True)
     isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
 
-    def save(self, *args, **kwargs):
-        if image is not None:
+    if image is not None:
+        def save(self, *args, **kwargs):
             new_image = compress(self.image)
             self.image = new_image
             super().save(*args, **kwargs)
@@ -138,11 +141,11 @@ class Project(models.Model):
     date = models.DateTimeField(default=datetime.now, blank=True)
     isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
 
-    def save(self, *args, **kwargs):
-        if image is not None:
-                new_image = compress(self.image)
-                self.image = new_image
-                super().save(*args, **kwargs)
+    if image is not None:
+        def save(self, *args, **kwargs):
+            new_image = compress(self.image)
+            self.image = new_image
+            super().save(*args, **kwargs)
 
 
     def __str__(self):

@@ -1,1 +1,94 @@
-<svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 8161.03 2567.89"><defs><style>.cls-1{fill:url(#Безымянный_градиент);}.cls-2,.cls-4{fill:#fcfcfc;}.cls-3{fill:url(#Безымянный_градиент_2);}.cls-4,.cls-6,.cls-9{isolation:isolate;}.cls-4,.cls-6{font-size:675.54px;font-family:Roboto-Medium, Roboto;font-weight:500;}.cls-5{fill:url(#Безымянный_градиент_3);}.cls-10,.cls-6{fill:#fff;}.cls-7{fill:url(#Безымянный_градиент_4);}.cls-8{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:10px;}</style><linearGradient id="Безымянный_градиент" x1="988.65" y1="1585.51" x2="2342.74" y2="231.43" gradientTransform="matrix(0.84, 0, 0, -0.84, 526.95, 2692.64)" gradientUnits="userSpaceOnUse"><stop offset="0.01" stop-color="#0e1621"/><stop offset="1" stop-color="#010102"/></linearGradient><linearGradient id="Безымянный_градиент_2" x1="-550.82" y1="1585.51" x2="801.33" y2="233.37" gradientTransform="matrix(0.84, 0, 0, -0.84, 526.95, 2692.64)" gradientUnits="userSpaceOnUse"><stop offset="0.01" stop-color="#025002"/><stop offset="1" stop-color="#011b01"/></linearGradient><linearGradient id="Безымянный_градиент_3" x1="988.65" y1="3115.52" x2="2342.58" y2="1761.6" gradientTransform="matrix(0.84, 0, 0, -0.84, 526.95, 2692.64)" gradientUnits="userSpaceOnUse"><stop offset="0.01" stop-color="#035e84"/><stop offset="1" stop-color="#01202c"/></linearGradient><linearGradient id="Безымянный_градиент_4" x1="-550.82" y1="3114.52" x2="801.33" y2="1762.38" gradientTransform="matrix(0.84, 0, 0, -0.84, 526.95, 2692.64)" gradientUnits="userSpaceOnUse"><stop offset="0.01" stop-color="#bcb52b"/><stop offset="1" stop-color="#66671b"/></linearGradient></defs><title>Logo2</title><g id="BlackSquare"><rect class="cls-1" x="1299.96" y="1291.97" width="1267.08" height="1267.08" rx="211.1"/><polygon class="cls-2" points="1933.5 1890.97 2079.7 1546.72 1748.3 1959.05 1988.5 1959.05 1849.78 2307.13 2177.32 1893.53 1933.5 1890.97"/></g><g id="GreenSquare"><rect class="cls-3" y="1291.97" width="1265.44" height="1265.44" rx="211.1"/><g id="Letter_A" data-name="Letter A"><text class="cls-4" transform="translate(408.18 2158.46)">A</text></g></g><g id="BlueSquare"><rect class="cls-5" x="1299.96" width="1266.94" height="1266.94" rx="211.1"/><g id="Letter_C" data-name="Letter C"><text class="cls-6" transform="translate(1699.88 878.19)">C</text></g></g><g id="YellowSquare"><rect class="cls-7" y="0.84" width="1265.44" height="1265.44" rx="211.1"/><g id="Letter_E" data-name="Letter E"><text id="E" class="cls-6" transform="translate(426.52 878.19)">E</text></g></g><g id="Lines"><line class="cls-8" x1="313.28" x2="313.28" y2="2567.04"/><line class="cls-8" x1="956.73" y1="0.84" x2="962.64" y2="2567.88"/><line class="cls-8" x1="1599.33" x2="1599.33" y2="2567.04"/><line class="cls-8" x1="2260.51" x2="2260.51" y2="2567.04"/></g><g id="Dev_text" data-name="Dev text"><g class="cls-9"><g class="cls-9"><path class="cls-10" d="M2850.39,1706.24V1304h113.54q52.49,0,92.82,23.2t62.29,66q22,42.82,22.24,98.34v25.69q0,56.92-22,99.73t-62.71,65.75q-40.76,22.93-94.89,23.48Zm53-358.85v315.48h55.8q61.33,0,95.45-38.16t34.11-108.66v-23.5q0-68.57-32.18-106.59t-91.3-38.57Z" transform="translate(0 -236.56)"/><path class="cls-10" d="M3588.81,1520.32H3414.49v142.55H3617v43.37H3361.45V1304h252.77v43.37H3414.49V1477h174.32Z" transform="translate(0 -236.56)"/><path class="cls-10" d="M3956.22,1635.79,4071.14,1304h58L3980,1706.24h-47L3784.12,1304h57.73Z" transform="translate(0 -236.56)"/><path class="cls-10" d="M4550.43,1520.32H4376.12v142.55h202.49v43.37H4323.08V1304h252.77v43.37H4376.12V1477h174.31Z" transform="translate(0 -236.56)"/><path class="cls-10" d="M4838,1662.87h190.62v43.37H4784.7V1304H4838Z" transform="translate(0 -236.56)"/><path class="cls-10" d="M5538.58,1518.11q0,59.12-19.89,103.18t-56.35,67.27q-36.47,23.2-85.09,23.2-47.52,0-84.25-23.34T5236,1621.84q-20.31-43.23-20.86-100.14v-29q0-58,20.17-102.49t57.05-68.1q36.87-23.61,84.39-23.62,48.35,0,85.22,23.35t56.77,67.68q19.89,44.34,19.89,103.18Zm-52.76-26q0-71.55-28.73-109.81t-80.39-38.27q-50.28,0-79.15,38.27t-29.69,106.21v29.56q0,69.35,29.14,109t80.25,39.64q51.39,0,79.56-37.43t29-107.32Z" transform="translate(0 -236.56)"/><path class="cls-10" d="M5811.24,1548.78v157.46h-53V1304h148.35q66,0,103.45,33.7t37.44,89.23q0,58.58-36.61,90.2T5906,1548.78Zm0-43.38h95.31q42.54,0,65.19-20.06t22.66-58q0-36-22.66-57.56t-62.15-22.41h-98.35Z" transform="translate(0 -236.56)"/><path class="cls-10" d="M6323.69,1304l131.49,328.18L6586.68,1304h68.78v402.22h-53V1549.61l5-169.07-132,325.7h-40.61L6303,1381.37l5.25,168.24v156.63h-53V1304Z" transform="translate(0 -236.56)"/><path class="cls-10" d="M7116.53,1520.32H6942.21v142.55H7144.7v43.37H6889.17V1304h252.77v43.37H6942.21V1477h174.32Z" transform="translate(0 -236.56)"/><path class="cls-10" d="M7659.91,1706.24h-53.32l-202.49-310v310h-53.31V1304h53.31l203,311.33V1304h52.76Z" transform="translate(0 -236.56)"/><path class="cls-10" d="M8161,1347.39H8031.75v358.85H7979V1347.39H7850V1304H8161Z" transform="translate(0 -236.56)"/></g></g></g></svg>
+<svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 8161.03 2567.89">
+    <defs>
+        <style>
+            .cls-1{fill:url(#Безымянный_градиент);}.cls-2,.cls-4{fill:#fcfcfc;}.cls-3{fill:url(#Безымянный_градиент_2);}.cls-4,.cls-6,.cls-9{isolation:isolate;}.cls-4,.cls-6{font-size:675.54px;font-family:Roboto-Medium,
+            Roboto;font-weight:500;}.cls-5{fill:url(#Безымянный_градиент_3);}.cls-10,.cls-6{fill:#fff;}.cls-7{fill:url(#Безымянный_градиент_4);}.cls-8{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:10px;}
+        </style>
+        <linearGradient id="Безымянный_градиент" x1="988.65" y1="1585.51" x2="2342.74" y2="231.43"
+                        gradientTransform="matrix(0.84, 0, 0, -0.84, 526.95, 2692.64)" gradientUnits="userSpaceOnUse">
+            <stop offset="0.01" stop-color="#0e1621"/>
+            <stop offset="1" stop-color="#010102"/>
+        </linearGradient>
+        <linearGradient id="Безымянный_градиент_2" x1="-550.82" y1="1585.51" x2="801.33" y2="233.37"
+                        gradientTransform="matrix(0.84, 0, 0, -0.84, 526.95, 2692.64)" gradientUnits="userSpaceOnUse">
+            <stop offset="0.01" stop-color="#025002"/>
+            <stop offset="1" stop-color="#011b01"/>
+        </linearGradient>
+        <linearGradient id="Безымянный_градиент_3" x1="988.65" y1="3115.52" x2="2342.58" y2="1761.6"
+                        gradientTransform="matrix(0.84, 0, 0, -0.84, 526.95, 2692.64)" gradientUnits="userSpaceOnUse">
+            <stop offset="0.01" stop-color="#035e84"/>
+            <stop offset="1" stop-color="#01202c"/>
+        </linearGradient>
+        <linearGradient id="Безымянный_градиент_4" x1="-550.82" y1="3114.52" x2="801.33" y2="1762.38"
+                        gradientTransform="matrix(0.84, 0, 0, -0.84, 526.95, 2692.64)" gradientUnits="userSpaceOnUse">
+            <stop offset="0.01" stop-color="#bcb52b"/>
+            <stop offset="1" stop-color="#66671b"/>
+        </linearGradient>
+    </defs>
+    <title>Logo2</title>
+    <g id="BlackSquare">
+        <rect class="cls-1" x="1299.96" y="1291.97" width="1267.08" height="1267.08" rx="211.1"/>
+        <polygon class="cls-2"
+                 points="1933.5 1890.97 2079.7 1546.72 1748.3 1959.05 1988.5 1959.05 1849.78 2307.13 2177.32 1893.53 1933.5 1890.97"/>
+    </g>
+    <g id="GreenSquare">
+        <rect class="cls-3" y="1291.97" width="1265.44" height="1265.44" rx="211.1"/>
+        <g id="Letter_A" data-name="Letter A">
+            <text class="cls-4" transform="translate(408.18 2158.46)">A</text>
+        </g>
+    </g>
+    <g id="BlueSquare">
+        <rect class="cls-5" x="1299.96" width="1266.94" height="1266.94" rx="211.1"/>
+        <g id="Letter_C" data-name="Letter C">
+            <text class="cls-6" transform="translate(1699.88 878.19)">C</text>
+        </g>
+    </g>
+    <g id="YellowSquare">
+        <rect class="cls-7" y="0.84" width="1265.44" height="1265.44" rx="211.1"/>
+        <g id="Letter_E" data-name="Letter E">
+            <text id="E" class="cls-6" transform="translate(426.52 878.19)">E</text>
+        </g>
+    </g>
+    <g id="Lines">
+        <line class="cls-8" x1="313.28" x2="313.28" y2="2567.04"/>
+        <line class="cls-8" x1="956.73" y1="0.84" x2="962.64" y2="2567.88"/>
+        <line class="cls-8" x1="1599.33" x2="1599.33" y2="2567.04"/>
+        <line class="cls-8" x1="2260.51" x2="2260.51" y2="2567.04"/>
+    </g>
+    <g id="Dev_text" data-name="Dev text">
+        <g class="cls-9">
+            <g class="cls-9">
+                <path class="cls-10"
+                      d="M2850.39,1706.24V1304h113.54q52.49,0,92.82,23.2t62.29,66q22,42.82,22.24,98.34v25.69q0,56.92-22,99.73t-62.71,65.75q-40.76,22.93-94.89,23.48Zm53-358.85v315.48h55.8q61.33,0,95.45-38.16t34.11-108.66v-23.5q0-68.57-32.18-106.59t-91.3-38.57Z"
+                      transform="translate(0 -236.56)"/>
+                <path class="cls-10"
+                      d="M3588.81,1520.32H3414.49v142.55H3617v43.37H3361.45V1304h252.77v43.37H3414.49V1477h174.32Z"
+                      transform="translate(0 -236.56)"/>
+                <path class="cls-10" d="M3956.22,1635.79,4071.14,1304h58L3980,1706.24h-47L3784.12,1304h57.73Z"
+                      transform="translate(0 -236.56)"/>
+                <path class="cls-10"
+                      d="M4550.43,1520.32H4376.12v142.55h202.49v43.37H4323.08V1304h252.77v43.37H4376.12V1477h174.31Z"
+                      transform="translate(0 -236.56)"/>
+                <path class="cls-10" d="M4838,1662.87h190.62v43.37H4784.7V1304H4838Z" transform="translate(0 -236.56)"/>
+                <path class="cls-10"
+                      d="M5538.58,1518.11q0,59.12-19.89,103.18t-56.35,67.27q-36.47,23.2-85.09,23.2-47.52,0-84.25-23.34T5236,1621.84q-20.31-43.23-20.86-100.14v-29q0-58,20.17-102.49t57.05-68.1q36.87-23.61,84.39-23.62,48.35,0,85.22,23.35t56.77,67.68q19.89,44.34,19.89,103.18Zm-52.76-26q0-71.55-28.73-109.81t-80.39-38.27q-50.28,0-79.15,38.27t-29.69,106.21v29.56q0,69.35,29.14,109t80.25,39.64q51.39,0,79.56-37.43t29-107.32Z"
+                      transform="translate(0 -236.56)"/>
+                <path class="cls-10"
+                      d="M5811.24,1548.78v157.46h-53V1304h148.35q66,0,103.45,33.7t37.44,89.23q0,58.58-36.61,90.2T5906,1548.78Zm0-43.38h95.31q42.54,0,65.19-20.06t22.66-58q0-36-22.66-57.56t-62.15-22.41h-98.35Z"
+                      transform="translate(0 -236.56)"/>
+                <path class="cls-10"
+                      d="M6323.69,1304l131.49,328.18L6586.68,1304h68.78v402.22h-53V1549.61l5-169.07-132,325.7h-40.61L6303,1381.37l5.25,168.24v156.63h-53V1304Z"
+                      transform="translate(0 -236.56)"/>
+                <path class="cls-10"
+                      d="M7116.53,1520.32H6942.21v142.55H7144.7v43.37H6889.17V1304h252.77v43.37H6942.21V1477h174.32Z"
+                      transform="translate(0 -236.56)"/>
+                <path class="cls-10"
+                      d="M7659.91,1706.24h-53.32l-202.49-310v310h-53.31V1304h53.31l203,311.33V1304h52.76Z"
+                      transform="translate(0 -236.56)"/>
+                <path class="cls-10" d="M8161,1347.39H8031.75v358.85H7979V1347.39H7850V1304H8161Z"
+                      transform="translate(0 -236.56)"/>
+            </g>
+        </g>
+    </g>
+</svg>
