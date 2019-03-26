@@ -157,10 +157,12 @@ class Slider(models.Model):
 
 @receiver(post_delete)
 def submission_delete(sender, instance, **kwargs):
-    instance.image.delete(False)
-    instance.video.delete(False)
+    try:
+        instance.image.delete(False)
+    except AttributeError:
+        pass
+    try:
+        instance.video.delete(False)
+    except AttributeError:
+        pass
 
-#
-# @receiver(post_delete, sender=Event)
-# def submission_delete(sender, instance, **kwargs):
-#     instance.video.delete(False)

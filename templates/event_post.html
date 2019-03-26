@@ -21,7 +21,13 @@
 <div class="page">
     <div class="post">
         <div class="post-title"><p>{{ event.title }}</p></div>
-        <img class="post-image" src="{{ event.image.url }}" alt="">
+         {% if event.video %}
+                        <video class="post-image" controls playsinline>
+                            <source src="{{ event.video.url }}" type="video/mp4">
+                        </video>
+                    {% else %}
+                        <img class="post-image" src="{{ event.image.url }}" alt="">
+                    {% endif %}
         <div class="post-text"><p>{{ event.text }}</p></div>
         <div class="post-date"><p> Відбудеться: {{ event.date }}</p></div>
     </div>
