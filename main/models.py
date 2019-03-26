@@ -18,7 +18,6 @@ def compress(image):
     return new_image
 
 
-
 class MapProject(models.Model):
     CHERKASY = 'CK'
     CHERNIHIV = 'CH'
@@ -102,12 +101,8 @@ class Post(models.Model):
         self.image = new_image
         super().save(*args, **kwargs)
 
-
     def __str__(self):
         return self.title
-
-
-
 
 
 class Event(models.Model):
@@ -120,11 +115,11 @@ class Event(models.Model):
     date = models.DateTimeField(default=datetime.now, blank=True)
     isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
 
-    if image is not None:
-        def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs):
+        if bool(self.image):
             new_image = compress(self.image)
             self.image = new_image
-            super().save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -141,12 +136,11 @@ class Project(models.Model):
     date = models.DateTimeField(default=datetime.now, blank=True)
     isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
 
-    if image is not None:
-        def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs):
+        if bool(self.image):
             new_image = compress(self.image)
             self.image = new_image
-            super().save(*args, **kwargs)
-
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -164,13 +158,9 @@ class Slider(models.Model):
 @receiver(post_delete)
 def submission_delete(sender, instance, **kwargs):
     instance.image.delete(False)
-
-
-@receiver(post_delete, sender=Project)
-def submission_delete(sender, instance, **kwargs):
     instance.video.delete(False)
 
-
-@receiver(post_delete, sender=Event)
-def submission_delete(sender, instance, **kwargs):
-    instance.video.delete(False)
+#
+# @receiver(post_delete, sender=Event)
+# def submission_delete(sender, instance, **kwargs):
+#     instance.video.delete(False)
