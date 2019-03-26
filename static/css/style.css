@@ -940,23 +940,23 @@ nav .navdd {
     font-size: 1.4em;
   }
 }
-.project-page {
+.projects {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 1000px;
   padding: 1em 3em;
 }
-.project-page .project-tile {
+.projects .project {
   position: relative;
   width: 100%;
   height: 20em;
   margin: 0 3em;
 }
-.project-page .project-tile .img {
+.projects .project .img {
   border-radius: 0.3em;
   overflow: hidden;
 }
-.project-page .project-tile .img img {
+.projects .project .img img {
   position: absolute;
   object-fit: cover;
   width: 100%;
@@ -966,13 +966,13 @@ nav .navdd {
   overflow: hidden;
   transition: filter 0.3s ease-in-out;
 }
-.project-page .project-tile .img .text {
+.projects .project .img .text {
   position: absolute;
   top: 100%;
   transform: translateY(-100%);
   width: 100%;
 }
-.project-page .project-tile .img .text p {
+.projects .project .img .text p {
   width: 100%;
   margin: 0 auto 0 0;
   text-align: left;
@@ -982,24 +982,24 @@ nav .navdd {
   transition: all 0.3s ease-in-out;
   font-weight: 300;
 }
-.project-page .project-tile .img .text p.title {
+.projects .project .img .text p.title {
   margin-left: 5%;
   font-weight: 300;
 }
-.project-page .project-tile .img .text p.power {
+.projects .project .img .text p.power {
   color: #ffc212;
   width: 90%;
   margin: 0 5%;
   text-align: center;
   border-top: 0.05em solid #ffc212;
 }
-.project-page .project-tile .img .text p.power i {
+.projects .project .img .text p.power i {
   font-size: 0.8em;
 }
-.project-page .project-tile .img:hover p {
+.projects .project .img:hover p {
   opacity: 1;
 }
-.project-page .project-tile .img:hover img {
+.projects .project .img:hover img {
   transition: filter 0.3s ease-in-out;
   filter: blur(3px) brightness(50%);
   border-radius: 0.3em;

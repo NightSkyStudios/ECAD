@@ -139,52 +139,6 @@
         <li><a href="#">Нормативна база</a></li>
         <li><a href="{% url 'blog' %}">Блог</a></li>
     </ul>
-    <ul class="language">
-        <li>
-            <form action="{% url 'set_language' %}" method="post">
-                {% csrf_token %}
-                <input name="next" type="hidden"
-                        {% if request.LANGUAGE_CODE == 'uk-uk' %}
-                       value="{{ request.path }}"/>
-                        {% else %}
-                            value="{{ request.get_full_path|slice:'3:' }}"/>
-                        {% endif %}
-                <input name="language" type="hidden" value="ua"/>
-                <input type="submit" class="btn-link
-                                                {% if request.LANGUAGE_CODE == 'uk-uk' %} active{% endif %}"
-                       value="UA"/>
-            </form>
-        </li>
-        <li>
-            <form action="{% url 'set_language' %}" method="post">
-                {% csrf_token %}
-                <input name="next" type="hidden"
-                        {% if request.LANGUAGE_CODE == 'uk-uk' %}
-                       value="/pl{{ request.path }}"/>
-                        {% else %}
-                            value="/pl{{ request.get_full_path|slice:'3:' }}"/>
-                        {% endif %}
-                <input name="language" type="hidden" value="pl"/>
-                <input type="submit" class="btn-link
-                                                 {% if request.LANGUAGE_CODE == 'pl' %} active{% endif %}"
-                       value="PL"/>
-            </form>
-        </li>
-        <li>
-            <form action="{% url 'set_language' %}" method="post">
-                {% csrf_token %}
-                <input name="next" type="hidden"
-                        {% if request.LANGUAGE_CODE == 'uk-uk' %}
-                       value="/en{{ request.path }}"/>
-                        {% else %}
-                            value="/en{{ request.get_full_path|slice:'3:' }}"/>
-                        {% endif %}
-                <input name="language" type="hidden" value="en"/>
-                <input type="submit" class="btn-link
-                                                 {% if request.LANGUAGE_CODE == 'en' %} active{% endif %}"
-                       value="EN"/>
-            </form>
-        </li>
-    </ul>
+{% include 'translate_buttons.html' %}
 
 </nav>
