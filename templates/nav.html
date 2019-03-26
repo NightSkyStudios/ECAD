@@ -1,3 +1,4 @@
+{% load i18n %}
 <nav>
     <svg class="logo" onclick="return location.href = '{% url 'index' %}'" xmlns="http://www.w3.org/2000/svg"
          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 9701.34 3041.01">
@@ -109,7 +110,7 @@
     </svg>
     <a class="navdd" href="javascript:void(0)" onclick="dropDown()"><i class="fas fa-bars"></i></a>
     <ul class="menu">
-        <li><a href="#">Про нас</a></li>
+        <li><a href="#">{% trans 'Про нас' %}</a></li>
         <li><a href="{% url "projects" %}" class="dd">Проекти <i class="pointer fas fa-angle-down"></i></a>
             <ul class="submenu">
                 <li><a href=#>Проект 1</a></li>
@@ -138,4 +139,52 @@
         <li><a href="#">Нормативна база</a></li>
         <li><a href="{% url 'blog' %}">Блог</a></li>
     </ul>
+    <ul class="language">
+        <li>
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden"
+                        {% if request.LANGUAGE_CODE == 'uk-uk' %}
+                       value="{{ request.path }}"/>
+                        {% else %}
+                            value="{{ request.get_full_path|slice:'3:' }}"/>
+                        {% endif %}
+                <input name="language" type="hidden" value="ua"/>
+                <input type="submit" class="btn-link
+                                                {% if request.LANGUAGE_CODE == 'uk-uk' %} active{% endif %}"
+                       value="UA"/>
+            </form>
+        </li>
+        <li>
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden"
+                        {% if request.LANGUAGE_CODE == 'uk-uk' %}
+                       value="/pl{{ request.path }}"/>
+                        {% else %}
+                            value="/pl{{ request.get_full_path|slice:'3:' }}"/>
+                        {% endif %}
+                <input name="language" type="hidden" value="pl"/>
+                <input type="submit" class="btn-link
+                                                 {% if request.LANGUAGE_CODE == 'pl' %} active{% endif %}"
+                       value="PL"/>
+            </form>
+        </li>
+        <li>
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden"
+                        {% if request.LANGUAGE_CODE == 'uk-uk' %}
+                       value="/en{{ request.path }}"/>
+                        {% else %}
+                            value="/en{{ request.get_full_path|slice:'3:' }}"/>
+                        {% endif %}
+                <input name="language" type="hidden" value="en"/>
+                <input type="submit" class="btn-link
+                                                 {% if request.LANGUAGE_CODE == 'en' %} active{% endif %}"
+                       value="EN"/>
+            </form>
+        </li>
+    </ul>
+
 </nav>
