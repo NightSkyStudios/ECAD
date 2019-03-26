@@ -32,8 +32,10 @@
                         <img src="{{ project.image.url }}" alt="">
                     {% endif %}
 
-                    <div class="title">{{ project.title }}</div>
-                    <h6>{{ project.power }}</h6>
+                    <div class="text">
+                        <p class="title">{{ project.title }}</p>
+                        <p class="power"><i class="fas fa-bolt"></i>{{ project.power }} Вт</p>
+                    </div>
                 </div>
             </div>
         {% endif %}
