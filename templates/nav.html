@@ -1,5 +1,6 @@
 {% load i18n %}
 <nav>
+    {% include 'translate_buttons.html' %}
     <svg class="logo" onclick="return location.href = '{% url 'index' %}'" xmlns="http://www.w3.org/2000/svg"
          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 9701.34 3041.01">
         <defs>
@@ -139,6 +140,5 @@
         <li><a href="#">Нормативна база</a></li>
         <li><a href="{% url 'blog' %}">Блог</a></li>
     </ul>
-{% include 'translate_buttons.html' %}
 
 </nav>
