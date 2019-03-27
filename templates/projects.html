@@ -19,13 +19,13 @@
 
 <div class="header center"><p>Наші проекти</p></div>
 
-<div class="projects-page">
+<div class="project-page">
     {% for project in projects %}
         {% if project.isHidden == False %}
             <div class="project-tile" data-aos="flip-left" data-aos-duration="1000">
                 <div class="img">
                     {% if project.video %}
-                        <video width="530" height="440" controls playsinline>
+                        <video width="100%" height="320" controls playsinline>
                             <source src="{{ project.video.url }}" type="video/mp4">
                         </video>
                     {% else %}
