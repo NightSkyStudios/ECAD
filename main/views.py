@@ -41,7 +41,8 @@ def get_area_name(name):
 
 
 def index(request):
-    posts = Post.objects.all().order_by('-date')
+    #posts = (Post.objects.all().union(Event.objects.all()).order_by('-date'))
+    posts = Post.objects.all()
     sliders = Slider.objects.all()
     events = Event.objects.all().order_by('-date')
 
