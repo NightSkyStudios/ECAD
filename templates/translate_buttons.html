@@ -30,6 +30,15 @@
     <li>
         <form action="{% url 'set_language' %}" method="post">
             {% csrf_token %}
+            <input name="next" type="hidden" value="/en{{ request.get_full_path|slice:'3:' }}"/>
+            <input name="language" type="hidden" value="en"/>
+            <input type="submit" class="btn-link active"
+                   value="EN"/>
+        </form>
+    </li>
+    <li>
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
             <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}"/>
             <input name="language" type="hidden" value="ua"/>
             <input type="submit" class="btn-link" value="UA"/>
@@ -43,26 +52,9 @@
             <input type="submit" class="btn-link" value="PL"/>
         </form>
     </li>
-    <li>
-        <form action="{% url 'set_language' %}" method="post">
-            {% csrf_token %}
-            <input name="next" type="hidden" value="/en{{ request.get_full_path|slice:'3:' }}"/>
-            <input name="language" type="hidden" value="en"/>
-            <input type="submit" class="btn-link active"
-                   value="EN"/>
-        </form>
-    </li>
 {% endif %}
 
 {% if request.LANGUAGE_CODE == 'pl' %}
-    <li>
-        <form action="{% url 'set_language' %}" method="post">
-            {% csrf_token %}
-            <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}"/>
-            <input name="language" type="hidden" value="ua"/>
-            <input type="submit" class="btn-link" value="UA"/>
-        </form>
-    </li>
     <li>
         <form action="{% url 'set_language' %}" method="post">
             {% csrf_token %}
@@ -70,6 +62,14 @@
             <input name="language" type="hidden" value="pl"/>
             <input type="submit" class="btn-link active"
                    value="PL"/>
+        </form>
+    </li>
+    <li>
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}"/>
+            <input name="language" type="hidden" value="ua"/>
+            <input type="submit" class="btn-link" value="UA"/>
         </form>
     </li>
     <li>
