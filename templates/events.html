@@ -35,7 +35,7 @@
                 <p>{{ event.text|truncatewords:50 }}</p>
                 <a href="{% url 'event' event.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
                 <!-- -->
-                <a class="date"> Відбудеться: {{ event.date }}</a>
+                <a class="date"> {% if event.is_past %} Відбулося: {% else %} Відбудеться: {% endif %}{{ event.event_date|date:"d M Y" }}</a>
             </div>
         {% endif %}
     {% endfor %}

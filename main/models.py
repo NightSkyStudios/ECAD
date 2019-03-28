@@ -6,6 +6,7 @@ from io import BytesIO
 from django.core.files import File
 from django.db.models.signals import post_delete, pre_delete
 from django.dispatch import receiver
+from datetime import date
 
 
 # Create your models here.
@@ -107,6 +108,7 @@ class Post(models.Model):
 
 class Event(models.Model):
     title = models.CharField(max_length=225)
+    event_date = models.DateTimeField(default=datetime.now, blank=True)
     image = models.ImageField(upload_to='media', null=True, blank=True,
                               help_text=mark_safe("Якщо для публікації потрібна фотографія"))
     video = models.FileField(upload_to='videos', null=True, blank=True,
@@ -123,6 +125,10 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def is_past(self):
+        return date.today() > self.event_date.date()
 
 
 class Project(models.Model):

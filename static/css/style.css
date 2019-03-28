@@ -57,30 +57,39 @@ nav ul.language {
   top: 50%;
   transform: translateY(-50%);
   display: inline-block;
-  width: 5%;
+  width: 6%;
   font-size: 13px;
   list-style-type: none;
 }
 nav ul.language li {
   height: fit-content;
-  width: 2em;
+  width: 3em;
   margin: 0 auto;
 }
 nav ul.language li input[type=submit] {
-  border: none;
-  width: 2em;
+  border: 1.4px solid #232323;
+  border-radius: 0;
+  width: 2.5em;
   text-align: center;
   visibility: visible;
-  color: #ffc212;
-  font-weight: 800;
+  color: #232323;
+  font-weight: 300;
   font-size: 1.2em;
   font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
   -webkit-appearance: none;
-  border-radius: 3px;
   background-color: unset;
-  vertical-align: center;
-  padding: 0.3em;
+  vertical-align: middle;
+  padding: 0.05em 0.4em;
+  margin-top: 3px;
   text-shadow: 0px 0px 0px #000000;
+  cursor: pointer;
+}
+nav ul.language li input[type=submit]:after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: #ffc212;
 }
 nav ul.language li input[type=submit].active {
   display: none;
@@ -174,7 +183,7 @@ nav .navdd {
     font-size: 13px;
   }
   nav ul.language {
-    width: 3em;
+    width: 4em;
   }
   nav ul.language li input[type=submit] {
     font-size: 1em;
@@ -184,7 +193,7 @@ nav .navdd {
   nav .logo {
     height: 60px;
     width: 200px;
-    left: 3em;
+    left: 3.5em;
   }
   nav > ul.menu {
     display: none;
@@ -988,6 +997,7 @@ nav .navdd {
 .project-page {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-column-gap: 2em;
   min-height: 1000px;
   padding: 1em 3em;
 }
@@ -995,13 +1005,13 @@ nav .navdd {
   position: relative;
   width: 100%;
   height: 20em;
-  margin: 0 3em;
 }
 .project-page .project-tile .img {
   border-radius: 0.3em;
   overflow: hidden;
+  width: 100%;
 }
-.project-page .project-tile .img img {
+.project-page .project-tile .img img, .project-page .project-tile .img video {
   position: absolute;
   object-fit: cover;
   width: 100%;
@@ -1044,7 +1054,7 @@ nav .navdd {
 .project-page .project-tile .img:hover p {
   opacity: 1;
 }
-.project-page .project-tile .img:hover img {
+.project-page .project-tile .img:hover img, .project-page .project-tile .img:hover video {
   transition: filter 0.3s ease-in-out;
   filter: blur(3px) brightness(50%);
   border-radius: 0.3em;
