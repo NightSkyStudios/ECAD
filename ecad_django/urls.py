@@ -31,6 +31,7 @@ urlpatterns = i18n_patterns(
     path('blogpost/<id>', views.blogpost, name='blogpost'),
     re_path(r'^$', views.index, name='index'),
     path('map_project/<ar>', views.map_project, name='map_project'),
+    path(r'tinymce/', include('tinymce.urls')),
     prefix_default_language=False
 )
 

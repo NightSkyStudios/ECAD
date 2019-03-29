@@ -11,6 +11,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="{% static "js/tiny_mce/tiny_mce.js" %}"></script>
+{#    <script type="text/javascript" src="{% url "tinymce-js" "NAME" %}"></script>#}
 </head>
 <body>
 
@@ -21,14 +23,14 @@
 <div class="page">
     <div class="post">
         <div class="post-title"><p>{{ event.title }}</p></div>
-         {% if event.video %}
-                        <video class="post-image" controls playsinline>
-                            <source src="{{ event.video.url }}" type="video/mp4">
-                        </video>
-                    {% else %}
-                        <img class="post-image" src="{{ event.image.url }}" alt="">
-                    {% endif %}
-        <div class="post-text"><p>{{ event.text }}</p></div>
+        {% if event.video %}
+            <video class="post-image" controls playsinline>
+                <source src="{{ event.video.url }}" type="video/mp4">
+            </video>
+        {% else %}
+            <img class="post-image" src="{{ event.image.url }}" alt="">
+        {% endif %}
+        <div class="post-text"><p>{{ event.text | safe}}</p></div>
         <div class="post-date"><p> Відбудеться: {{ event.date }}</p></div>
     </div>
 </div>

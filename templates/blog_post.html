@@ -22,7 +22,7 @@
     <div class="post">
         <div class="post-title"><p>{{ post.title }}</p></div>
         <img class="post-image" src="{{ post.image.url }}" alt="">
-        <div class="post-text"><p>{{ post.text }}</p></div>
+        <div class="post-text"><p>{{ post.text | safe }}</p></div>
         <div class="post-date"><p>{{ post.date }}</p></div>
     </div>
 </div>
