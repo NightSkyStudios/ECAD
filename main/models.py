@@ -7,6 +7,7 @@ from django.core.files import File
 from django.db.models.signals import post_delete, pre_delete
 from django.dispatch import receiver
 from datetime import date
+from tinymce import models as tinymce_models
 
 
 # Create your models here.
@@ -93,7 +94,7 @@ class MapProject(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='media', null=True)
-    text = models.TextField()
+    text = tinymce_models.HTMLField()
     date = models.DateTimeField(default=datetime.now, blank=True)
     isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
 
@@ -113,7 +114,7 @@ class Event(models.Model):
                               help_text=mark_safe("Якщо для публікації потрібна фотографія"))
     video = models.FileField(upload_to='videos', null=True, blank=True,
                              help_text=mark_safe("Якщо для публікації потрібне відео"))
-    text = models.TextField()
+    text = tinymce_models.HTMLField()
     date = models.DateTimeField(default=datetime.now, blank=True)
     isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
 
@@ -137,7 +138,7 @@ class Project(models.Model):
                               help_text=mark_safe("Якщо для публікації потрібна фотографія"))
     video = models.FileField(upload_to='videos', null=True, blank=True,
                              help_text=mark_safe("Якщо для публікації потрібне відео"))
-    text = models.TextField()
+    text = tinymce_models.HTMLField()
     power = models.IntegerField(help_text=mark_safe("Потужність"))
     date = models.DateTimeField(default=datetime.now, blank=True)
     isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
