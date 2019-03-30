@@ -476,7 +476,8 @@
         <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>Контакти</p></div>
         <div class="contactbox">
             <div class="form" data-aos="flip-right" data-aos-duration="1000">
-                <form action="">
+                <form action="" method="post">
+                    {% csrf_token %}
                     <input type="text" name="name" placeholder="Ваше ім'я"><br>
                     <input type="tel" name="number" placeholder="Ваш номер телефону"><br>
                     <input type="email" name="email" placeholder="Ваш e-mail"><br>

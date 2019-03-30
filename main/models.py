@@ -93,14 +93,15 @@ class MapProject(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='media', null=True)
+    image = models.ImageField(upload_to='media', null=True,blank=True)
     text = tinymce_models.HTMLField()
     date = models.DateTimeField(default=datetime.now, blank=True)
     isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
 
     def save(self, *args, **kwargs):
-        new_image = compress(self.image)
-        self.image = new_image
+        if bool(self.image):
+            new_image = compress(self.image)
+            self.image = new_image
         super().save(*args, **kwargs)
 
     def __str__(self):
