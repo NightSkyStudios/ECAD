@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from main.models import MapProject, Post, Event, Project, Slider
+from django.core.mail import send_mail, BadHeaderError
 from random import random
 
 
@@ -41,6 +42,15 @@ def get_area_name(name):
 
 
 def index(request):
+    fname = request.POST.get('name', '')
+    number = request.POST.get('number', '')
+    subject = request.POST.get('org', '')
+    message = request.POST.get('text', '')
+    from_email = request.POST.get('email', '')
+    messages = 'Name: {}\n  Number: {}\n{} \n\nFrom {}'.format(fname, number, message, from_email)
+    send_mail(subject, messages, 'noreply@ecad.energy', ['fexumiremo@easymail.top'],
+              fail_silently=False)
+
     #posts = (Post.objects.all().union(Event.objects.all()).order_by('-date'))
     posts = Post.objects.all()
     sliders = Slider.objects.all()

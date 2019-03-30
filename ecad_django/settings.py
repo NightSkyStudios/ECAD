@@ -125,6 +125,16 @@ USE_L10N = True
 
 USE_TZ = True
 
+#EMAIL config
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'euvip01.twinservers.net'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'noreply@ecad.energy'
+EMAIL_HOST_PASSWORD = ''
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 STATIC_URL = '/static/'

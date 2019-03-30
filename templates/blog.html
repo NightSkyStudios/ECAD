@@ -26,10 +26,10 @@
             {% if post.isHidden == False %}
                 <div class="blogpost" data-aos="flip-up" data-aos-duration="1000">
                     <div class="img">
-                        <img src="{{ post.image.url }}" alt="">
+                            <img src="{{ post.image.url }}" alt="">
                         <div class="title">{{ post.title }}</div>
                     </div>
-                    <p>{{ post.text|truncatewords:50 }}</p>
+                    <p>{{ post.text|truncatewords:50}}</p>
                     <!-- -->
                     <a href="{% url 'blogpost' post.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
                     <!-- -->
