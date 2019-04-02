@@ -23,7 +23,7 @@
     <div class="project-page">
         {% for project in projects %}
             {% if project.isHidden == False %}
-                <div class="project-tile" data-aos="flip-left" data-aos-duration="1000">
+                <a href="{% url 'project_post' project.id %}" class="project-tile" data-aos="flip-left" data-aos-duration="1000">
                     <div class="img">
                         {% if project.video %}
                             <video autoplay loop muted>
@@ -38,7 +38,7 @@
                             <p class="power"><i class="fas fa-bolt"></i>{{ project.power }} Вт</p>
                         </div>
                     </div>
-                </div>
+                </a>
             {% endif %}
         {% endfor %}
     </div>
