@@ -3,7 +3,7 @@
 {% if projects|length %}
     <ul>
         {% for prj in projects %}
-            <li><a href="">{{ prj.name|linenumbers }} - {{ prj.power }}Вт</a></li>
+            <li><a href="{% url 'project_post' prj.id %}">{{ prj.title }} - {{ prj.power }}Вт</a></li>
         {% endfor %}
     </ul>
 {% else %}
