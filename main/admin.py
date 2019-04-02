@@ -1,6 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TabbedTranslationAdmin
-from .models import Post, Event, Project, Slider, Partner
+from .models import *
 
 
 class PostAdmin(TabbedTranslationAdmin):

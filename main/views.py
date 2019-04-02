@@ -118,7 +118,7 @@ def blogpost(request, id):
 
 
 def map_project(request, ar):
-    projects = MapProject.objects.filter(area=ar)
+    projects = Project.objects.filter(area=ar)
     area_name = get_area_name(ar)
 
     sum = 0

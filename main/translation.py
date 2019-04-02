@@ -1,5 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import Post, Event, Project
+from .models import *
 
 
 @register(Post)
