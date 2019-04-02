@@ -11,13 +11,20 @@ body, html {
    font-family: Roboto, sans-serif;
    overflow-x: hidden;
 }
+
 * {
    margin: 0;
    padding: 0;
 }
+
 a, button {
    cursor: pointer;
 }
+
+.page {
+   min-height: 1000px;
+}
+
 .header {
    display: block;
    position: relative;
@@ -50,6 +57,14 @@ a, button {
       border-bottom: 6px solid $color1;
    }
 }
+
+@media only screen and (max-width: 800px) {
+   .page {
+      min-height: 100vh;
+      padding-top: 70px;
+   }
+}
+
 
 @import "nav";
 

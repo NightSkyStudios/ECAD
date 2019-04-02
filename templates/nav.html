@@ -111,7 +111,7 @@
     </svg>
     <a class="navdd" href="javascript:void(0)" onclick="dropDown()"><i class="fas fa-bars"></i></a>
     <ul class="menu">
-        <li><a href="#">{% trans 'Про нас' %}</a></li>
+        <li><a href="{% url "about" %}">{% trans 'Про нас' %}</a></li>
         <li><a href="{% url "projects" %}" class="dd">Проекти <i class="pointer fas fa-angle-down"></i></a>
             <ul class="submenu">
                 <li><a href=#>Проект 1</a></li>
@@ -136,8 +136,8 @@
 
 
         </li>
-        <li><a href="#">Матеріали</a></li>
-        <li><a href="#">Нормативна база</a></li>
+        <li><a href="{% url "docs" %}">Матеріали</a></li>
+        <li><a href="{% url "normbase" %}">Нормативна база</a></li>
         <li><a href="{% url 'blog' %}">Блог</a></li>
     </ul>
 
