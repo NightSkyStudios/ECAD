@@ -4,19 +4,18 @@ from .models import *
 
 
 class PostAdmin(TabbedTranslationAdmin):
-    pass
-
-
-class MapProjectAdmin(TabbedTranslationAdmin):
-    pass
+    list_display = ['title', 'isHidden']
+    list_filter = ['isHidden']
 
 
 class EventAdmin(TabbedTranslationAdmin):
-    pass
+    list_display = ['title', 'date', 'isHidden']
+    list_filter = ['isHidden']
 
 
 class ProjectAdmin(TabbedTranslationAdmin):
-    pass
+    list_display = ['title', 'area', 'power', 'isHidden']
+    list_filter = ('area', 'isHidden')
 
 
 admin.site.register(Post, PostAdmin)
