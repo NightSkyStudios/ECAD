@@ -22,7 +22,7 @@ a, button {
 }
 
 .page {
-   min-height: 1000px;
+   min-height: 100vh;
 }
 
 .header {
@@ -60,7 +60,6 @@ a, button {
 
 @media only screen and (max-width: 800px) {
    .page {
-      min-height: 100vh;
       padding-top: 70px;
    }
 }
@@ -79,3 +78,5 @@ a, button {
 @import "events";
 
 @import "projects";
+
+@import "docs";
