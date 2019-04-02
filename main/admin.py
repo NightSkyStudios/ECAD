@@ -1,6 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TabbedTranslationAdmin
-from .models import MapProject, Post, Event, Project, Slider
+from .models import Post, Event, Project, Slider, Partner
 
 
 class PostAdmin(TabbedTranslationAdmin):
@@ -20,7 +20,7 @@ class ProjectAdmin(TabbedTranslationAdmin):
 
 
 admin.site.register(Post, PostAdmin)
-admin.site.register(MapProject, MapProjectAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Slider)
+admin.site.register(Partner)

@@ -432,14 +432,9 @@
     <div class="partners">
         <div class="header"><p>Наші партнери</p></div>
         <div class="partnerlist">
-            <div class="partner"><img src="{% static 'images/placeholder.com-logo1.png' %}" alt=""></div>
-            <div class="partner"><img src="{% static 'images/placeholder.com-logo1.png' %}" alt=""></div>
-            <div class="partner"><img src="{% static 'images/placeholder.com-logo1.png' %}" alt=""></div>
-            <div class="partner"><img src="{% static 'images/placeholder.com-logo1.png' %}" alt=""></div>
-            <div class="partner"><img src="{% static 'images/placeholder.com-logo1.png' %}" alt=""></div>
-            <div class="partner"><img src="{% static 'images/placeholder.com-logo1.png' %}" alt=""></div>
-            <div class="partner"><img src="{% static 'images/placeholder.com-logo1.png' %}" alt=""></div>
-            <div class="partner"><img src="{% static 'images/placeholder.com-logo1.png' %}" alt=""></div>
+            {% for partner in partners %}
+                <div class="partner"><img src="{{ partner.image.url }}" alt="{{ partner.name }}"></div>
+            {% endfor %}
         </div>
     </div>
     <div class="news">
@@ -450,7 +445,7 @@
                     <div class="img"><img src="{{ big.image.url }}" alt="">
                         <div class="title">{{ big.title }}</div>
                     </div>
-                    <p>{{ big.text|truncatewords:80 }}</p>
+                    <p>{{ big.preview_text }}</p>
                     <a href="{% url 'blogpost' big.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
                     </div>
                 {% else %}
@@ -463,7 +458,7 @@
                         <div class="img"><img src="{{ sm.image.url }}" alt="">
                             <div class="title">{{ sm.title }}</div>
                         </div>
-                        <p>{{ sm.text|truncatewords:30 }}</p>
+                        <p>{{ sm.preview_text }}</p>
                         <a href="{% url 'blogpost' sm.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
                     </div>
                 {% endfor %}
