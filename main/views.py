@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from main.models import MapProject, Post, Event, Project, Slider
+from main.models import *
 from django.core.mail import send_mail, BadHeaderError
 from random import random
 
@@ -55,6 +55,7 @@ def index(request):
     posts = Post.objects.all()
     sliders = Slider.objects.all()
     events = Event.objects.all().order_by('-date')
+    partners = Partner.objects.all()
 
     try:
         big_post = posts[0]
@@ -66,7 +67,8 @@ def index(request):
         'big': big_post,
         'small': small_post,
         'nav_items': nav_items,
-        'sliders': sliders
+        'sliders': sliders,
+        'partners': partners,
     }
     return render(request, 'index.html', ctx)
 

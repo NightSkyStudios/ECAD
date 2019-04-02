@@ -154,7 +154,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'width': 1120,
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 20,
-    'selector': 'textarea',
+    'selector': 'textarea#id_text_uk, textarea#id_text_en, textarea#id_text_pl',
     'theme': 'silver',
     'plugins': '''
             textcolor,save,link,image,media,preview,codesample,contextmenu,

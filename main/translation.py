@@ -1,23 +1,18 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import MapProject, Post, Event, Project
+from .models import Post, Event, Project
 
 
 @register(Post)
 class PostTranslationOptions(TranslationOptions):
-    fields = ('title', 'text')
+    fields = ('title', 'text', 'preview_text')
 
 
 @register(Event)
 class PostTranslationOptions(TranslationOptions):
-    fields = ('title', 'text')
+    fields = ('title', 'text', 'preview_text')
 
 
 @register(Project)
 class PostTranslationOptions(TranslationOptions):
     fields = ('title', 'text')
-
-
-@register(MapProject)
-class PostTranslationOptions(TranslationOptions):
-    fields = ('name',)
 
