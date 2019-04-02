@@ -81,8 +81,28 @@ def projects(request):
     return render(request, 'projects.html', ctx)
 
 
+def project(request, id):
+    project = Project.objects.get(pk=id)
+    ctx = {
+        'project': project,
+    }
+    return render(request, 'project_post.html', ctx)
+
+
 def equipment(request):
     return render(request, 'equipment.html')
+
+
+def about(request):
+    return render(request, 'about.html')
+
+
+def normbase(request):
+    return render(request, 'normbase.html')
+
+
+def docs(request):
+    return render(request, 'docs.html')
 
 
 def events(request):

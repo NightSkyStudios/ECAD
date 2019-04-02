@@ -2,10 +2,12 @@
    height: 10em;
    background-color: $color2;
    overflow: hidden;
-   .links{
+
+   .links {
       height: 7em;
       line-height: 7em;
-      img{
+
+      img {
          position: relative;
          display: inline-block;
          width: 15%;
@@ -13,33 +15,61 @@
          top: 50%;
          transform: translateY(-50%);
       }
-      div{
+
+      div {
          text-align: center;
          float: right;
          display: grid;
          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-         a{
+
+         a {
             color: $color3;
             text-decoration: none;
             font-size: 1em;
          }
       }
    }
-   .credits{
+
+   .credits {
       height: 3em;
       border-top: 1px solid $color3;
       color: $color3;
       text-align: center;
       font-weight: 500;
       line-height: 3em;
-      vertical-align: center ;
-      a{
+      vertical-align: center;
+
+      a {
          text-decoration: none;
          color: $color3;
-         &:hover{
+
+         &:hover {
             color: $color1;
          }
       }
 
+   }
+}
+
+@media only screen and (max-width: 800px) {
+   .footer {
+      height: 5em;
+
+      .links {
+         display: none;
+      }
+
+      .credits {
+         position: relative;
+         height: 5em;
+
+         p {
+            height: 5em;
+            line-height: 5em;
+            width: 100%;
+            text-align: center;
+            font-weight: 300;
+         }
+      }
    }
 }

@@ -1,0 +1,44 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Матеріали</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity=""
+          crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body>
+{% include 'nav.html' %}
+
+<div class="page">
+    <div class="header center"><p>Наші матеріали</p></div>
+    <div class="docs-page">
+        <a href="#" class="doc"><i class="fas fa-file-alt fa-5x"></i><p class="title">Назва документу</p></a>
+        <a href="#" class="doc"><i class="fas fa-file-alt fa-5x"></i><p class="title">Назва документу</p></a>
+        <a href="#" class="doc"><i class="fas fa-file-alt fa-5x"></i><p class="title">Назва документу</p></a>
+        <a href="#" class="doc"><i class="fas fa-file-alt fa-5x"></i><p class="title">Назва документу</p></a>
+        <a href="#" class="doc"><i class="fas fa-file-alt fa-5x"></i><p class="title">Назва документу</p></a>
+    </div>
+</div>
+
+
+{% include 'footer.html' %}
+
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        startEvent: 'DOMContentLoaded',
+        once: true,
+        ease: 'ease-out',
+        anchorPlacement: 'top-bottom'
+    });
+</script>
+</body>
+</html>

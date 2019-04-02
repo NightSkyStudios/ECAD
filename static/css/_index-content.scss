@@ -303,55 +303,6 @@
    }
 }
 
-.project-page {
-   background-color: white;
-   padding-top: 2em;
-   min-height: 1000px;
-
-   .header {
-      display: block;
-      position: relative;
-      height: 60px;
-      width: fit-content;
-      margin: 0 auto 1em auto;
-
-      p {
-         line-height: 60px;
-         font-size: 2.5em;
-         font-weight: 300;
-         text-align: left;
-         padding: 0 1em;
-      }
-
-      &:after {
-         position: relative;
-         display: block;
-         bottom: 0;
-         content: "";
-         width: 100%;
-         left: -6px;
-         top: -6px;
-         border: 6px solid transparent;
-         border-bottom: 6px solid $color1;
-      }
-   }
-
-   .list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-
-      .project {
-         width: 100%;
-
-         .img {
-            img {
-               width: 100%;
-            }
-         }
-      }
-   }
-}
-
 @media only screen and (min-width: 800px) and (max-width: 1100px) {
    nav ul.menu li a {
       font-size: 0.8em;
@@ -398,9 +349,6 @@
 @media only screen and (max-width: 800px) {
    body {
       font-size: 12px;
-   }
-   .page {
-      padding-top: 70px;
    }
    .slider {
       height: 80vh;
@@ -459,26 +407,6 @@
                padding: 0 0 2em 0;
                -webkit-appearance: none;
             }
-         }
-      }
-   }
-   .footer {
-      height: 5em;
-
-      .links {
-         display: none;
-      }
-
-      .credits {
-         position: relative;
-         height: 5em;
-
-         p {
-            height: 5em;
-            line-height: 5em;
-            width: 100%;
-            text-align: center;
-            font-weight: 300;
          }
       }
    }
