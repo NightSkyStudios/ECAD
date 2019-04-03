@@ -6,33 +6,33 @@ from random import random
 
 def get_area_name(name):
     dict = {
-        'CK': 'Черкаська область',
-        'CH': 'Чернігівська область',
-        'CV': 'Черівецька  область',
-        'DP': 'Дніпропетровська область',
-        'DT': 'Донецька область',
-        'IF': 'Івано-Франківська область',
-        'KK': 'Харківська область',
-        'KS': 'Херсонська область',
-        'KM': 'Хмельницька область',
-        'KV': 'Київська область',
-        'KC': 'Київ',
-        'KH': 'Кіровоградська область',
-        'LH': 'Луганська область',
-        'LV': 'Львівська область',
-        'MY': 'Миколаївська область',
-        'OD': 'Одеська область',
-        'PL': 'Полтавська область',
-        'RV': 'Рівнинська область',
-        'SM': 'Сумська область',
-        'TP': 'Тернопільська область',
-        'VI': 'Вінницька область',
-        'VO': 'Волинська область',
-        'ZK': 'Закарпатська область',
-        'ZP': 'Запорізька область',
-        'ZT': 'Житомирська область',
-        'CR': 'АР Крим',
-        'SV': 'Севастополь',
+        'CK': ['Черкаська область', 'Cherkasy Oblast'],
+        'CH': ['Чернігівська область', 'Chernihiv Oblast'],
+        'CV': ['Черівецька  область', 'Chernivtsi Oblast'],
+        'DP': ['Дніпропетровська область', 'Dnipropetrovsk Oblast'],
+        'DT': ['Донецька область', 'Donetsk Oblast'],
+        'IF': ['Івано-Франківська область', 'Ivano-Frankivsk Oblast'],
+        'KK': ['Харківська область', 'Kharkiv Oblast'],
+        'KS': ['Херсонська область', 'Kherson Oblast'],
+        'KM': ['Хмельницька область', 'Khmelnytskyi Oblast'],
+        'KV': ['Київська область', 'Kiev Oblast'],
+        'KC': ['Київ', 'Kiev'],
+        'KH': ['Кіровоградська область', 'Kirovohrad Oblast'],
+        'LH': ['Луганська область', 'Luhansk Oblast'],
+        'LV': ['Львівська область', 'Lviv Oblast'],
+        'MY': ['Миколаївська область', 'Mykolaiv Oblast'],
+        'OD': ['Одеська область', 'Odessa Oblast'],
+        'PL': ['Полтавська область', 'Poltava Oblast'],
+        'RV': ['Рівнинська область', 'Rivne Oblast'],
+        'SM': ['Сумська область', 'Sumy Oblast'],
+        'TP': ['Тернопільська область', 'Ternopil Oblast'],
+        'VI': ['Вінницька область', 'Vinnytsia Oblast'],
+        'VO': ['Волинська область', 'Volyn Oblast'],
+        'ZK': ['Закарпатська область', 'Zakarpattia Oblast'],
+        'ZP': ['Запорізька область', 'Zaporizhia Oblast'],
+        'ZT': ['Житомирська область', 'Zhytomyr Oblast'],
+        'CR': ['АР Крим', 'Crimea'],
+        'SV': ['Севастополь', 'Sevastopol'],
     }
 
     return dict[name]
@@ -51,7 +51,7 @@ def index(request):
     send_mail(subject, messages, 'noreply@ecad.energy', ['fexumiremo@easymail.top'],
               fail_silently=False)
 
-    #posts = (Post.objects.all().union(Event.objects.all()).order_by('-date'))
+    # posts = (Post.objects.all().union(Event.objects.all()).order_by('-date'))
     posts = Post.objects.all()
     sliders = Slider.objects.all()
     events = Event.objects.all().order_by('-date')
@@ -126,7 +126,7 @@ def blog(request):
     ctx = {
         'posts': post
     }
-    return render(request, 'blog.html', ctx)    
+    return render(request, 'blog.html', ctx)
 
 
 def blogpost(request, id):
@@ -137,9 +137,12 @@ def blogpost(request, id):
     return render(request, 'blog_post.html', ctx)
 
 
-def map_project(request, ar):
+def map_project(request, ar, lang):
     projects = Project.objects.filter(area=ar)
-    area_name = get_area_name(ar)
+    if lang == 'uk-uk':
+        area_name = get_area_name(ar)[0]
+    else:
+        area_name = get_area_name(ar)[1]
 
     sum = 0
     for prj in projects:
