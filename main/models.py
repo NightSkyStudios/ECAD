@@ -9,20 +9,14 @@ from django.dispatch import receiver
 from datetime import date
 from tinymce import models as tinymce_models
 
-
+DEFAULT_IMAGE_PATH = 'img/default.jpg'
 # Create your models here.
-def compress_jpg(image):
+def compress(image):
     im = Image.open(image)
+    im = im.convert('RGB')
     im_io = BytesIO()
-    im.save(im_io, 'JPEG', quality=50)
-    new_image = File(im_io, name=image.name)
-    return new_image
-
-def compress_png(image):
-    im = Image.open(image)
-    im_io = BytesIO()
-    im.save(im_io, 'PNG', quality=50)
-    new_image = File(im_io, name=image.name)
+    im.save(im_io, 'JPEG', quality=45)
+    new_image = File(im_io, name=image.name[:image.name.find('.')] + '.jpg')
     return new_image
 
 
@@ -34,7 +28,7 @@ class Post(models.Model):
                               upload_to='img',
                               null=True,
                               blank=True,
-                              default='default.jpg',
+                              #default='default.jpg',
                               help_text="Основне зображення публікації")
     preview_text = models.TextField('Опис',
                                     max_length=300,
@@ -54,17 +48,15 @@ class Post(models.Model):
                                    help_text="Поставте галочку для того что <b>приховати</b> цей пост у блозі")
 
     def save(self, *args, **kwargs):
-        if bool(self.image):
-            new_image = compress_jpg(self.image)
+        if bool(self.image) and self.image.name.find('/') == -1:
+            print(self.image)
+            print('rgb')
+            new_image = compress(self.image)
             self.image = new_image
-        super().save(*args, **kwargs)
 
-    def save(self, *args, **kwargs):
-        if bool(self.image):
-            if self.image != 'RGB':
-                new_image = compress_png(self.image)
-                self.image = new_image
-            super().save(*args, **kwargs)
+        if bool(self.image) is False:
+            self.image = DEFAULT_IMAGE_PATH
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -86,7 +78,7 @@ class Event(models.Model):
                               upload_to='img',
                               null=True,
                               blank=True,
-                              default='default.jpg',
+                              #default='default.jpg',
                               help_text="Основне зображення публікації")
     video = models.FileField(upload_to='videos',
                              null=True,
@@ -109,32 +101,32 @@ class Event(models.Model):
                                    help_text="Поставте галочку для того что <b>приховати</b> цю подію у списку подій")
 
     def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        if bool(self.image):
-            new_image = compress_jpg(self.image)
+        if bool(self.image) and self.image.name.find('/') == -1:
+            print(self.image)
+            print('rgb')
+            new_image = compress(self.image)
             self.image = new_image
 
-    def save(self, *args, **kwargs):
-        if bool(self.image):
-            if self.image != 'RGB':
-                new_image = compress_png(self.image)
-                self.image = new_image
-            super().save(*args, **kwargs)
+        if bool(self.image) is False:
+            self.image = DEFAULT_IMAGE_PATH
+        super().save(*args, **kwargs)
 
-    def __str__(self):
-        return self.title
 
-    @property
-    def is_past(self):
-        return date.today() > self.event_date.date()
+def __str__(self):
+    return self.title
 
-    class Meta:
-        verbose_name = 'Подія'
-        verbose_name_plural = 'Події'
+
+@property
+def is_past(self):
+    return date.today() > self.event_date.date()
+
+
+class Meta:
+    verbose_name = 'Подія'
+    verbose_name_plural = 'Події'
 
 
 class Project(models.Model):
-
     CHERKASY = 'CK'
     CHERNIHIV = 'CH'
     CHERNITVTSI = 'CV'
@@ -206,7 +198,7 @@ class Project(models.Model):
                             max_length=2,
                             choices=AREA_CHOICES,
                             default=VINNYTSIA,
-                            help_text='Виберіть область у якій знаходиться цей проект',)
+                            help_text='Виберіть область у якій знаходиться цей проект', )
     text = tinymce_models.HTMLField('Текст',
                                     help_text='Цей текст буде з форматуванням відображатись на океремій сторінці '
                                               'відведеній для цього проекту')
@@ -223,17 +215,15 @@ class Project(models.Model):
                                              "проектів")
 
     def save(self, *args, **kwargs):
-        if bool(self.image):
-            new_image = compress_jpg(self.image)
+        if bool(self.image) and self.image.name.find('/') == -1:
+            print(self.image)
+            print('rgb')
+            new_image = compress(self.image)
             self.image = new_image
-        super().save(*args, **kwargs)
 
-    def save(self, *args, **kwargs):
-        if bool(self.image):
-            if self.image != 'RGB':
-                new_image = compress_png(self.image)
-                self.image = new_image
-            super().save(*args, **kwargs)
+        if bool(self.image) is False:
+            self.image = DEFAULT_IMAGE_PATH
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -248,20 +238,19 @@ class Slider(models.Model):
                               upload_to='img',
                               null=True,
                               blank=True,
-                              default='default.jpg',
+                              #default='default.jpg',
                               help_text='Зображення буде відображатись на слайдері головної сторінки')
 
     def save(self, *args, **kwargs):
-        new_image = compress_jpg(self.image)
-        self.image = new_image
-        super().save(*args, **kwargs)
+        if bool(self.image) and self.image.name.find('/') == -1:
+            print(self.image)
+            print('rgb')
+            new_image = compress(self.image)
+            self.image = new_image
 
-    def save(self, *args, **kwargs):
-        if bool(self.image):
-            if self.image != 'RGB':
-                new_image = compress_png(self.image)
-                self.image = new_image
-            super().save(*args, **kwargs)
+        if bool(self.image) is False:
+            self.image = DEFAULT_IMAGE_PATH
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Фотографія Слайдеру'
@@ -293,6 +282,3 @@ def submission_delete(sender, instance, **kwargs):
         instance.video.delete(False)
     except AttributeError:
         pass
-
-
-
