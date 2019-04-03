@@ -11,11 +11,17 @@ from tinymce import models as tinymce_models
 
 
 # Create your models here.
-
-def compress(image):
+def compress_jpg(image):
     im = Image.open(image)
     im_io = BytesIO()
     im.save(im_io, 'JPEG', quality=50)
+    new_image = File(im_io, name=image.name)
+    return new_image
+
+def compress_png(image):
+    im = Image.open(image)
+    im_io = BytesIO()
+    im.save(im_io, 'PNG', quality=50)
     new_image = File(im_io, name=image.name)
     return new_image
 
@@ -49,9 +55,16 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         if bool(self.image):
-            new_image = compress(self.image)
+            new_image = compress_jpg(self.image)
             self.image = new_image
         super().save(*args, **kwargs)
+
+    def save(self, *args, **kwargs):
+        if bool(self.image):
+            if self.image != 'RGB':
+                new_image = compress_png(self.image)
+                self.image = new_image
+            super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -96,10 +109,17 @@ class Event(models.Model):
                                    help_text="Поставте галочку для того что <b>приховати</b> цю подію у списку подій")
 
     def save(self, *args, **kwargs):
-        if bool(self.image):
-            new_image = compress(self.image)
-            self.image = new_image
         super().save(*args, **kwargs)
+        if bool(self.image):
+            new_image = compress_jpg(self.image)
+            self.image = new_image
+
+    def save(self, *args, **kwargs):
+        if bool(self.image):
+            if self.image != 'RGB':
+                new_image = compress_png(self.image)
+                self.image = new_image
+            super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -204,9 +224,16 @@ class Project(models.Model):
 
     def save(self, *args, **kwargs):
         if bool(self.image):
-            new_image = compress(self.image)
+            new_image = compress_jpg(self.image)
             self.image = new_image
         super().save(*args, **kwargs)
+
+    def save(self, *args, **kwargs):
+        if bool(self.image):
+            if self.image != 'RGB':
+                new_image = compress_png(self.image)
+                self.image = new_image
+            super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -225,9 +252,16 @@ class Slider(models.Model):
                               help_text='Зображення буде відображатись на слайдері головної сторінки')
 
     def save(self, *args, **kwargs):
-        new_image = compress(self.image)
+        new_image = compress_jpg(self.image)
         self.image = new_image
         super().save(*args, **kwargs)
+
+    def save(self, *args, **kwargs):
+        if bool(self.image):
+            if self.image != 'RGB':
+                new_image = compress_png(self.image)
+                self.image = new_image
+            super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Фотографія Слайдеру'

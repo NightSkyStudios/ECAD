@@ -29,7 +29,7 @@
                             <img src="{{ post.image.url }}" alt="">
                         <div class="title">{{ post.title }}</div>
                     </div>
-                    <p>{{ post.text|truncatewords:50}}</p>
+                    <p>{{ post.preview_text}}</p>
                     <!-- -->
                     <a href="{% url 'blogpost' post.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
                     <!-- -->
