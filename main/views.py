@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from main.models import MapProject, Post, Event, Project, Slider
+from main.models import *
 from django.core.mail import send_mail, BadHeaderError
 from random import random
 
@@ -42,19 +42,21 @@ def get_area_name(name):
 
 
 def index(request):
-    # fname = request.POST.get('name', '')
-    # number = request.POST.get('number', '')
-    # subject = request.POST.get('org', '')
-    # message = request.POST.get('text', '')
-    # from_email = request.POST.get('email', '')
-    # messages = 'Name: {}\n  Number: {}\n{} \n\nFrom {}'.format(fname, number, message, from_email)
-    # send_mail(subject, messages, 'noreply@ecad.energy', ['fexumiremo@easymail.top'],
-    #           fail_silently=False)
+
+    fname = request.POST.get('name', '')
+    number = request.POST.get('number', '')
+    subject = request.POST.get('org', '')
+    message = request.POST.get('text', '')
+    from_email = request.POST.get('email', '')
+    messages = 'Name: {}\n  Number: {}\n{} \n\nFrom {}'.format(fname, number, message, from_email)
+    send_mail(subject, messages, 'noreply@ecad.energy', ['fexumiremo@easymail.top'],
+              fail_silently=False)
 
     #posts = (Post.objects.all().union(Event.objects.all()).order_by('-date'))
     posts = Post.objects.all()
     sliders = Slider.objects.all()
     events = Event.objects.all().order_by('-date')
+    partners = Partner.objects.all()
 
     try:
         big_post = posts[0]
@@ -66,7 +68,8 @@ def index(request):
         'big': big_post,
         'small': small_post,
         'nav_items': nav_items,
-        'sliders': sliders
+        'sliders': sliders,
+        'partners': partners,
     }
     return render(request, 'index.html', ctx)
 
@@ -116,7 +119,7 @@ def blogpost(request, id):
 
 
 def map_project(request, ar):
-    projects = MapProject.objects.filter(area=ar)
+    projects = Project.objects.filter(area=ar)
     area_name = get_area_name(ar)
 
     sum = 0

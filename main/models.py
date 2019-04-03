@@ -20,7 +20,52 @@ def compress(image):
     return new_image
 
 
-class MapProject(models.Model):
+class Post(models.Model):
+    title = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='img', null=True, blank=True, default='default.jpg')
+    preview_text = models.TextField(max_length=300)
+    text = tinymce_models.HTMLField()
+    date = models.DateTimeField(default=datetime.now, blank=True)
+    isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
+
+    def save(self, *args, **kwargs):
+        if bool(self.image):
+            new_image = compress(self.image)
+            self.image = new_image
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=225)
+    event_date = models.DateTimeField(default=datetime.now, blank=True)
+    image = models.ImageField(upload_to='img', null=True, blank=True, default='default.jpg',
+                              help_text=mark_safe("Якщо для публікації потрібна фотографія"))
+    video = models.FileField(upload_to='videos', null=True, blank=True,
+                             help_text=mark_safe("Якщо для публікації потрібне відео"))
+    preview_text = models.TextField(max_length=300)
+    text = tinymce_models.HTMLField()
+    date = models.DateTimeField(default=datetime.now, blank=True)
+    isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
+
+    def save(self, *args, **kwargs):
+        if bool(self.image):
+            new_image = compress(self.image)
+            self.image = new_image
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
+
+    @property
+    def is_past(self):
+        return date.today() > self.event_date.date()
+
+
+class Project(models.Model):
+
     CHERKASY = 'CK'
     CHERNIHIV = 'CH'
     CHERNITVTSI = 'CV'
@@ -79,7 +124,10 @@ class MapProject(models.Model):
         (SEVASTOPOL, 'Севастополь'),
     )
 
-    name = models.CharField(max_length=64)
+    title = models.CharField(max_length=225)
+    image = models.ImageField(upload_to='img', null=True, blank=True, default='default.jpg',
+                              help_text=mark_safe("Якщо для публікації потрібна фотографія"))
+    text = models.TextField()
     area = models.CharField(
         max_length=2,
         choices=AREA_CHOICES,
@@ -88,79 +136,21 @@ class MapProject(models.Model):
     power = models.IntegerField()
 
     def __str__(self):
-        return self.name
-
-
-class Post(models.Model):
-    title = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='media', null=True,blank=True)
-    text = tinymce_models.HTMLField()
-    date = models.DateTimeField(default=datetime.now, blank=True)
-    isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
-
-    def save(self, *args, **kwargs):
-        if bool(self.image):
-            new_image = compress(self.image)
-            self.image = new_image
-        super().save(*args, **kwargs)
-
-    def __str__(self):
-        return self.title
-
-
-class Event(models.Model):
-    title = models.CharField(max_length=225)
-    event_date = models.DateTimeField(default=datetime.now, blank=True)
-    image = models.ImageField(upload_to='media', null=True, blank=True,
-                              help_text=mark_safe("Якщо для публікації потрібна фотографія"))
-    video = models.FileField(upload_to='videos', null=True, blank=True,
-                             help_text=mark_safe("Якщо для публікації потрібне відео"))
-    text = tinymce_models.HTMLField()
-    date = models.DateTimeField(default=datetime.now, blank=True)
-    isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
-
-    def save(self, *args, **kwargs):
-        if bool(self.image):
-            new_image = compress(self.image)
-            self.image = new_image
-        super().save(*args, **kwargs)
-
-    def __str__(self):
-        return self.title
-
-    @property
-    def is_past(self):
-        return date.today() > self.event_date.date()
-
-
-class Project(models.Model):
-    title = models.CharField(max_length=225)
-    image = models.ImageField(upload_to='media', null=True, blank=True,
-                              help_text=mark_safe("Якщо для публікації потрібна фотографія"))
-    video = models.FileField(upload_to='videos', null=True, blank=True,
-                             help_text=mark_safe("Якщо для публікації потрібне відео"))
-    text = tinymce_models.HTMLField()
-    power = models.IntegerField(help_text=mark_safe("Потужність"))
-    date = models.DateTimeField(default=datetime.now, blank=True)
-    isHidden = models.BooleanField(default=False, help_text=mark_safe("Приховати публікацію"))
-
-    def save(self, *args, **kwargs):
-        if bool(self.image):
-            new_image = compress(self.image)
-            self.image = new_image
-        super().save(*args, **kwargs)
-
-    def __str__(self):
         return self.title
 
 
 class Slider(models.Model):
-    image = models.ImageField(upload_to='media', null=True, blank=True)
+    image = models.ImageField(upload_to='img', null=True, blank=True, default='default.jpg')
 
     def save(self, *args, **kwargs):
         new_image = compress(self.image)
         self.image = new_image
         super().save(*args, **kwargs)
+
+
+class Partner(models.Model):
+    name = models.CharField(max_length=64)
+    image = models.ImageField(upload_to='img', null=False, blank=False)
 
 
 @receiver(post_delete)

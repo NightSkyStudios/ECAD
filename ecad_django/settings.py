@@ -133,7 +133,7 @@ EMAIL_USE_SSL = True
 EMAIL_HOST = 'euvip01.twinservers.net'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'noreply@ecad.energy'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_PASSWORD = 'Fr5912kp34'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
@@ -154,7 +154,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'width': 1120,
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 20,
-    'selector': 'textarea',
+    'selector': 'textarea#id_text_uk, textarea#id_text_en, textarea#id_text_pl',
     'theme': 'silver',
     'plugins': '''
             textcolor,save,link,image,media,preview,codesample,contextmenu,
