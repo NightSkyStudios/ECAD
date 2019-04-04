@@ -55,16 +55,6 @@ a, button {
     padding-top: 70px;
   }
 }
-<<<<<<< HEAD
-hr {
-  border: 0;
-  height: 1px;
-  background-color: #b2b2b2;
-  width: 100%;
-}
-
-=======
->>>>>>> 94dcfad8c4473e4af4158cbfc6dfefc46485f80d
 nav {
   position: relative;
   z-index: 1000;
@@ -174,12 +164,8 @@ nav ul.menu > li ul.submenu {
   justify-content: center;
   background-color: #e1e1e1;
   height: 35px;
-<<<<<<< HEAD
   transition: height;
   transition-duration: 0.3s;
-=======
-  z-index: 0;
->>>>>>> 94dcfad8c4473e4af4158cbfc6dfefc46485f80d
 }
 nav ul.menu > li ul.submenu li {
   display: inline-block;
