@@ -19,17 +19,18 @@
 
 
 <div class="page">
-    <div class="post">
-        <div class="post-title"><p>{{ post.title }}</p></div>
-        <img class="post-image" src="{{ post.image.url }}" alt="">
-        <div class="post-text"><p>{{ post.text | safe }}</p></div>
-        <div class="post-date"><p>{{ post.date }}</p></div>
+    <div class="bpost">
+        <div class="bpost-image" data-parallax="scroll" data-image-src="{{ post.image.url }}"><div class="bpost-title"><p>{{ post.title }}</p></div></div>
+        <div class="bpost-text"><p>{{ post.text | safe }}</p></div>
+        <div class="bpost-date"><p>{{ post.date }}</p></div>
     </div>
 </div>
 
 {% include "footer.html" %}
 
 <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/parallax.js' %}"></script>
+
 <script
         src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>

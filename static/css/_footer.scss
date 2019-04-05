@@ -38,7 +38,9 @@
       font-weight: 500;
       line-height: 3em;
       vertical-align: center;
-
+      p{
+         margin: 0;
+      }
       a {
          text-decoration: none;
          color: $color3;
@@ -69,6 +71,8 @@
             width: 100%;
             text-align: center;
             font-weight: 300;
+            margin: 0;
+            padding:0;
          }
       }
    }

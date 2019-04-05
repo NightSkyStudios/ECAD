@@ -1,17 +1,17 @@
-.post {
+.epost {
    position: relative;
    width: 60%;
    margin: 5em auto 5em auto;
    min-height: 1000px;
    color: $color2;
 
-   .post-image {
+   .epost-image {
       position: relative;
       width: 100%;
       z-index: 2;
    }
 
-   .post-title {
+   .epost-title {
       position: relative;
       font-family: 'Roboto Condensed', sans-serif;
       font-weight: 300;
@@ -20,7 +20,7 @@
       margin: 0 0 1em 0;
    }
 
-   .post-text {
+   .epost-text {
       position: relative;
       border: 0.1em solid $color1;
       border-top: unset;
@@ -31,7 +31,7 @@
       top: -0.23em
    }
 
-   .post-date {
+   .epost-date {
       padding-right: 0.5em;
       p {
          text-align: right;
@@ -43,14 +43,14 @@
 }
 
 @media only screen and (max-width: 800px) {
-   .post {
+   .epost {
       width: 90%;
 
-      .post-title {
+      .epost-title {
          font-size: 3em;
       }
 
-      .post-text {
+      .epost-text {
          font-size: 1.4em;
       }
    }

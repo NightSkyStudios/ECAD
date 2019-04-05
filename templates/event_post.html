@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ post.title }}</title>
+    <title>{{ epost.title }}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity=""
           crossorigin="anonymous">
@@ -21,17 +21,17 @@
 
 
 <div class="page">
-    <div class="post">
-        <div class="post-title"><p>{{ event.title }}</p></div>
+    <div class="epost">
+        <div class="epost-title"><p>{{ event.title }}</p></div>
         {% if event.video %}
-            <video class="post-image" controls playsinline>
+            <video class="epost-image" controls playsinline>
                 <source src="{{ event.video.url }}" type="video/mp4">
             </video>
         {% else %}
-            <img class="post-image" src="{{ event.image.url }}" alt="">
+            <img class="epost-image" src="{{ event.image.url }}" alt="">
         {% endif %}
-        <div class="post-text"><p>{{ event.text | safe}}</p></div>
-        <div class="post-date"><p> Відбудеться: {{ event.date }}</p></div>
+        <div class="epost-text"><p>{{ event.text | safe}}</p></div>
+        <div class="epost-date"><p> Відбудеться: {{ event.date }}</p></div>
     </div>
 </div>
 
