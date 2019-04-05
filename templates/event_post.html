@@ -30,8 +30,14 @@
         {% else %}
             <img class="epost-image" src="{{ event.image.url }}" alt="">
         {% endif %}
-        <div class="epost-text"><p>{{ event.text | safe}}</p></div>
-        <div class="epost-date"><p> Відбудеться: {{ event.date }}</p></div>
+        <div class="epost-text">
+            <p class="description">{{ event.text | safe}}</p>
+            <p class="details">
+                <span>Місце проведення:</span> [Місце]<br>
+                <span>Учасники:</span> [Учасники]<br>
+                <span>Дата та час проведення:</span> {{ event.date }}
+            </p>
+        </div>
     </div>
 </div>
 
