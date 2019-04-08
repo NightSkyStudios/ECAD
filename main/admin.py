@@ -18,8 +18,13 @@ class ProjectAdmin(TabbedTranslationAdmin):
     list_filter = ('area', 'isHidden')
 
 
+class DocumentAdmin(TabbedTranslationAdmin):
+    list_display = ['title', 'isHidden']
+    list_filter = ('title', 'isHidden')
+
 admin.site.register(Post, PostAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Slider)
 admin.site.register(Partner)
+admin.site.register(Document)
