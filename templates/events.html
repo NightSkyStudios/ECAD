@@ -32,12 +32,15 @@
                             <img src="{{ event.image.url }}" alt="">
                         {% endif %}
                         <div class="event-title">{{ event.title }}</div>
+                        <div class="info">
+                            <p>{{ event.preview_text }}</p>
+                            <a class="link" href="{% url 'event' event.id %}">Детальніше <i
+                                    class="fas fa-arrow-right"></i></a>
+                            <!-- -->
+                            <a class="date"> {% if event.is_past %} Відбулося: {% else %}
+                                Відбудеться: {% endif %}{{ event.event_date|date:"d M Y" }}</a>
+                        </div>
                     </div>
-                    <p>{{ event.preview_text }}</p>
-                    <a href="{% url 'event' event.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
-                    <!-- -->
-                    <a class="date"> {% if event.is_past %} Відбулося: {% else %}
-                        Відбудеться: {% endif %}{{ event.event_date|date:"d M Y" }}</a>
                 </div>
             {% endif %}
         {% endfor %}

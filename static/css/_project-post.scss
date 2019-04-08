@@ -3,6 +3,7 @@
       width: 80%;
       height: fit-content;
       margin: 0 auto;
+      padding-bottom: 4px;
       .mainphoto{
          max-height: 90vh;
          overflow: hidden;
@@ -20,7 +21,8 @@
          img{
             height: 3em;
             object-fit: cover;
-            padding: 4px 2px 0 2px;
+            padding: 2px 2px 2px 2px;
+            background-color: $color1;
          }
       }
    }
