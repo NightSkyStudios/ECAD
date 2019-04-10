@@ -310,3 +310,7 @@ def submission_delete(sender, instance, **kwargs):
         instance.video.delete(False)
     except AttributeError:
         pass
+    try:
+        instance.document.delete(False)
+    except AttributeError:
+        pass

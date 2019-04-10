@@ -18,13 +18,12 @@
 
 <div class="page">
     <div class="header center"><p>Наші матеріали</p></div>
-    <div class="docs-page">
-        <a href="#" class="doc"><i class="fas fa-file-alt fa-5x"></i><p class="title">Назва документу</p></a>
-        <a href="#" class="doc"><i class="fas fa-file-alt fa-5x"></i><p class="title">Назва документу</p></a>
-        <a href="#" class="doc"><i class="fas fa-file-alt fa-5x"></i><p class="title">Назва документу</p></a>
-        <a href="#" class="doc"><i class="fas fa-file-alt fa-5x"></i><p class="title">Назва документу</p></a>
-        <a href="#" class="doc"><i class="fas fa-file-alt fa-5x"></i><p class="title">Назва документу</p></a>
-    </div>
+    {% for doc in docs %}
+        <div class="docs-page">
+            <a href="#" class="doc"><i class="fas fa-file-alt fa-5x"></i>
+                <p class="title">{{ doc.title }}</p></a>
+        </div>
+    {% endfor %}
 </div>
 
 
