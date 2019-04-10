@@ -102,7 +102,11 @@ def normbase(request):
 
 
 def docs(request):
-    return render(request, 'docs.html')
+    docs = Document.objects.all()
+    ctx = {
+        'docs': docs
+    }
+    return render(request, 'docs.html', ctx)
 
 
 def events(request):

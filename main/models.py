@@ -10,6 +10,8 @@ from datetime import date
 from tinymce import models as tinymce_models
 
 DEFAULT_IMAGE_PATH = 'img/default.jpg'
+
+
 # Create your models here.
 def compress(image):
     im = Image.open(image)
@@ -28,7 +30,7 @@ class Post(models.Model):
                               upload_to='img',
                               null=True,
                               blank=True,
-                              #default='default.jpg',
+                              # default='default.jpg',
                               help_text="Основне зображення публікації")
     preview_text = models.TextField('Опис',
                                     max_length=300,
@@ -78,7 +80,7 @@ class Event(models.Model):
                               upload_to='img',
                               null=True,
                               blank=True,
-                              #default='default.jpg',
+                              # default='default.jpg',
                               help_text="Основне зображення публікації")
     video = models.FileField(upload_to='videos',
                              null=True,
@@ -112,18 +114,18 @@ class Event(models.Model):
         super().save(*args, **kwargs)
 
 
-def __str__(self):
-    return self.title
+    def __str__(self):
+        return self.title
 
 
-@property
-def is_past(self):
-    return date.today() > self.event_date.date()
+    @property
+    def is_past(self):
+        return date.today() > self.event_date.date()
 
 
-class Meta:
-    verbose_name = 'Подія'
-    verbose_name_plural = 'Події'
+    class Meta:
+        verbose_name = 'Подія'
+        verbose_name_plural = 'Події'
 
 
 class Project(models.Model):
@@ -238,7 +240,7 @@ class Slider(models.Model):
                               upload_to='img',
                               null=True,
                               blank=True,
-                              #default='default.jpg',
+                              # default='default.jpg',
                               help_text='Зображення буде відображатись на слайдері головної сторінки')
 
     def save(self, *args, **kwargs):
@@ -257,6 +259,29 @@ class Slider(models.Model):
         verbose_name_plural = 'Фотографії Сладеру'
 
 
+class Document(models.Model):
+    title = models.CharField('Назва документа',
+                             max_length=70,
+                             help_text='Назва вашого документа, яка буде відображатись на титульній сторінці')
+    document = models.FileField('Документ',
+                                upload_to='docs',
+                                null=False,
+                                blank=False,
+                                help_text='Завантажте документ')
+    isHidden = models.BooleanField('Приховати документ',
+                                   default=False,
+                                   help_text="Поставте галочку для того что <b>приховати</b> цей документ у списку "
+                                             "документів")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Документ'
+        verbose_name_plural = 'Документи'
+
+
+
 class Partner(models.Model):
     name = models.CharField('Назва компанії-партнера',
                             max_length=64,
@@ -266,6 +291,9 @@ class Partner(models.Model):
                               null=False,
                               blank=False,
                               help_text='Логотип для відображення на головній сторінці у блоці партнерів')
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = 'Партнер'
@@ -280,5 +308,9 @@ def submission_delete(sender, instance, **kwargs):
         pass
     try:
         instance.video.delete(False)
+    except AttributeError:
+        pass
+    try:
+        instance.document.delete(False)
     except AttributeError:
         pass
