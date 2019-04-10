@@ -5,17 +5,21 @@ from .models import *
 
 class PostAdmin(TabbedTranslationAdmin):
     list_display = ['title', 'isHidden']
+    search_fields = ['title']
     list_filter = ['isHidden']
 
 
 class EventAdmin(TabbedTranslationAdmin):
     list_display = ['title', 'date', 'isHidden']
     list_filter = ['isHidden']
+    search_fields = ['title']
 
 
 class ProjectAdmin(TabbedTranslationAdmin):
     list_display = ['title', 'area', 'power', 'isHidden']
     list_filter = ('area', 'isHidden')
+    search_fields = ['title']
+
 
 
 admin.site.register(Post, PostAdmin)
