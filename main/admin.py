@@ -21,10 +21,10 @@ class ProjectAdmin(TabbedTranslationAdmin):
     search_fields = ['title']
 
 
-
 class DocumentAdmin(TabbedTranslationAdmin):
     list_display = ['title', 'isHidden']
     list_filter = ('title', 'isHidden')
+
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Event, EventAdmin)
@@ -32,3 +32,4 @@ admin.site.register(Project, ProjectAdmin)
 admin.site.register(Slider)
 admin.site.register(Partner)
 admin.site.register(Document)
+admin.site.register(Gallery)
