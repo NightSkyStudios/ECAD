@@ -20,13 +20,43 @@ function dropDown() {
 
 }
 
+
+//Gallery
+
+var arr = [];
+for (var i = 0; i < $(".gallery img").length; i++) {
+    arr[i] = $(".gallery img")[i];
+}
+
+
 $(".gallery img").click(function (e) {
-    img = $(e.target).attr("src");
-    $("body").append('<div class="overlay" onclick="Rem(this)"><img src=""></div>');
-    $(".overlay img").attr("src", img)
+    $("body").append('<div class="overlay"><i class="fas fa-arrow-left" onclick="Prev()"></i><img src="" number=""><i class="fas fa-arrow-right" onclick="Next()"></i> <i class="fas fa-times" onclick="Close()"></i></div>');
+    change($(e.target).attr("number"))
 });
 
-function Rem(e) {
-    console.log("Test")
+function Prev() {
+    num =  parseInt($(".overlay img").attr("number"),10)
+    if(num === 0){
+        change( arr.length - 1)
+    }else{
+        change( num - 1)
+    }
+}
+
+function Next() {
+    num =  parseInt($(".overlay img").attr("number"),10)
+    if(num === arr.length - 1){
+        change( 0)
+    }else{
+        change( num + 1)
+    }
+}
+
+function Close() {
     $(".overlay").remove()
+}
+
+function change(id) {
+    adress = $(arr[id]).attr("src")
+    $(".overlay img").attr("src", adress).attr("number", id)
 }
