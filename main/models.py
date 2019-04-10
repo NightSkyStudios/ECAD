@@ -113,7 +113,6 @@ class Event(models.Model):
             self.image = DEFAULT_IMAGE_PATH
         super().save(*args, **kwargs)
 
-
     def __str__(self):
         return self.title
 
@@ -281,7 +280,6 @@ class Document(models.Model):
         verbose_name_plural = 'Документи'
 
 
-
 class Partner(models.Model):
     name = models.CharField('Назва компанії-партнера',
                             max_length=64,
@@ -298,6 +296,13 @@ class Partner(models.Model):
     class Meta:
         verbose_name = 'Партнер'
         verbose_name_plural = 'Партнери'
+
+
+class Gallery(models.Model):
+    image = models.ImageField()
+    project_key = models.ForeignKey(Project,
+                                    default=None,
+                                    on_delete=models.CASCADE)
 
 
 @receiver(post_delete)

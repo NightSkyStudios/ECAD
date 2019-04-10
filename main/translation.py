@@ -16,3 +16,4 @@ class PostTranslationOptions(TranslationOptions):
 class PostTranslationOptions(TranslationOptions):
     fields = ('title', 'text')
 
+
