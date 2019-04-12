@@ -31,24 +31,24 @@ for (var i = 0; i < $(".gallery img").length; i++) {
 
 $(".gallery img").click(function (e) {
     $("body").append('<div class="overlay"><img src="" number=""><div class="controls"><i class="fas fa-arrow-left" onclick="Prev()"></i><i class="fas fa-times" onclick="Close()"></i><i class="fas fa-arrow-right" onclick="Next()"></i></div></div>');
-    change($(e.target).attr("number"))
+    Change($(e.target).attr("number"))
 });
 
 function Prev() {
-    num =  parseInt($(".overlay img").attr("number"),10)
-    if(num === 0){
-        change( arr.length - 1)
-    }else{
-        change( num - 1)
+    num = parseInt($(".overlay img").attr("number"), 10)
+    if (num === 0) {
+        Change(arr.length - 1)
+    } else {
+        Change(num - 1)
     }
 }
 
 function Next() {
-    num =  parseInt($(".overlay img").attr("number"),10)
-    if(num === arr.length - 1){
-        change( 0)
-    }else{
-        change( num + 1)
+    num = parseInt($(".overlay img").attr("number"), 10)
+    if (num === arr.length - 1) {
+        Change(0)
+    } else {
+        Change(num + 1)
     }
 }
 
@@ -56,7 +56,19 @@ function Close() {
     $(".overlay").remove()
 }
 
-function change(id) {
+function Change(id) {
     adress = $(arr[id]).attr("src")
     $(".overlay img").attr("src", adress).attr("number", id)
 }
+
+$('html').keydown(function (e) {
+    if(e.which === 37){
+        Prev();
+    }
+    if(e.which === 39){
+        Next();
+    }
+    if(e.which === 13 || e.which === 27){
+        Close();
+    }
+});
