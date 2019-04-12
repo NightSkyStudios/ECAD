@@ -83,8 +83,10 @@ def projects(request):
 
 def project(request, id):
     project = Project.objects.get(pk=id)
+    gallery = Gallery.objects.filter(project_key=project)
     ctx = {
         'project': project,
+        'gallery': gallery,
     }
     return render(request, 'project_post.html', ctx)
 
