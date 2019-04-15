@@ -527,7 +527,7 @@
                 document.getElementById("project-info").innerHTML = this.responseText;
             }
         };
-        xhttp.open("GET", "/map_project/" + area, true);
+        xhttp.open("GET", "/map_project/" + area + "/{{ request.LANGUAGE_CODE }}", true);
         xhttp.send();
 
         $(".st2").removeClass("st2")

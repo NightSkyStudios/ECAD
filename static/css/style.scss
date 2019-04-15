@@ -11,13 +11,21 @@ body, html {
    font-family: Roboto, sans-serif;
    overflow-x: hidden;
 }
+
 * {
    margin: 0;
    padding: 0;
 }
+
 a, button {
    cursor: pointer;
 }
+
+.page {
+   min-height: 100vh;
+   padding-bottom: 5em;
+}
+
 .header {
    display: block;
    position: relative;
@@ -51,6 +59,13 @@ a, button {
    }
 }
 
+@media only screen and (max-width: 800px) {
+   .page {
+      padding-top: 70px;
+   }
+}
+
+
 @import "nav";
 
 @import "slider";
@@ -64,3 +79,5 @@ a, button {
 @import "events";
 
 @import "projects";
+
+@import "docs";

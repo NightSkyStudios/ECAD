@@ -1,12 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity=""
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="{% static "js/tiny_mce/tiny_mce.js" %}"></script>
+    {#    <script type="text/javascript" src="{% url "tinymce-js" "NAME" %}"></script>#}
 </head>
 <body>
 
+
+{% include 'nav.html' %}
+
+
+<div class="page">
+    {#    TODO: Закінчити сторінку проекту#}
+    <div class="header center"><p>{{ project.title }}</p></div>
+
+    <div class="project-post">
+        <img src="{{ project.image.url }}" alt="">
+        <table>
+            <tr>
+                <th colspan="3">Про проект</th>
+            </tr>
+            <tr>
+                <td class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae deleniti earum
+                    explicabo facere laborum nobis perferendis repellat voluptatum! Consequuntur dolorem dolores,
+                    excepturi exercitationem id inventore ipsam iusto, libero molestias, nostrum perspiciatis qui quod
+                    repudiandae. A debitis dicta dolor dolorum eaque earum fuga quam voluptatibus! Consectetur cum enim
+                    impedit inventore officia repudiandae ut? Ab dolorum eligendi fugiat libero nesciunt odio quisquam
+                    recusandae sit tempora, velit? Commodi consequatur, id magnam provident temporibus tenetur. Cumque
+                    dolorem eveniet magnam magni minus nisi porro quidem sunt. Rem sapiente sint tempora. Accusantium
+                    alias beatae corporis doloribus, illum incidunt, iusto maiores minima, perspiciatis placeat porro
+                    rem. Aliquam animi cumque delectus deleniti, distinctio doloremque eaque earum ipsum laborum omnis
+                    optio praesentium provident quisquam soluta vero. Blanditiis consectetur cum cupiditate deleniti
+                    dicta distinctio doloribus ducimus eaque eius eos, error ex, explicabo harum labore minima nihil non
+                    odit quas quos recusandae rem repellat temporibus vitae voluptas, voluptatibus. Corporis, nemo,
+                    quisquam.
+                </td>
+                <td class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet architecto
+                    commodi cum cumque cupiditate, delectus doloremque eos facere facilis ipsum iste iure magnam minus
+                    molestias nemo numquam perspiciatis placeat porro praesentium provident quam reiciendis repellendus
+                    rerum sapiente sunt unde veniam voluptas voluptates, voluptatum. Accusantium aliquid doloribus
+                    praesentium! Ab deleniti, expedita obcaecati porro quasi quia similique velit voluptatum? Assumenda
+                    consequatur error itaque molestiae molestias nulla perferendis, quae quisquam sint totam unde
+                    veniam, voluptatibus! Aut consequatur culpa cum cumque debitis dicta doloribus error fugiat illo
+                    labore laboriosam magnam minima minus modi, pariatur provident quam quibusdam quis quisquam quod
+                    sint temporibus veritatis?
+                </td>
+
+            </tr>
+
+            <tr>
+                <td colspan="3"><p class="watt">110</p></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+{% include "footer.html" %}
+
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+<script
+        src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        startEvent: 'DOMContentLoaded',
+        once: true,
+        ease: 'ease-out',
+        anchorPlacement: 'top-bottom'
+    });
+</script>
 </body>
 </html>

@@ -1,22 +1,21 @@
 from django.contrib import admin
 from modeltranslation.admin import TabbedTranslationAdmin
-from .models import Post, Event, Project, Slider, Partner
+from .models import *
 
 
 class PostAdmin(TabbedTranslationAdmin):
-    pass
-
-
-class MapProjectAdmin(TabbedTranslationAdmin):
-    pass
+    list_display = ['title', 'isHidden']
+    list_filter = ['isHidden']
 
 
 class EventAdmin(TabbedTranslationAdmin):
-    pass
+    list_display = ['title', 'date', 'isHidden']
+    list_filter = ['isHidden']
 
 
 class ProjectAdmin(TabbedTranslationAdmin):
-    pass
+    list_display = ['title', 'area', 'power', 'isHidden']
+    list_filter = ('area', 'isHidden')
 
 
 admin.site.register(Post, PostAdmin)
@@ -24,3 +23,4 @@ admin.site.register(Event, EventAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Slider)
 admin.site.register(Partner)
+admin.site.register(Material)
