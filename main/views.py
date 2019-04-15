@@ -58,10 +58,10 @@ def index(request):
     partners = Partner.objects.all()
 
     try:
-        big_post = posts[0]
+        big_post = events[0]
     except IndexError:
         big_post = None
-    small_post = posts[1:5]
+    small_post = posts[0:4]
     nav_items = events[0:3]
     ctx = {
         'big': big_post,

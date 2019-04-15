@@ -93,6 +93,12 @@ nav ul.language li input[type=submit] {
   padding: 0.05em 0.4em;
   margin-top: 3px;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+nav ul.language li input[type=submit]:hover {
+  background-color: #ffc212;
+  color: white;
+  border-color: #ffc212;
 }
 nav ul.language li input[type=submit]:after {
   content: "";
