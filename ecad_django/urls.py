@@ -36,6 +36,7 @@ urlpatterns = i18n_patterns(
     re_path(r'^$', views.index, name='index'),
     path('map_project/<ar>/<lang>/', views.map_project, name='map_project'),
     path(r'tinymce/', include('tinymce.urls')),
+    path('document/<id>', views.pdf_view, name='pdf_view'),
     prefix_default_language=False
 )
 
