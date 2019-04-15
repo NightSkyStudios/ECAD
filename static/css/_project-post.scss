@@ -54,31 +54,31 @@
    }
 
    .controls {
-      position: relative;
-      display: block;
+      position: absolute;
+      display: flex;
+      justify-content: center;
       bottom: 0;
-      width: 50%;
-      height: 10%;
+      width: 100%;
+      height: fit-content;
       z-index: 16;
       color: $color3;
       margin: 0 auto;
+      vertical-align: middle;
       i {
-         display: inline-block;
          font-size: 4vw;
-         width: 33%;
+         width: fit-content;
          cursor: pointer;
          transition: color .3s ease-in-out;
          animation-fill-mode: both;
          &.fa-arrow-left {
-            text-align: left;
+            padding-right: 3em;
          }
 
          &.fa-arrow-right {
-            text-align: right;
+             padding-left: 3em;
          }
 
          &.fa-times {
-            text-align: center;
          }
          &:hover{
             color: $color1;

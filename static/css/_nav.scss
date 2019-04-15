@@ -39,6 +39,16 @@ nav {
             margin-top: 3px;
             cursor: pointer;
 
+
+            //tut buv danya
+            transition: background-color .3s, color .3s, border-color .3s;//
+
+            &:hover{//
+               background-color: $color1;//
+               color: white;//
+               border-color: $color1;
+            }//
+
             &:after {
                content: "";
                display: block;
