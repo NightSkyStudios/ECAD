@@ -438,13 +438,18 @@
     <div class="news">
         <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>Останні новини</p></div>
         <div class="newspanel">
-            <div class="newsblock main" data-aos="flip-left" data-aos-duration="1000">
+            <div class="pad main" data-aos="flip-left" data-aos-duration="1000">
                 {% if big %}
-                    <div class="img"><img src="{{ big.image.url }}" alt="">
-                        <div class="title">{{ big.title }}</div>
+                    <div class="pimg"><img src="{{ big.image.url }}" alt="">
+                        <div class="ptitle"><p>{{ big.title }}</p></div>
+                        <div class="pinfo">
+                            <p>{{ big.preview_text }}</p>
+                            <a class="plink" href="{% url 'blogpost' big.id %}">Детальніше <i
+                                    class="fas fa-arrow-right"></i></a>
+                            <a class="pdate"> {% if big.is_past %} Відбулося: {% else %}
+                            Відбудеться: {% endif %}{{ big.event_date|date:"d M Y" }}</a>
+                        </div>
                     </div>
-                    <p>{{ big.preview_text }}</p>
-                    <a href="{% url 'blogpost' big.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
                     </div>
                 {% else %}
                     <h1>Ще немає новин</h1>
@@ -452,12 +457,17 @@
 
             <div class="sm">
                 {% for sm in small %}
-                    <div class="newsblock" data-aos="flip-left" data-aos-duration="1000">
-                        <div class="img"><img src="{{ sm.image.url }}" alt="">
-                            <div class="title">{{ sm.title }}</div>
+                    <div class="pad" data-aos="flip-left" data-aos-duration="1000">
+                        <div class="pimg">
+                            <img src="{{ sm.image.url }}" alt="">
+                            <div class="ptitle"><p>{{ sm.title }}</p></div>
+                            <div class="pinfo">
+                                <p>{{ sm.preview_text }}</p>
+                                <a class="plink" href="{% url 'blogpost' sm.id %}">Детальніше <i
+                                        class="fas fa-arrow-right"></i></a>
+                                <a class="pdate">{{ sm.date }}</a>
+                            </div>
                         </div>
-                        <p>{{ sm.preview_text }}</p>
-                        <a href="{% url 'blogpost' sm.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
                     </div>
                 {% endfor %}
             </div>
