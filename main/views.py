@@ -52,9 +52,8 @@ def index(request):
               fail_silently=False)
 
     # posts = (Post.objects.all().union(Event.objects.all()).order_by('-date'))
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-date')
     sliders = Slider.objects.all()
-    events = Event.objects.all().order_by('-date')
     partners = Partner.objects.all()
 
     try:
@@ -62,11 +61,9 @@ def index(request):
     except IndexError:
         big_post = None
     small_post = posts[1:5]
-    nav_items = events[0:3]
     ctx = {
         'big': big_post,
         'small': small_post,
-        'nav_items': nav_items,
         'sliders': sliders,
         'partners': partners,
     }
