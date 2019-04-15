@@ -26,6 +26,10 @@ class DocumentAdmin(TabbedTranslationAdmin):
     list_filter = ('title', 'isHidden')
 
 
+class EquipmentAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+
 admin.site.register(Post, PostAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Project, ProjectAdmin)
@@ -33,3 +37,4 @@ admin.site.register(Slider)
 admin.site.register(Partner)
 admin.site.register(Document)
 admin.site.register(Gallery)
+admin.site.register(Equipment, EquipmentAdmin)

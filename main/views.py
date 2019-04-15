@@ -92,7 +92,10 @@ def project(request, id):
 
 
 def equipment(request):
-    return render(request, 'equipment.html')
+    equipment = Equipment.objects.all()
+
+    ctx = {'equipment': equipment}
+    return render(request, 'equipment.html', ctx)
 
 
 def about(request):

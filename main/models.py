@@ -299,10 +299,50 @@ class Partner(models.Model):
 
 
 class Gallery(models.Model):
-    image = models.ImageField()
+    name = models.CharField(max_length=64)
+    image = models.ImageField('Image',
+                              upload_to='img',
+                              null=False,
+                              blank=False,
+                              help_text='')
     project_key = models.ForeignKey(Project,
                                     default=None,
                                     on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Фото'
+        verbose_name_plural = 'Фотографії'
+
+
+class Equipment(models.Model):
+    name = models.CharField(max_length=64)
+    description = tinymce_models.HTMLField()
+    image = models.ImageField('Image',
+                              upload_to='img',
+                              null=False,
+                              blank=False,
+                              help_text='')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Обладнання'
+        verbose_name_plural = 'Обладнання'
+
+    def save(self, *args, **kwargs):
+        if bool(self.image) and self.image.name.find('/') == -1:
+            print(self.image)
+            print('rgb')
+            new_image = compress(self.image)
+            self.image = new_image
+
+        if bool(self.image) is False:
+            self.image = DEFAULT_IMAGE_PATH
+        super().save(*args, **kwargs)
 
 
 @receiver(post_delete)
