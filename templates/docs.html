@@ -20,10 +20,11 @@
     <div class="header center"><p>Наші матеріали</p></div>
     {% for doc in docs %}
         <div class="docs-page">
-            <a href="#" class="doc"><i class="fas fa-file-alt fa-5x"></i>
+            <a target="_blank" rel="noopener noreferrer" href="{% url 'pdf_view' doc.id %}" class="doc"><i class="fas fa-file-alt fa-5x"></i>
                 <p class="title">{{ doc.title }}</p></a>
         </div>
     {% endfor %}
+
 </div>
 
 

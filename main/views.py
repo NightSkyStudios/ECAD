@@ -2,7 +2,7 @@ from django.shortcuts import render
 from main.models import *
 from django.core.mail import send_mail, BadHeaderError
 from random import random
-
+from django.http import FileResponse, Http404
 
 def get_area_name(name):
     dict = {
@@ -162,3 +162,13 @@ def map_project(request, ar, lang):
            'area_name': area_name}
 
     return render(request, 'map_projects.html', ctx)
+
+
+def pdf_view(request, id):
+
+    doc = Document.objects.filter(pk=id)[0]
+
+    try:
+        return FileResponse(open(doc.document.path, 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()
