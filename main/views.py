@@ -2,7 +2,7 @@ from django.shortcuts import render
 from main.models import *
 from django.core.mail import send_mail, BadHeaderError
 from random import random
-
+from django.http import FileResponse, Http404
 
 def get_area_name(name):
     dict = {
@@ -43,26 +43,26 @@ def get_area_name(name):
 
 def index(request):
 
-    fname = request.POST.get('name', '')
-    number = request.POST.get('number', '')
-    subject = request.POST.get('org', '')
-    message = request.POST.get('text', '')
-    from_email = request.POST.get('email', '')
-    messages = 'Name: {}\n  Number: {}\n{} \n\nFrom {}'.format(fname, number, message, from_email)
-    send_mail(subject, messages, 'noreply@ecad.energy', ['fexumiremo@easymail.top'],
-              fail_silently=False)
+    # fname = request.POST.get('name', '')
+    # number = request.POST.get('number', '')
+    # subject = request.POST.get('org', '')
+    # message = request.POST.get('text', '')
+    # from_email = request.POST.get('email', '')
+    # messages = 'Name: {}\n  Number: {}\n{} \n\nFrom {}'.format(fname, number, message, from_email)
+    # send_mail(subject, messages, 'noreply@ecad.energy', ['fexumiremo@easymail.top'],
+    #           fail_silently=False)
 
     # posts = (Post.objects.all().union(Event.objects.all()).order_by('-date'))
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-date')
     sliders = Slider.objects.all()
     events = Event.objects.all().order_by('-date')
     partners = Partner.objects.all()
 
     try:
-        big_post = posts[0]
+        big_post = events[0]
     except IndexError:
         big_post = None
-    small_post = posts[1:5]
+    small_post = posts[0:4]
     nav_items = events[0:3]
     ctx = {
         'big': big_post,
@@ -84,14 +84,19 @@ def projects(request):
 
 def project(request, id):
     project = Project.objects.get(pk=id)
+    gallery = Gallery.objects.filter(project_key=project)
     ctx = {
         'project': project,
+        'gallery': gallery,
     }
     return render(request, 'project_post.html', ctx)
 
 
 def equipment(request):
-    return render(request, 'equipment.html')
+    equipment = Equipment.objects.all()
+
+    ctx = {'equipment': equipment}
+    return render(request, 'equipment.html', ctx)
 
 
 def about(request):
@@ -103,7 +108,11 @@ def normbase(request):
 
 
 def docs(request):
-    return render(request, 'docs.html')
+    docs = Document.objects.all()
+    ctx = {
+        'docs': docs
+    }
+    return render(request, 'docs.html', ctx)
 
 
 def events(request):
@@ -154,3 +163,13 @@ def map_project(request, ar, lang):
            'area_name': area_name}
 
     return render(request, 'map_projects.html', ctx)
+
+
+def pdf_view(request, id):
+
+    doc = Document.objects.filter(pk=id)[0]
+
+    try:
+        return FileResponse(open(doc.document.path, 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()

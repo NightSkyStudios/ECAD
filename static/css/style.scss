@@ -10,11 +10,8 @@ body, html {
    color: #000;
    font-family: Roboto, sans-serif;
    overflow-x: hidden;
-}
-
-* {
    margin: 0;
-   padding: 0;
+   padding:0;
 }
 
 a, button {
@@ -24,6 +21,7 @@ a, button {
 .page {
    min-height: 100vh;
    padding-bottom: 5em;
+   overflow: auto;
 }
 
 .header {
@@ -33,12 +31,12 @@ a, button {
    width: fit-content;
    width: -moz-fit-content;
    margin-bottom: 1em;
-
    &.center {
       margin: 2em auto 1em auto;
    }
 
    p {
+      margin: 0;
       line-height: 60px;
       font-size: 2.5em;
       font-weight: 300;
@@ -81,3 +79,7 @@ a, button {
 @import "projects";
 
 @import "docs";
+
+@import "equipment";
+
+@import "pads";

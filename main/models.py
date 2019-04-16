@@ -113,19 +113,16 @@ class Event(models.Model):
             self.image = DEFAULT_IMAGE_PATH
         super().save(*args, **kwargs)
 
+    def __str__(self):
+        return self.title
 
-def __str__(self):
-    return self.title
+    @property
+    def is_past(self):
+        return date.today() > self.event_date.date()
 
-
-@property
-def is_past(self):
-    return date.today() > self.event_date.date()
-
-
-class Meta:
-    verbose_name = 'Подія'
-    verbose_name_plural = 'Події'
+    class Meta:
+        verbose_name = 'Подія'
+        verbose_name_plural = 'Події'
 
 
 class Project(models.Model):
@@ -204,8 +201,16 @@ class Project(models.Model):
     text = tinymce_models.HTMLField('Текст',
                                     help_text='Цей текст буде з форматуванням відображатись на океремій сторінці '
                                               'відведеній для цього проекту')
-    power = models.IntegerField('Потужність',
-                                help_text="Потужність у ватах даного проекту")
+    power = models.IntegerField('Пікова Потужність',
+                                help_text="Потужність у МВт даного проекту")
+    location = models.CharField('Розташування',
+                                max_length=255,
+                                blank=False,
+                                help_text='Розташування об\'єкта', )
+    development_energy = models.IntegerField('Виробництво електроенергії',
+                                             help_text='Виробництво електроенергії у ГВт.г/рік')
+    insolation = models.IntegerField('Інсоляція',
+                                     help_text='Інсоляція проекту у kWh/kWp/year')
     date = models.DateTimeField('Дата публікації проекту',
                                 default=datetime.now,
                                 blank=True,
@@ -229,6 +234,10 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Проект'
+        verbose_name_plural = 'Проекти'
 
 
 class Slider(models.Model):
@@ -255,17 +264,26 @@ class Slider(models.Model):
         verbose_name_plural = 'Фотографії Сладеру'
 
 
-class Material(models.Model):
-    name = models.CharField('Назва документа', max_length=65)
-    document = models.FileField('Документ', upload_to='docs', null=False, blank=False)
-    isHidden = models.BooleanField('Приховати матеріал',
+class Document(models.Model):
+    title = models.CharField('Назва документа',
+                             max_length=70,
+                             help_text='Назва вашого документа, яка буде відображатись на титульній сторінці')
+    document = models.FileField('Документ',
+                                upload_to='docs',
+                                null=False,
+                                blank=False,
+                                help_text='Завантажте документ')
+    isHidden = models.BooleanField('Приховати документ',
                                    default=False,
-                                   help_text="Поставте галочку для того что <b>приховати</b> цей проект у списку "
-                                             "проектів")
+                                   help_text="Поставте галочку для того что <b>приховати</b> цей документ у списку "
+                                             "документів")
+
+    def __str__(self):
+        return self.title
 
     class Meta:
-        verbose_name = 'Матеріал'
-        verbose_name_plural = 'Матеріали'
+        verbose_name = 'Документ'
+        verbose_name_plural = 'Документи'
 
 
 class Partner(models.Model):
@@ -278,9 +296,59 @@ class Partner(models.Model):
                               blank=False,
                               help_text='Логотип для відображення на головній сторінці у блоці партнерів')
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name = 'Партнер'
         verbose_name_plural = 'Партнери'
+
+
+class Gallery(models.Model):
+    name = models.CharField(max_length=64)
+    image = models.ImageField('Image',
+                              upload_to='img',
+                              null=False,
+                              blank=False,
+                              help_text='')
+    project_key = models.ForeignKey(Project,
+                                    default=None,
+                                    on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Фото'
+        verbose_name_plural = 'Фотографії'
+
+
+class Equipment(models.Model):
+    name = models.CharField(max_length=64)
+    description = tinymce_models.HTMLField()
+    image = models.ImageField('Image',
+                              upload_to='img',
+                              null=False,
+                              blank=False,
+                              help_text='')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Обладнання'
+        verbose_name_plural = 'Обладнання'
+
+    def save(self, *args, **kwargs):
+        if bool(self.image) and self.image.name.find('/') == -1:
+            print(self.image)
+            print('rgb')
+            new_image = compress(self.image)
+            self.image = new_image
+
+        if bool(self.image) is False:
+            self.image = DEFAULT_IMAGE_PATH
+        super().save(*args, **kwargs)
 
 
 @receiver(post_delete)
@@ -291,5 +359,9 @@ def submission_delete(sender, instance, **kwargs):
         pass
     try:
         instance.video.delete(False)
+    except AttributeError:
+        pass
+    try:
+        instance.document.delete(False)
     except AttributeError:
         pass

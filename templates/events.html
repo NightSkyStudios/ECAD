@@ -22,8 +22,8 @@
     <div class="events">
         {% for event in events %}
             {% if event.isHidden == False %}
-                <div class="event" data-aos="flip-left" data-aos-duration="1000">
-                    <div class="event-img">
+                <div class="pad" data-aos="flip-left" data-aos-duration="1000">
+                    <div class="pimg">
                         {% if event.video %}
                             <video width="530" height="440" controls playsinline>
                                 <source src="{{ event.video.url }}" type="video/mp4">
@@ -31,13 +31,16 @@
                         {% else %}
                             <img src="{{ event.image.url }}" alt="">
                         {% endif %}
-                        <div class="event-title">{{ event.title }}</div>
+                        <div class="ptitle">{{ event.title }}</div>
+                        <div class="pinfo">
+                            <p>{{ event.preview_text }}</p>
+                            <a class="plink" href="{% url 'event' event.id %}">Детальніше <i
+                                    class="fas fa-arrow-right"></i></a>
+                            <!-- -->
+                            <a class="pdate"> {% if event.is_past %} Відбулося: {% else %}
+                                Відбудеться: {% endif %}{{ event.event_date|date:"d M Y" }}</a>
+                        </div>
                     </div>
-                    <p>{{ event.preview_text }}</p>
-                    <a href="{% url 'event' event.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
-                    <!-- -->
-                    <a class="date"> {% if event.is_past %} Відбулося: {% else %}
-                        Відбудеться: {% endif %}{{ event.event_date|date:"d M Y" }}</a>
                 </div>
             {% endif %}
         {% endfor %}
