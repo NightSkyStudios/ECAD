@@ -163,6 +163,23 @@
          }
       }
 
+      .nonews{
+         position: relative;
+         width: 100%;
+         height: 25em;
+         background-color: $color2;
+         border: 0.23em solid $color1;
+         p{
+            position: absolute;
+            color: $color1;
+            font-size: 2em;
+            width: 100%;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+         }
+      }
+
       .sm {
          display: grid;
          grid-template-columns: 1fr 1fr;

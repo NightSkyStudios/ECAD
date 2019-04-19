@@ -438,8 +438,9 @@
     <div class="news">
         <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>Останні новини</p></div>
         <div class="newspanel">
-            <div class="pad main" data-aos="flip-left" data-aos-duration="1000">
-                {% if big %}
+
+            {% if big %}
+                <div class="pad main" data-aos="flip-left" data-aos-duration="1000">
                     <div class="pimg"><img src="{{ big.image.url }}" alt="">
                         <div class="ptitle"><p>{{ big.title }}</p></div>
                         <div class="pinfo">
@@ -447,13 +448,13 @@
                             <a class="plink" href="{% url 'blogpost' big.id %}">Детальніше <i
                                     class="fas fa-arrow-right"></i></a>
                             <a class="pdate"> {% if big.is_past %} Відбулося: {% else %}
-                            Відбудеться: {% endif %}{{ big.event_date|date:"d M Y" }}</a>
+                                Відбудеться: {% endif %}{{ big.event_date|date:"d M Y" }}</a>
                         </div>
                     </div>
-                    </div>
-                {% else %}
-                    <h1>Ще немає новин</h1>
-                {% endif %}
+                </div>
+            {% else %}
+                <div class="nonews"><p>Вибачте подій ще немає</p></div>
+            {% endif %}
 
             <div class="sm">
                 {% for sm in small %}
