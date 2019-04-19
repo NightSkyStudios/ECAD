@@ -20,11 +20,10 @@
 {% include 'nav.html' %}
 
 
-<div class="page">
-    <div class="header center"><p>{{ project.title }}</p></div>
-
+<div class="page" style="background-color: #232323">
     <div class="project-post">
         <div class="gallery">
+            <div class="header center" style="color: white;margin-bottom:3em;"><p>{{ project.title }}</p></div>
             <div class="mainphoto">
                 <img src="{{ project.image.url }}" number="0" alt="">
             </div>
@@ -34,7 +33,45 @@
                 {% endfor %}
             </div>
         </div>
+        <div class="pinfo">
+            <div class="pdesc"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, itaque, totam.
+                Aperiam commodi, eius ex, expedita facere facilis illo inventore mollitia natus neque omnis pariatur
+                porro quasi quod ratione similique sint veritatis vero voluptatem voluptates! A adipisci aliquam
+                assumenda consequuntur cumque doloremque ea eaque enim eum facere illum impedit ipsa labore modi nemo
+                nihil nisi nobis nulla omnis pariatur possimus quo recusandae repellat, velit veniam voluptatem
+                voluptates. Atque dolorem minima nesciunt odit quae. Ad adipisci ducimus fugiat libero minus placeat
+                sapiente. Ad aperiam deserunt eos eveniet ex, fugiat illo ipsum labore, libero magni necessitatibus
+                nulla optio perspiciatis praesentium quam voluptates.Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Aperiam dolorum, nihil quibusdam repellendus sunt vitae. Asperiores aspernatur atque consequuntur
+                corporis cupiditate debitis dicta eaque eos est eum illum impedit laboriosam laudantium magni, minima
+                neque nesciunt nihil nobis quas quidem ratione saepe tempora tenetur vel velit voluptate voluptatibus.
+                Quia, totam, voluptatibus?</p></div>
 
+            <div class="params">
+                <table>
+                    <tr>
+                        <td>Розташування:</td>
+                        <td>Україна, Хмельницька обл., м. Кам’янець-Подільський</td>
+                    </tr>
+                    <tr>
+                        <td>Площа:</td>
+                        <td>100,000 Га</td>
+                    </tr>
+                    <tr>
+                        <td>Пікова потужність:</td>
+                        <td>63,8 МВт.</td>
+                    </tr>
+                    <tr>
+                        <td>Виробництво електроенергії:</td>
+                        <td>68,2 ГВт.г/рік.</td>
+                    </tr>
+                    <tr>
+                        <td>Інсоляція:</td>
+                        <td>1069 kWh/kWp/year</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 
