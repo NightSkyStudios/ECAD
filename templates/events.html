@@ -31,7 +31,7 @@
                         {% else %}
                             <img src="{{ event.image.url }}" alt="">
                         {% endif %}
-                        <div class="ptitle">{{ event.title }}</div>
+                        <div class="ptitle"><p>{{ event.title }}</p></div>
                         <div class="pinfo">
                             <p>{{ event.preview_text }}</p>
                             <a class="plink" href="{% url 'event' event.id %}">Детальніше <i
