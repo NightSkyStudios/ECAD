@@ -1,39 +1,61 @@
 .docs-page {
-   margin: 0 5em;
-   margin-top: 2em;
+   width: 90%;
+   margin: 2em 5% 0 5%;
    display: grid;
-   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+   justify-content: space-between;
    grid-gap: 1em;
-   overflow: hidden;
    padding-bottom: 4em;
 
    .doc {
-      width: 100%;
-      color: $color2;
-      text-decoration: none;
-      text-align: center;
-      padding: 3em 0;
-      border: 0.23em solid transparent;
-      box-sizing: border-box;
-
-      i {
-         display: block;
+      background-color: $color2;
+      border: 3px solid $color2;
+      padding-bottom: 0.23em;
+      .prw {
          width: 100%;
+         height: fit-content;
+
+         img {
+            width: 100%;
+            object-fit: contain;
+         }
       }
 
       .title {
-         display: block;
-         width: 100%;
-         font-size: 1.5em;
-         font-weight: 500;
-         padding: 0.5em 0;
+         margin: 0;
+         font-size: 1.2em;
+         font-weight: 300;
+
+         p {
+            margin: 0;
+            text-align: center;
+            width: 100%;
+
+            a {
+               text-decoration: none;
+               color: white;
+
+            }
+         }
+
+         &:hover p a {
+            color: $color1;
+         }
       }
 
-      &:hover {
-         color: $color1;
-         background-color: $color2;
-         border: 0.23em solid $color1;
-         border-radius: 1em;
+      &:after {
+         display: block;
+         content: "";
+         height: 2px;
+         width: 0;
+         margin: 0 auto;
+         background-color: $color1;
+         transition: width .3s ease-in-out;
+         transform: translateY(150%);
+      }
+
+      &:hover:after {
+         width: 100%;
       }
    }
 }
