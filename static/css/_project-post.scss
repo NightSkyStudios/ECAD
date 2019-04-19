@@ -112,22 +112,22 @@
       margin: 0 auto;
       vertical-align: middle;
 
-      i {
-         font-size: 4vw;
-         width: fit-content;
+      .ctrl{
+         width: 4vw;
+         height: 4vw;
          cursor: pointer;
          transition: color .3s ease-in-out;
          animation-fill-mode: both;
 
-         &.fa-arrow-left {
-            padding-right: 3em;
+         &.left {
+            margin-right: 3em;
          }
 
-         &.fa-arrow-right {
-            padding-left: 3em;
+         &.right {
+            margin-left: 3em;
          }
 
-         &.fa-times {
+         &.close {
          }
 
          &:hover {

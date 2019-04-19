@@ -30,7 +30,7 @@ for (var i = 0; i < $(".gallery img").length; i++) {
 
 
 $(".gallery img").click(function (e) {
-    $("body").append('<div class="overlay"><img src="" number=""><div class="controls"><i class="fas fa-arrow-left" onclick="Prev()"></i><i class="fas fa-times" onclick="Close()"></i><i class="fas fa-arrow-right" onclick="Next()"></i></div></div>');
+    $("body").append('<div class="overlay"><img src="" number=""><div class="controls"> <div class="ctrl left" onclick="Prev()"></div><div class="ctrl close" onclick="Close()"></div><div class="ctrl right" onclick="Next()"></div></div></div>');
     Change($(e.target).attr("number"))
 });
 
