@@ -50,12 +50,14 @@
          height: fit-content;
          border: 2px solid $color1;
          margin: 2em auto;
+
          table {
             width: 100%;
             color: $color1;
             border: none;
             border-collapse: collapse;
             font-weight: 500;
+
             tr {
                height: 3em;
 
@@ -111,23 +113,25 @@
       color: $color3;
       margin: 0 auto;
       vertical-align: middle;
+      padding-bottom: 10px;
 
-      i {
-         font-size: 4vw;
-         width: fit-content;
+      .ctrl {
+
+         width: 4vw;
+         height: 4vw;
          cursor: pointer;
          transition: color .3s ease-in-out;
          animation-fill-mode: both;
 
-         &.fa-arrow-left {
-            padding-right: 3em;
+         &.left {
+            margin-right: 3em;
          }
 
-         &.fa-arrow-right {
-            padding-left: 3em;
+         &.right {
+            margin-left: 3em;
          }
 
-         &.fa-times {
+         &.close {
          }
 
          &:hover {

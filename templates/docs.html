@@ -25,12 +25,6 @@
                 <div class="prw"><object src="{{ doc.document.url }}"><embed src="{{ doc.document.url }}"></object></div>
                 <div class="title"><p><a target="_blank" rel="noopener noreferrer" href="{% url 'pdf_view' doc.id %}">{{ doc.title }}</a></p></div>
             </div>
-
-            {% comment %}<a target="_blank" rel="noopener noreferrer" href="" class="doc">
-                <span class="prw"><img src="{% static 'images/cin-configuration-training-document-21-638.jpg' %}" alt=""></span>
-                <p class="title">aaaa aaaaa aaaa aaaaaa aaaaaaaa </p>
-
-            </a>{% endcomment %}
         {% endfor %}
     </div>
 </div>
