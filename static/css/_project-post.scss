@@ -50,12 +50,14 @@
          height: fit-content;
          border: 2px solid $color1;
          margin: 2em auto;
+
          table {
             width: 100%;
             color: $color1;
             border: none;
             border-collapse: collapse;
             font-weight: 500;
+
             tr {
                height: 3em;
 
@@ -111,8 +113,10 @@
       color: $color3;
       margin: 0 auto;
       vertical-align: middle;
+      padding-bottom: 10px;
 
-      .ctrl{
+      .ctrl {
+
          width: 4vw;
          height: 4vw;
          cursor: pointer;
