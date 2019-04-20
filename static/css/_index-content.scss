@@ -339,13 +339,13 @@
          margin: 0 auto;
       }
 
-      .pads {
+      .apads {
          display: grid;
          grid-template-columns: 1fr;
          grid-gap: 0.5em;
          padding: 0 1em;
 
-         .pad {
+         .apad {
             min-height: unset;
             height: fit-content;
          }

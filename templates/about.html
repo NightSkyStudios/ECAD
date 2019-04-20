@@ -12,24 +12,68 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="{% static "js/tiny_mce/tiny_mce.js" %}"></script>
-{#    <script type="text/javascript" src="{% url "tinymce-js" "NAME" %}"></script>#}
+    {#    <script type="text/javascript" src="{% url "tinymce-js" "NAME" %}"></script>#}
 </head>
 <body>
 {% include 'nav.html' %}
 
 
-<div class="page">
+<div class="page" data-parallax="scroll" data-ios-fix="true" data-android-fix="true" data-image-src="{% static 'images/about.jpg' %}">
 
-    <div class="header center"><p>Про нас</p></div>
+    <div class="header center" style="color: white;text-shadow: 0px 0px 5px #000000;"><p>Про нас</p></div>
 
-    <div class="about">
-            
-    </div>
+    <table class="about">
+        <tr class="line">
+            <td class="dot"><i class="fas fa-caret-right"></i></td>
+            <td class="txt"><p>Компанія Консалтинг Девелопмент Енергетики <span class="acc">«ECAD»</span> на сьогоднішній день є одним із лідерів ринку девелопменту в сфері сонячної енергетики України.</p></td>
+        </tr>
+        <tr class="line">
+            <td class="dot"><i class="fas fa-caret-right"></i></td>
+            <td class="txt"><p>Ідея проекту зародилася в групи фахівців галузі та однодумців ще у <span class="acc">2012 році</span>.</p></td>
+        </tr>
+        <tr class="line">
+            <td class="dot"><i class="fas fa-caret-right"></i></td>
+            <td class="txt"><p>Діяльність компанії зосереджена на висококваліфікованому підході до <span class="acc">підготовки</span> проектів будівництва сонячних електростанцій «під ключ». А також
+                <span class="acc">супровід</span> проектів до введення в експлуатацію та отримання «зеленого» тарифу.</p></td>
+        </tr>
+        <tr class="line">
+            <td class="dot"><i class="fas fa-caret-right"></i></td>
+            <td class="txt"><p>Команда, що працює вже понад <span class="acc">7 років</span> на ринку альтернативної енергетики.</p></td>
+        </tr>
+        <tr class="line">
+            <td class="dot"><i class="fas fa-caret-right"></i></td>
+            <td class="txt"><p>Більш як <span class="acc">250 МВт</span> встановленої потужності СЕС.</p></td>
+        </tr>
+        <tr class="line">
+            <td class="dot"><i class="fas fa-caret-right"></i></td>
+            <td class="txt"><p>Співпраця з <span class="acc">кращими</span> ЕРС-контракторами України.</p></td>
+        </tr>
+    </table>
+    <div class="header center" style="color: white;text-shadow: 0px 0px 5px #000000;"><p>Наші послуги</p></div>
+    <table class="offers">
+        <tr class="line">
+            <td class="dot"><i class="fas fa-caret-right"></i></td>
+            <td class="txt"><p>Договір оренди земельної ділянки з відповідним цільовим призначенням.</p></td>
+        </tr>
+        <tr class="line">
+            <td class="dot"><i class="fas fa-caret-right"></i></td>
+            <td class="txt"><p>Технічні умови та Договір на підключення до електричних мереж.</p></td>
+        </tr>
+        <tr class="line">
+            <td class="dot"><i class="fas fa-caret-right"></i></td>
+            <td class="txt"><p>Готові Проекти на будівництво СЕС та підключення до електричних мереж з усіма погодженнями та експертизою.</p></td>
+        </tr>
+        <tr class="line">
+            <td class="dot"><i class="fas fa-caret-right"></i></td>
+            <td class="txt"><p>Дозвіл (декларація) на початок будівельних робіт.</p></td>
+        </tr>
+    </table>
 </div>
 
 
 {% include "footer.html" %}
 <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/parallax.js' %}"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
     AOS.init({
