@@ -99,6 +99,10 @@ def equipment(request):
     return render(request, 'equipment.html', ctx)
 
 
+def equipment_post(request):
+    return render(request, 'equipment_post.html')
+
+
 def about(request):
     return render(request, 'about.html')
 

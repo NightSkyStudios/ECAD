@@ -27,6 +27,7 @@ urlpatterns = i18n_patterns(
     path('projects/', views.projects, name='projects'),
     path('project-post/<id>', views.project, name='project_post'),
     path('equipment/', views.equipment, name='equipment'),
+    path('equipment-post/', views.equipment_post, name='equipment-post'),
     path('events/', views.events, name='events'),
     path('event/<id>', views.event, name='event'),
     path('docs/', views.docs, name='docs'),

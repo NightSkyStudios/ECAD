@@ -1,0 +1,19 @@
+.eqpost{
+   width: 90%;
+   margin: 0 auto;
+   margin-top: 2em;
+   .image{
+      display: inline-block;
+      width: 50%;
+      float: left;
+      img{
+         display: block;
+         position: relative;
+         width: 100%;
+      }
+   }
+   .descript{
+      display: inline-block;
+      width: 49%;
+   }
+}
