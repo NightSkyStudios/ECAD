@@ -15,22 +15,22 @@
 {#    <script type="text/javascript" src="{% url "tinymce-js" "NAME" %}"></script>#}
 </head>
 <body>
-
-
 {% include 'nav.html' %}
 
 
 <div class="page">
 
-{#TODO: Закінчити сторінку Про нас#}
+    <div class="header center"><p>Про нас</p></div>
 
+    <div class="about">
+            
+    </div>
 </div>
 
-{% include "footer.html" %}
 
+{% include "footer.html" %}
 <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
-<script
-        src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
     AOS.init({
         startEvent: 'DOMContentLoaded',
