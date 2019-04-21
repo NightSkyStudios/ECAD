@@ -152,7 +152,8 @@
       height: fit-content;
 
       .pad.main {
-         height: 25em;
+         height: 100%;
+         box-sizing: border-box;
 
          .ptitle {
             position: absolute;
@@ -194,7 +195,7 @@
             height: 12.5em;
 
             .pimg {
-               font-size: 0.8em;
+               font-size: 0.7em;
             }
          }
 
