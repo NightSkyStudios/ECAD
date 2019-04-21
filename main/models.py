@@ -8,6 +8,7 @@ from django.db.models.signals import post_delete, pre_delete
 from django.dispatch import receiver
 from datetime import date
 from tinymce import models as tinymce_models
+from filepreviews import FilePreviews
 
 DEFAULT_IMAGE_PATH = 'img/default.jpg'
 
@@ -201,16 +202,18 @@ class Project(models.Model):
     text = tinymce_models.HTMLField('Текст',
                                     help_text='Цей текст буде з форматуванням відображатись на океремій сторінці '
                                               'відведеній для цього проекту')
-    power = models.IntegerField('Пікова Потужність',
+    power = models.FloatField('Пікова Потужність',
                                 help_text="Потужність у МВт даного проекту")
     location = models.CharField('Розташування',
                                 max_length=255,
                                 blank=False,
                                 help_text="Розташування об'єкта", )
-    development_energy = models.IntegerField('Виробництво електроенергії',
+    development_energy = models.FloatField('Виробництво електроенергії',
                                              help_text='Виробництво електроенергії у ГВт.г/рік')
-    insolation = models.IntegerField('Інсоляція',
+    insolation = models.FloatField('Інсоляція',
                                      help_text='Інсоляція проекту у kWh/kWp/year')
+    square = models.FloatField('Площа',
+                               help_text='Площа проекту у гектарах')
     date = models.DateTimeField('Дата публікації проекту',
                                 default=datetime.now,
                                 blank=True,
@@ -277,6 +280,12 @@ class Document(models.Model):
                                    default=False,
                                    help_text="Поставте галочку для того что <b>приховати</b> цей документ у списку "
                                              "документів")
+
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
+    #     fp = FilePreviews(api_key='43fabpmHTEhXmjXtNbDffTh7rTlT5i')
+    #     preview = fp.generate(self.document.)
+    #     print(preview)
 
     def __str__(self):
         return self.title

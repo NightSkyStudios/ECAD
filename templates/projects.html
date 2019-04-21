@@ -23,15 +23,10 @@
     <div class="project-page">
         {% for project in projects %}
             {% if project.isHidden == False %}
-                <a href="{% url 'project_post' project.id %}" class="project-tile" data-aos="flip-left" data-aos-duration="1000">
+                <a href="{% url 'project_post' project.id %}" class="project-tile" data-aos="flip-left"
+                   data-aos-duration="1000">
                     <div class="img">
-                        {% if project.video %}
-                            <video autoplay loop muted>
-                                <source src="{{ project.video.url }}" type="video/mp4">
-                            </video>
-                        {% else %}
-                            <img src="{{ project.image.url }}" alt="">
-                        {% endif %}
+                        <img src="{{ project.image.url }}" alt="">
 
                         <div class="text">
                             <p class="title">{{ project.title }}</p>

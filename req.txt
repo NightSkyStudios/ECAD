@@ -3,3 +3,4 @@ Pillow==5.4.1
 pytz==2018.9
 django-modeltranslation==0.13
 django-tinymce==2.8.0
+filepreviews==2.0.2

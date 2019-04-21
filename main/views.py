@@ -123,19 +123,19 @@ def equipment(request):
 def equipment_post(request):
     ctx = {}
     get_nav_items(ctx)
-    return render(request, 'equipment_post.html')
+    return render(request, 'equipment_post.html', ctx)
 
 
 def about(request):
     ctx = {}
     get_nav_items(ctx)
-    return render(request, 'about.html')
+    return render(request, 'about.html', ctx)
 
 
 def normbase(request):
     ctx = {}
     get_nav_items(ctx)
-    return render(request, 'normbase.html')
+    return render(request, 'normbase.html', ctx)
 
 
 def docs(request):

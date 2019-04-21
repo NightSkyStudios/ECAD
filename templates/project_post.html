@@ -54,40 +54,29 @@
             </div>
         </div>
         <div class="pinfo">
-            <div class="pdesc"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, itaque, totam.
-                Aperiam commodi, eius ex, expedita facere facilis illo inventore mollitia natus neque omnis pariatur
-                porro quasi quod ratione similique sint veritatis vero voluptatem voluptates! A adipisci aliquam
-                assumenda consequuntur cumque doloremque ea eaque enim eum facere illum impedit ipsa labore modi nemo
-                nihil nisi nobis nulla omnis pariatur possimus quo recusandae repellat, velit veniam voluptatem
-                voluptates. Atque dolorem minima nesciunt odit quae. Ad adipisci ducimus fugiat libero minus placeat
-                sapiente. Ad aperiam deserunt eos eveniet ex, fugiat illo ipsum labore, libero magni necessitatibus
-                nulla optio perspiciatis praesentium quam voluptates.Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit. Aperiam dolorum, nihil quibusdam repellendus sunt vitae. Asperiores aspernatur atque consequuntur
-                corporis cupiditate debitis dicta eaque eos est eum illum impedit laboriosam laudantium magni, minima
-                neque nesciunt nihil nobis quas quidem ratione saepe tempora tenetur vel velit voluptate voluptatibus.
-                Quia, totam, voluptatibus?</p></div>
+            <div class="pdesc"><p>{{ project.text|safe }}</p></div>
 
             <div class="params">
                 <table>
                     <tr>
                         <td>Розташування:</td>
-                        <td>Україна, Хмельницька обл., м. Кам’янець-Подільський</td>
+                        <td>{{ project.location }}</td>
                     </tr>
                     <tr>
                         <td>Площа:</td>
-                        <td>100,000 Га</td>
+                        <td>{{ project.square }} Га</td>
                     </tr>
                     <tr>
                         <td>Пікова потужність:</td>
-                        <td>63,8 МВт.</td>
+                        <td>{{ project.power }} МВт.</td>
                     </tr>
                     <tr>
                         <td>Виробництво електроенергії:</td>
-                        <td>68,2 ГВт.г/рік.</td>
+                        <td>{{ project.development_energy }} ГВт.г/рік.</td>
                     </tr>
                     <tr>
                         <td>Інсоляція:</td>
-                        <td>1069 kWh/kWp/year</td>
+                        <td>{{ project.insolation }} kWh/kWp/year</td>
                     </tr>
                 </table>
             </div>
