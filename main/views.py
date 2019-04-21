@@ -50,8 +50,6 @@ def get_nav_items(ctx):
         'nav_equipment': nav_equipment,
     }
 
-    print(temp)
-
     ctx.update(temp)
 
 
@@ -120,8 +118,11 @@ def equipment(request):
     return render(request, 'equipment.html', ctx)
 
 
-def equipment_post(request):
-    ctx = {}
+def equipment_post(request, id):
+    equipment_post = Equipment.objects.get(pk=id)
+    ctx = {
+        'equipment_post': equipment_post
+    }
     get_nav_items(ctx)
     return render(request, 'equipment_post.html', ctx)
 
