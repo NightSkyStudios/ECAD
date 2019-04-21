@@ -1,12 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity=""
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="{% static "js/tiny_mce/tiny_mce.js" %}"></script>
+    {#    <script type="text/javascript" src="{% url "tinymce-js" "NAME" %}"></script>#}
 </head>
+<style>
+    .left{
+        background-image: url("{% static 'images/Left.svg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .close{
+        background-image: url("{% static 'images/Close.svg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .right{
+        background-image: url("{% static 'images/Right.svg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+</style>
 <body>
 
+
+{% include 'nav.html' %}
+
+
+<div class="page" style="background-color: #232323">
+    <div class="project-post">
+        <div class="gallery">
+            <div class="header center" style="color: white;margin-bottom:3em;"><p>{{ project.title }}</p></div>
+            <div class="mainphoto">
+                <img src="{{ project.image.url }}" number="0" alt="">
+            </div>
+            <div class="previews">
+                {% for photo in gallery %}
+                    <img src="{{ photo.image.url }}" number="{{ forloop.counter }}" alt="">
+                {% endfor %}
+            </div>
+        </div>
+        <div class="pinfo">
+            <div class="pdesc"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, itaque, totam.
+                Aperiam commodi, eius ex, expedita facere facilis illo inventore mollitia natus neque omnis pariatur
+                porro quasi quod ratione similique sint veritatis vero voluptatem voluptates! A adipisci aliquam
+                assumenda consequuntur cumque doloremque ea eaque enim eum facere illum impedit ipsa labore modi nemo
+                nihil nisi nobis nulla omnis pariatur possimus quo recusandae repellat, velit veniam voluptatem
+                voluptates. Atque dolorem minima nesciunt odit quae. Ad adipisci ducimus fugiat libero minus placeat
+                sapiente. Ad aperiam deserunt eos eveniet ex, fugiat illo ipsum labore, libero magni necessitatibus
+                nulla optio perspiciatis praesentium quam voluptates.Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Aperiam dolorum, nihil quibusdam repellendus sunt vitae. Asperiores aspernatur atque consequuntur
+                corporis cupiditate debitis dicta eaque eos est eum illum impedit laboriosam laudantium magni, minima
+                neque nesciunt nihil nobis quas quidem ratione saepe tempora tenetur vel velit voluptate voluptatibus.
+                Quia, totam, voluptatibus?</p></div>
+
+            <div class="params">
+                <table>
+                    <tr>
+                        <td>Розташування:</td>
+                        <td>Україна, Хмельницька обл., м. Кам’янець-Подільський</td>
+                    </tr>
+                    <tr>
+                        <td>Площа:</td>
+                        <td>100,000 Га</td>
+                    </tr>
+                    <tr>
+                        <td>Пікова потужність:</td>
+                        <td>63,8 МВт.</td>
+                    </tr>
+                    <tr>
+                        <td>Виробництво електроенергії:</td>
+                        <td>68,2 ГВт.г/рік.</td>
+                    </tr>
+                    <tr>
+                        <td>Інсоляція:</td>
+                        <td>1069 kWh/kWp/year</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "footer.html" %}
+
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+<script
+        src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        startEvent: 'DOMContentLoaded',
+        once: true,
+        ease: 'ease-out',
+        anchorPlacement: 'top-bottom'
+    });
+</script>
 </body>
 </html>

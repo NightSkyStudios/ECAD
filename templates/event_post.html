@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ post.title }}</title>
+    <title>{{ epost.title }}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity=""
           crossorigin="anonymous">
@@ -11,7 +11,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="{% static "js/tiny_mce/tiny_mce.js" %}"></script>
 {#    <script type="text/javascript" src="{% url "tinymce-js" "NAME" %}"></script>#}
 </head>
 <body>
@@ -20,24 +19,22 @@
 {% include 'nav.html' %}
 
 
-<div class="page">
-    <div class="post">
-        <div class="post-title"><p>{{ event.title }}</p></div>
-        {% if event.video %}
-            <video class="post-image" controls playsinline>
-                <source src="{{ event.video.url }}" type="video/mp4">
-            </video>
-        {% else %}
-            <img class="post-image" src="{{ event.image.url }}" alt="">
-        {% endif %}
-        <div class="post-text"><p>{{ event.text | safe}}</p></div>
-        <div class="post-date"><p> Відбудеться: {{ event.date }}</p></div>
+<div class="page" data-parallax="scroll" data-ios-fix="true" data-android-fix="true" data-image-src="{{ event.image.url }}" >
+    <div class="header center etitle"><p>{{ event.title }}</p></div>
+    <div class="epost">
+        <div class="desctxt"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab cumque, dolores esse explicabo necessitatibus nulla numquam vero? Accusantium adipisci aperiam, autem beatae cum eaque, expedita in iure iusto laboriosam magni minus nobis nostrum officia provident quam, rerum sed temporibus? Aut, cum distinctio eos ipsum sed tempora? Ad ducimus, inventore laboriosam libero qui veniam! Accusamus blanditiis dolor, error excepturi fuga hic, laborum magnam molestiae neque perspiciatis quia ratione rem repellendus repudiandae similique sunt tempora? Ab atque cum, cupiditate delectus deserunt dolore doloremque ducimus eligendi et eum exercitationem fugit iure laborum minima, numquam odit omnis optio quibusdam quidem repellat sapiente sed voluptas!</p></div>
+        <div class="einfo">
+            <div class="prtcp"><p><span>Учасники:</span> Іван Іванов, Іван Іванов, Іван Іванов, Іван Іванов, Іван Іванов, Іван Іванов, Іван Іванов, Іван Іванов, Іван Іванов.</p></div>
+            <div class="place"><p><span>Місце проведення:</span> Округ жмеринки</p></div>
+            <div class="date"><p><span>Дата та час:</span> 10:00 18.08.1999</p></div>
+        </div>
     </div>
 </div>
 
 {% include "footer.html" %}
 
 <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/parallax.js' %}"></script>
 <script
         src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>

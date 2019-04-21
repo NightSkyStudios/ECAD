@@ -22,16 +22,22 @@ from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = i18n_patterns(
     path('i18n/', include('django.conf.urls.i18n')),
-    path('admin/', admin.site.urls),
-    path('equipment/', views.equipment, name='equipment'),
+    path('dev/', admin.site.urls),
+    path('about/', views.about, name='about'),
     path('projects/', views.projects, name='projects'),
+    path('project-post/<id>', views.project, name='project_post'),
+    path('equipment/', views.equipment, name='equipment'),
+    path('equipment-post/', views.equipment_post, name='equipment-post'),
     path('events/', views.events, name='events'),
     path('event/<id>', views.event, name='event'),
+    path('docs/', views.docs, name='docs'),
+    path('normbase/', views.normbase, name='normbase'),
     path('blog/', views.blog, name='blog'),
     path('blogpost/<id>', views.blogpost, name='blogpost'),
     re_path(r'^$', views.index, name='index'),
-    path('map_project/<ar>', views.map_project, name='map_project'),
+    path('map_project/<ar>/<lang>/', views.map_project, name='map_project'),
     path(r'tinymce/', include('tinymce.urls')),
+    path('document/<id>', views.pdf_view, name='pdf_view'),
     prefix_default_language=False
 )
 

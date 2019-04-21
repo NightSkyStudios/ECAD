@@ -13,20 +13,46 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    {% include 'nav.html' %}
-    <div class="content">
+{% include 'nav.html' %}
 
+<div class="page">
+    <div class="header center"><p>Обладнання</p></div>
+    <div class="eqlist">
+        <div class="eq">
+            <div class="image"><img src="{% static 'images/obl.png' %}" alt=""></div>
+            <div class="title"><p><a href="{% url 'equipment-post' %}">Назва пристрою</a></p></div>
+        </div>
+        <div class="eq">
+            <div class="image"><img src="{% static 'images/obl1.png' %}" alt=""></div>
+            <div class="title"><p><a href="{% url 'equipment-post' %}">Назва пристрою</a></p></div>
+        </div>
+        <div class="eq">
+            <div class="image"><img src="{% static 'images/obl.png' %}" alt=""></div>
+            <div class="title"><p><a href="{% url 'equipment-post' %}">Назва пристрою</a></p></div>
+        </div>
+        <div class="eq">
+            <div class="image"><img src="{% static 'images/obl.png' %}" alt=""></div>
+            <div class="title"><p><a href="{% url 'equipment-post' %}">Назва пристрою</a></p></div>
+        </div>
+        <div class="eq">
+            <div class="image"><img src="{% static 'images/obl.png' %}" alt=""></div>
+            <div class="title"><p><a href="{% url 'equipment-post' %}">Назва пристрою</a></p></div>
+        </div>
     </div>
-    {% include 'footer.html' %}
-    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            startEvent: 'DOMContentLoaded',
-            once: true,
-            ease: 'ease-out',
-            anchorPlacement: 'top-bottom'
-        });
-    </script>
+
+</div>
+
+
+{% include 'footer.html' %}
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        startEvent: 'DOMContentLoaded',
+        once: true,
+        ease: 'ease-out',
+        anchorPlacement: 'top-bottom'
+    });
+</script>
 </body>
 </html>

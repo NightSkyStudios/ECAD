@@ -6,78 +6,13 @@
    grid-gap: 1em;
    overflow: hidden;
    padding-bottom: 4em;
-
-   .event {
-      border: 0.23em solid $color1;
-      position: relative;
-
-      .event-img {
-         position: relative;
-         height: 14em;
-         width: 100%;
-         overflow: hidden;
-
-         img, video {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            object-fit: cover;
-            z-index: 0;
-         }
-
-         .event-title {
-            position: absolute;
-            font-weight: 400;
-            font-size: 1.5em;
-            margin: 0 0.2em;
-            margin-top: 0.2em;
-            padding: 5px;
-            line-height: 0.8em;
-            color: white;
-            text-shadow: 0px 0px 1px #000000;
-            background-color: rgba(0, 0, 0, 0.6);
-         }
-      }
-
-      p {
-         padding: 0.2em 1em;
-         font-weight: 300;
-         font-size: 1em;
-      }
-
-      a {
-         position: relative;
-         bottom: -1px;
-         left: -1px;
-         text-decoration: none;
-         border: 0;
-         border-radius: 0;
-         background-color: $color1;
-         padding: 0.2em 1em;
-         color: $color2;
-         margin-bottom: 0.5em;
-         font-size: 0.9em;
-         font-weight: 500;
-
-         &.date {
-            display: block;
-            position: relative;
-            bottom: -1px;
-            left: 0;
-            right: -1px;
-            float: right;
-            font-weight: 500;
-            color: $color2;
-            background-color: $color1;
-            padding: 0.2em 1em;
-            font-size: 0.9em;
-            margin: 0;
-            cursor: default;
-         }
-      }
-   }
 }
 
+@media only screen and (max-width: 800px) {
+   .events {
+      grid-template-columns: 1fr;
+      margin: 0 2em;
+   }
+}
 
 @import "events-post";

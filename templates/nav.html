@@ -111,33 +111,33 @@
     </svg>
     <a class="navdd" href="javascript:void(0)" onclick="dropDown()"><i class="fas fa-bars"></i></a>
     <ul class="menu">
-        <li><a href="#">{% trans 'Про нас' %}</a></li>
+        <li><a href="{% url "about" %}">{% trans 'Про нас' %}</a></li>
         <li><a href="{% url "projects" %}" class="dd">Проекти <i class="pointer fas fa-angle-down"></i></a>
             <ul class="submenu">
-                <li><a href=#>Проект 1</a></li>
-                <li><a href=#>Проект 2</a></li>
-                <li><a href=#>Проект 3</a></li>
+                {% for project in nav_projects %}
+                    <li><a href="{% url 'project_post' project.id %}">{{ project.title }}</a></li>
+                {% endfor %}
             </ul>
         </li>
         <li><a href="{% url "equipment" %}" class="dd">Обладнання <i class="pointer fas fa-angle-down"></i></a>
             <ul class="submenu">
-                <li><a href=#>Пристрій 1</a></li>
-                <li><a href=#>Пристрій 2</a></li>
-                <li><a href=#>Пристрій 3</a></li>
+                {% for equipment in nav_equipment %}
+                    <li><a href="{% url "project_post" equipment.id %}">{{ equipment.name }}</a></li>
+                {% endfor %}
             </ul>
         </li>
 
         <li><a href="{% url "events" %}" class="dd">Події <i class="pointer fas fa-angle-down"></i></a>
             <ul class="submenu">
-                <li><a href=#>Подія 1</a></li>
-                <li><a href=#>Подія 2</a></li>
-                <li><a href=#>Подія 3</a></li>
+                {% for event in nav_events %}
+                    <li><a href="{% url "project_post" event.id %}">{{ event.title }}</a></li>
+                {% endfor %}
             </ul>
 
 
         </li>
-        <li><a href="#">Матеріали</a></li>
-        <li><a href="#">Нормативна база</a></li>
+        <li><a href="{% url "docs" %}">Матеріали</a></li>
+        <li><a href="https://rada.gov.ua/">Нормативна база</a></li>
         <li><a href="{% url 'blog' %}">Блог</a></li>
     </ul>
 

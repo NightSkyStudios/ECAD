@@ -1,5 +1,6 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import Post, Event, Project
+from .models import *
+
 
 
 @register(Post)
@@ -9,7 +10,7 @@ class PostTranslationOptions(TranslationOptions):
 
 @register(Event)
 class PostTranslationOptions(TranslationOptions):
-    fields = ('title', 'text')
+    fields = ('title', 'text', 'preview_text')
 
 
 @register(Project)

@@ -1,57 +1,84 @@
-.post {
+@keyframes fadin {
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 1;
+   }
+}
+
+.etitle {
+   background-color: rgba(0, 0, 0, 0.7);
+   color: white;
+   margin-top: 10em !important;
+   border: 6px solid rgba(0, 0, 0, 0.0);
+   -webkit-animation: fadin 1s ease-in-out;
+   -o-animation: fadin 1s ease-in-out;
+   animation: fadin 1s ease-in-out;
+
+   p {
+
+   }
+}
+
+.epost {
    position: relative;
-   width: 60%;
-   margin: 5em auto 5em auto;
-   min-height: 1000px;
+   display: block;
+   max-width: 60%;
+   height: fit-content;
+   margin: 5em auto 0 auto;
+   background-color: white;
+   border: 2px solid $color1;
+   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+   padding: 2em;
    color: $color2;
-
-   .post-image {
-      position: relative;
-      width: 100%;
-      z-index: 2;
+   p {
+      margin: 0;
    }
 
-   .post-title {
-      position: relative;
-      font-family: 'Roboto Condensed', sans-serif;
-      font-weight: 300;
-      font-size: 2.5em;
-      text-align: center;
-      margin: 0 0 1em 0;
+   .desctxt {
+      font-size: 1.1em;
    }
 
-   .post-text {
-      position: relative;
-      border: 0.1em solid $color1;
-      border-top: unset;
-      padding: 0.5em;
-      font-family: 'Roboto Condensed', sans-serif;
-      font-weight: 300;
+   .einfo {
+      margin-top: 3em;
       font-size: 1.2em;
-      top: -0.23em
-   }
+      font-family: "Roboto Condensed", sans-serif;
+      line-height: 1.3em;
+      .prtcp {
+         margin: 0.4em 0;
 
-   .post-date {
-      padding-right: 0.5em;
-      p {
-         text-align: right;
-         font-family: 'Roboto Condensed', sans-serif;
-         font-weight: 600;
-         font-size: 1em;
+         p span {
+            font-weight: 600;
+            border-bottom: 2px solid $color1;
+         }
+      }
+
+      .place {
+         margin: 0.4em 0;
+
+         p span {
+            font-weight: 600;
+         }
+      }
+
+      .date {
+         margin: 0.4em 0;
+
+         p span {
+            font-weight: 600;
+         }
       }
    }
 }
 
+
 @media only screen and (max-width: 800px) {
-   .post {
-      width: 90%;
-
-      .post-title {
-         font-size: 3em;
-      }
-
-      .post-text {
-         font-size: 1.4em;
-      }
+   .etitle{
+      margin-top: 10em !important;
+   }
+   .epost{
+      margin-top: 10em;
+      max-width: 80%;
    }
 }

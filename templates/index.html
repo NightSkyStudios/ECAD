@@ -29,8 +29,8 @@
 </div>
 <div class="content">
     <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>Наші переваги</p></div>
-    <div class="pads">
-        <div class="pad" data-aos="fade-up" data-aos-duration="1500">
+    <div class="apads">
+        <div class="apad" data-aos="fade-up" data-aos-duration="1500">
             <div class="icon"><i class="fas fa-solar-panel"></i></div>
             <div class="title">LOREM IPSUM</div>
             <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium adipisci
@@ -39,7 +39,7 @@
                 Aut, cumque illo iure nisi quibusdam tenetur.
             </div>
         </div>
-        <div class="pad" data-aos="fade-up" data-aos-duration="1500">
+        <div class="apad" data-aos="fade-up" data-aos-duration="1500">
             <div class="icon"><i class="fas fa-bolt"></i></div>
             <div class="title">LOREM IPSUM</div>
             <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium adipisci
@@ -48,7 +48,7 @@
                 Aut, cumque illo iure nisi quibusdam tenetur.
             </div>
         </div>
-        <div class="pad" data-aos="fade-up" data-aos-duration="1500">
+        <div class="apad" data-aos="fade-up" data-aos-duration="1500">
             <div class="icon"><i class="fas fa-chart-pie"></i></div>
             <div class="title">LOREM IPSUM</div>
             <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium adipisci
@@ -77,6 +77,7 @@
         fill: #232323;
         stroke: #ffc212;
         stroke-width: 0.64;
+        transition: stroke .1s, fill .1s;
     }
 
     .st2 {
@@ -89,9 +90,6 @@
         fill: #ffc212;
     }
 
-    .st2:hover {
-        fill: #232323;
-    }
 </style>
                 <radialGradient id="SVGID_1_" cx="383.5362" cy="442.305" r="352.6304" fx="385.8946" fy="442.6635"
                                 gradientTransform="matrix(1 0 0 0.1421 0 379.471)" gradientUnits="userSpaceOnUse">
@@ -440,26 +438,36 @@
     <div class="news">
         <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>Останні новини</p></div>
         <div class="newspanel">
-            <div class="newsblock main" data-aos="flip-left" data-aos-duration="1000">
-                {% if big %}
-                    <div class="img"><img src="{{ big.image.url }}" alt="">
-                        <div class="title">{{ big.title }}</div>
+            {% if big %}
+                <div class="pad main" data-aos="flip-left" data-aos-duration="1000">
+                    <div class="pimg"><img src="{{ big.image.url }}" alt="">
+                        <div class="ptitle"><p>{{ big.title }}</p></div>
+                        <div class="pinfo">
+                            <p>{{ big.preview_text }}</p>
+                            <a class="plink" href="{% url 'blogpost' big.id %}">Детальніше <i
+                                    class="fas fa-arrow-right"></i></a>
+                            <a class="pdate"> {% if big.is_past %} Відбулося: {% else %}
+                                Відбудеться: {% endif %}{{ big.event_date|date:"d M Y" }}</a>
+                        </div>
                     </div>
-                    <p>{{ big.preview_text }}</p>
-                    <a href="{% url 'blogpost' big.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                {% else %}
-                    <h1>Ще немає новин</h1>
-                {% endif %}
+                </div>
+            {% else %}
+                <div class="nonews"><p>Вибачте подій ще немає</p></div>
+            {% endif %}
 
             <div class="sm">
                 {% for sm in small %}
-                    <div class="newsblock" data-aos="flip-left" data-aos-duration="1000">
-                        <div class="img"><img src="{{ sm.image.url }}" alt="">
-                            <div class="title">{{ sm.title }}</div>
+                    <div class="pad" data-aos="flip-left" data-aos-duration="1000">
+                        <div class="pimg">
+                            <img src="{{ sm.image.url }}" alt="">
+                            <div class="ptitle"><p>{{ sm.title }}</p></div>
+                            <div class="pinfo">
+                                <p>{{ sm.preview_text }}</p>
+                                <a class="plink" href="{% url 'blogpost' sm.id %}">Детальніше <i
+                                        class="fas fa-arrow-right"></i></a>
+                                <a class="pdate">{{ sm.date }}</a>
+                            </div>
                         </div>
-                        <p>{{ sm.preview_text }}</p>
-                        <a href="{% url 'blogpost' sm.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
                     </div>
                 {% endfor %}
             </div>
@@ -527,7 +535,7 @@
                 document.getElementById("project-info").innerHTML = this.responseText;
             }
         };
-        xhttp.open("GET", "/map_project/" + area, true);
+        xhttp.open("GET", "/map_project/" + area + "/{{ request.LANGUAGE_CODE }}", true);
         xhttp.send();
 
         $(".st2").removeClass("st2")
