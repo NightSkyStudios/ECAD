@@ -24,7 +24,7 @@
    td {
       border-collapse: collapse;
       border-spacing: 0.5em;
-      padding: 0 1em;
+      //padding: 0 1em;
 
       p {
          margin: 0;
@@ -35,6 +35,7 @@
       font-size: 2.5em;
       color: $color1;
       padding-right: 0;
+      width: 1em;
    }
 
    .txt {

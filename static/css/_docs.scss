@@ -11,6 +11,8 @@
       background-color: $color2;
       border: 3px solid $color2;
       padding-bottom: 0.23em;
+      transition: transform 0.3s ease-in-out;
+
       .prw {
          width: 100%;
          height: fit-content;
@@ -54,8 +56,12 @@
          transform: translateY(150%);
       }
 
-      &:hover:after {
-         width: 100%;
+      &:hover {
+         transform: scale(1.05);
+
+         &:after {
+            width: 100%;
+         }
       }
    }
 }
