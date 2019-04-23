@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,19 +14,21 @@
 </head>
 <body>
 {% include 'nav.html' %}
-<div class="content">
-    <div class="grid">
-        {% for eq in equipment %}
-        <div class="card">
-            <div class="img"><img src="{{ eq.image.url }}" alt="">
-                <div class="title">{{ eq.name }}</div>
-            </div>
-            <p>Lorem</p>
-            <a href="">Детальніше <i class="fas fa-arrow-right"></i></a>
+
+<div class="page">
+    <div class="header center"><p>{% trans 'Обладнаня' %}</p></div>
+    <div class="eqlist">
+        <div class="eq">
+            {% for eq in equipment %}
+            <div class="image"><img src="{{ eq.image.url }}" alt=""></div>
+            <div class="title"><p><a href="{% url 'equipment_post' eq.id %}">{{ eq.name }}</a></p></div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
+
 </div>
+
+
 {% include 'footer.html' %}
 <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

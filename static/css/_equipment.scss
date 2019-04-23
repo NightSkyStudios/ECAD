@@ -1,61 +1,71 @@
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 2em;
-    margin: 2em;
+.eqlist {
+   width: 90%;
+   margin: 0 auto;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-gap: 0.5em;
 
-    .card {
-        border: 0.2em solid $color1;
-        width: 100%;
+   .eq {
+      margin-top: 2em;
 
-        .img {
-            position: relative;
-            min-height: 5em;
-            max-height: 10em;
+      .image {
+         height: 15em;
+         width: 100%;
+         transition: transform 0.3s;
+
+         img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            margin: 0 auto;
+         }
+      }
+
+      .title {
+         text-align: center;
+         color: $color2;
+         font-size: 1.5em;
+         line-height: 1.3em;
+         vertical-align: middle;
+         font-weight: 300;
+         width: 100%;
+
+         p {
+            margin: 5px;
             width: 100%;
-            overflow: hidden;
-            height: 25em;
 
-            img {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 100%;
-                object-fit: cover;
+            a {
+               width: 100%;
+               text-decoration: none;
+               color: $color2;
+
+               &:hover {
+                  color: $color1;
+               }
             }
+         }
+      }
 
-            .title {
-                position: absolute;
-                font-weight: 400;
-                font-size: 2em;
-                margin: 0 0.2em;
-                margin-top: 0.2em;
-                padding: 5px;
-                line-height: 0.8em;
-                color: white;
-                text-shadow: 0px 0px 1px #000000;
-                background-color: rgba(0, 0, 0, 0.6);
+      &:after {
+         display: block;
+         content: "";
+         position: relative;
+         height: 2px;
+         width: 0;
+         margin: 0 auto;
+         background-color: $color1;
+         transition: width 0.5s ease-in-out;
+      }
 
-            }
-        }
+      &:hover {
+         .image {
+            transform: scale(1.1);
+         }
 
-        p {
-            font-size: 1.2em;
-            padding-top: 0.5em;
-            font-weight: 300;
-        }
+         &:after {
+            width: 100%;
 
-        a {
-            position: relative;
-            top: 100%;
-            text-decoration: none;
-            border: 0;
-            border-radius: 0;
-            background-color: $color1;
-            padding: 0.2em 1em;
-            color: $color2;
-            font-size: 0.7em;
-            font-weight: 500;
-        }
-    }
+         }
+      }
+   }
 }

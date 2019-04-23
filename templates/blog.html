@@ -1,9 +1,10 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Blog</title>
+    <title>{% trans 'Блог' %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity=""
           crossorigin="anonymous">
@@ -19,22 +20,21 @@
 
 
 <div class="page">
-    <div class="header center"><p>Наш блог</p></div>
+    <div class="header center"><p>{% trans 'Наш блог' %}</p></div>
 
     <div class="blog">
         {% for post in posts %}
             {% if post.isHidden == False %}
-                <div class="blogpost" data-aos="flip-up" data-aos-duration="1000">
-                    <div class="img">
-                            <img src="{{ post.image.url }}" alt="">
-                        <div class="title">{{ post.title }}</div>
+                <div class="pad" data-aos="flip-up" data-aos-duration="1000">
+                    <div class="pimg">
+                        <img src="{{ post.image.url }}" alt="">
+                        <div class="ptitle"><p>{{ post.title }}</p></div>
+                        <div class="pinfo">
+                            <p>{{ post.preview_text }}</p>
+                            <a class="plink" href="{% url 'blogpost' post.id %}">{% trans 'Детальніше' %} <i class="fas fa-arrow-right"></i></a>
+                            <a class="pdate">{{ post.date }}</a>
+                        </div>
                     </div>
-                    <p>{{ post.preview_text}}</p>
-                    <!-- -->
-                    <a href="{% url 'blogpost' post.id %}">Детальніше <i class="fas fa-arrow-right"></i></a>
-                    <!-- -->
-                    <a class="date">{{ post.date }}</a>
-                    <!-- -->
                 </div>
             {% endif %}
         {% endfor %}

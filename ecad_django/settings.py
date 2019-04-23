@@ -132,7 +132,8 @@ EMAIL_USE_SSL = True
 EMAIL_HOST = 'euvip01.twinservers.net'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'noreply@ecad.energy'
-EMAIL_HOST_PASSWORD = 'Fr5912kp34'
+EMAIL_HOST_PASSWORD = ''
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
@@ -146,8 +147,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #TinyMCE
-TINYMCE_JS_URL = os.path.join(STATIC_URL, "js/tinymce/tinymce.min.js")
-TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "js/tinymce")
+TINYMCE_JS_URL = os.path.join(os.path.join(BASE_DIR, "static"), "js/tinymce/tinymce.min.js")
+TINYMCE_JS_ROOT = os.path.join(os.path.join(BASE_DIR, "static"), "js/tinymce")
 TINYMCE_DEFAULT_CONFIG = {
     'height': 400,
     'width': 1120,
@@ -176,3 +177,13 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
     }
+
+#EMAIL config
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'euvip01.twinservers.net'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'noreply@ecad.energy'
+EMAIL_HOST_PASSWORD = 'Fr5912kp34'

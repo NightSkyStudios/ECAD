@@ -3,6 +3,11 @@ from modeltranslation.admin import TabbedTranslationAdmin
 from .models import *
 
 
+class PhotoInline(admin.StackedInline):
+    model = Photo
+    extra = 1
+
+
 class PostAdmin(TabbedTranslationAdmin):
     list_display = ['title', 'isHidden']
     search_fields = ['title']
@@ -19,6 +24,13 @@ class ProjectAdmin(TabbedTranslationAdmin):
     list_display = ['title', 'area', 'power', 'isHidden']
     list_filter = ('area', 'isHidden')
     search_fields = ['title']
+    inlines = [PhotoInline]
+
+    def save_model(self, request, obj, form, change):
+        obj.save()
+
+        for afile in request.FILES.getlist('photos_multiple'):
+            obj.photos.create(image=afile)
 
 
 class DocumentAdmin(TabbedTranslationAdmin):
@@ -36,5 +48,5 @@ admin.site.register(Project, ProjectAdmin)
 admin.site.register(Slider)
 admin.site.register(Partner)
 admin.site.register(Document)
-admin.site.register(Gallery)
 admin.site.register(Equipment, EquipmentAdmin)
+

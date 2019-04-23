@@ -27,12 +27,16 @@ a, button {
 .header {
    display: block;
    position: relative;
-   height: 60px;
+   height: fit-content;
    width: fit-content;
    width: -moz-fit-content;
+   max-width: 90%;
    margin-bottom: 1em;
    &.center {
       margin: 2em auto 1em auto;
+      p{
+         text-align: center;
+      }
    }
 
    p {
@@ -51,7 +55,7 @@ a, button {
       content: "";
       width: 100%;
       left: -6px;
-      top: -6px;
+      top: 6px;
       border: 6px solid transparent;
       border-bottom: 6px solid $color1;
    }
@@ -60,6 +64,11 @@ a, button {
 @media only screen and (max-width: 800px) {
    .page {
       padding-top: 70px;
+   }
+   .header{
+      p{
+         line-height: 40px;
+      }
    }
 }
 
@@ -81,3 +90,9 @@ a, button {
 @import "docs";
 
 @import "equipment";
+
+@import "equipment-post";
+
+@import "pads";
+
+@import "about";

@@ -4,6 +4,7 @@ from django.core.mail import send_mail, BadHeaderError
 from random import random
 from django.http import FileResponse, Http404
 
+
 def get_area_name(name):
     dict = {
         'CK': ['Черкаська область', 'Cherkasy Oblast'],
@@ -38,21 +39,34 @@ def get_area_name(name):
     return dict[name]
 
 
+def get_nav_items(ctx):
+    nav_events = Event.objects.all().order_by('-date')[0:3]
+    nav_projects = Project.objects.all().order_by('power')[0:3]
+    nav_equipment = Equipment.objects.all()[0:3]
+
+    temp = {
+        'nav_events': nav_events,
+        'nav_projects': nav_projects,
+        'nav_equipment': nav_equipment,
+    }
+
+    ctx.update(temp)
+
+
 # Create your views here.
-
-
 def index(request):
-    fname = request.POST.get('name', '')
-    number = request.POST.get('number', '')
-    subject = request.POST.get('org', '')
-    message = request.POST.get('text', '')
-    from_email = request.POST.get('email', '')
-    messages = 'Name: {}\n  Number: {}\n{} \n\nFrom {}'.format(fname, number, message, from_email)
-    send_mail(subject, messages, 'noreply@ecad.energy', ['fexumiremo@easymail.top'],
-              fail_silently=False)
+
+    # fname = request.POST.get('name', '')
+    # number = request.POST.get('number', '')
+    # subject = request.POST.get('org', '')
+    # message = request.POST.get('text', '')
+    # from_email = request.POST.get('email', '')
+    # messages = 'Name: {}\n  Number: {}\n{} \n\nFrom {}'.format(fname, number, message, from_email)
+    # send_mail(subject, messages, 'noreply@ecad.energy', ['fexumiremo@easymail.top'],
+    #           fail_silently=False)
 
     # posts = (Post.objects.all().union(Event.objects.all()).order_by('-date'))
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-date')
     sliders = Slider.objects.all()
     events = Event.objects.all().order_by('-date')
     partners = Partner.objects.all()
@@ -63,13 +77,16 @@ def index(request):
         big_post = None
     small_post = posts[0:4]
     nav_items = events[0:3]
+
+    partners = Partner.objects.all()
     ctx = {
         'big': big_post,
         'small': small_post,
-        'nav_items': nav_items,
         'sliders': sliders,
         'partners': partners,
     }
+
+    get_nav_items(ctx)
     return render(request, 'index.html', ctx)
 
 
@@ -78,16 +95,18 @@ def projects(request):
     ctx = {
         'projects': projects
     }
+    get_nav_items(ctx)
     return render(request, 'projects.html', ctx)
 
 
 def project(request, id):
     project = Project.objects.get(pk=id)
-    gallery = Gallery.objects.filter(project_key=project)
+    gallery = Photo.objects.filter(project=project)
     ctx = {
         'project': project,
         'gallery': gallery,
     }
+    get_nav_items(ctx)
     return render(request, 'project_post.html', ctx)
 
 
@@ -95,15 +114,29 @@ def equipment(request):
     equipment = Equipment.objects.all()
 
     ctx = {'equipment': equipment}
+    get_nav_items(ctx)
     return render(request, 'equipment.html', ctx)
 
 
+def equipment_post(request, id):
+    equipment_post = Equipment.objects.get(pk=id)
+    ctx = {
+        'equipment_post': equipment_post
+    }
+    get_nav_items(ctx)
+    return render(request, 'equipment_post.html', ctx)
+
+
 def about(request):
-    return render(request, 'about.html')
+    ctx = {}
+    get_nav_items(ctx)
+    return render(request, 'about.html', ctx)
 
 
 def normbase(request):
-    return render(request, 'normbase.html')
+    ctx = {}
+    get_nav_items(ctx)
+    return render(request, 'normbase.html', ctx)
 
 
 def docs(request):
@@ -111,6 +144,7 @@ def docs(request):
     ctx = {
         'docs': docs
     }
+    get_nav_items(ctx)
     return render(request, 'docs.html', ctx)
 
 
@@ -119,6 +153,7 @@ def events(request):
     ctx = {
         'events': events
     }
+    get_nav_items(ctx)
     return render(request, 'events.html', ctx)
 
 
@@ -127,6 +162,7 @@ def event(request, id):
     ctx = {
         'event': event,
     }
+    get_nav_items(ctx)
     return render(request, 'event_post.html', ctx)
 
 
@@ -135,6 +171,7 @@ def blog(request):
     ctx = {
         'posts': post
     }
+    get_nav_items(ctx)
     return render(request, 'blog.html', ctx)
 
 
@@ -143,6 +180,7 @@ def blogpost(request, id):
     ctx = {
         'post': post,
     }
+    get_nav_items(ctx)
     return render(request, 'blog_post.html', ctx)
 
 
@@ -160,7 +198,7 @@ def map_project(request, ar, lang):
     ctx = {'projects': projects,
            'power': sum,
            'area_name': area_name}
-
+    get_nav_items(ctx)
     return render(request, 'map_projects.html', ctx)
 
 

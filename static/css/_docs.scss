@@ -1,56 +1,74 @@
 .docs-page {
-    margin: 0 5em;
-    margin-top: 2em;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 1em;
-    overflow: hidden;
-    padding-bottom: 4em;
+   width: 90%;
+   margin: 2em 5% 0 5%;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+   justify-content: space-between;
+   grid-gap: 1em;
+   padding-bottom: 4em;
 
-    .doc {
-        width: 100%;
-        color: $color2;
-        text-decoration: none;
-        text-align: center;
-        padding: 3em 0;
-        border: 0.23em solid transparent;
-        box-sizing: border-box;
+   .doc {
+      background-color: $color2;
+      border: 3px solid $color2;
+      padding-bottom: 0.23em;
+      transition: transform 0.3s ease-in-out;
 
-        i {
-            display: block;
+      .prw {
+         width: 100%;
+         height: fit-content;
+
+         img {
             width: 100%;
-        }
+            object-fit: contain;
+            transform: scale(0.8);
+         }
+      }
 
-        .title {
-            display: block;
+      .title {
+         margin: 0;
+         font-size: 1.2em;
+         font-weight: 300;
+
+         p {
+            margin: 0;
+            text-align: center;
             width: 100%;
-            font-size: 1.5em;
-            font-weight: 500;
-            padding: 0.5em 0;
-        }
 
-        &:hover {
+            a {
+               text-decoration: none;
+               color: white;
+
+            }
+         }
+
+         &:hover p a {
             color: $color1;
-            background-color: $color2;
-            border: 0.23em solid $color1;
-            border-radius: 1em;
-        }
-    }
+         }
+      }
+
+      &:after {
+         display: block;
+         content: "";
+         height: 2px;
+         width: 0;
+         margin: 0 auto;
+         background-color: $color1;
+         transition: width .3s ease-in-out;
+         transform: translateY(150%);
+      }
+
+      &:hover {
+         transform: scale(1.05);
+
+         &:after {
+            width: 100%;
+         }
+      }
+   }
 }
 
-.modal {
-    position: fixed;
-    height: 100vh;
-    width: 100%;
-    z-index: -1;
-    top:-100%;
-
-    transition: top .3s;
-
-    background-color: rgba($color2, 0.5);
-}
-
-.active{
-    top:0;
-    z-index: 1000;
+@media only screen and (max-width: 800px) {
+   .docs-page {
+      grid-template-columns: 1fr 1fr;
+   }
 }

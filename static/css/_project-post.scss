@@ -1,16 +1,18 @@
 .project-post {
    .gallery {
-      width: 80%;
+      width: 100%;
       height: fit-content;
       margin: 0 auto;
-      padding-bottom: 4px;
+      padding-bottom: 15px;
       background-color: $color2;
-      padding: 3px;
+      padding-top: 3px;
+      border-bottom: 2px dashed $color1;
 
       .mainphoto {
-         max-width: 100%;
+         max-width: 90%;
+         max-height: 70vh;
          overflow: hidden;
-         margin: 3px;
+         margin: 3px auto;
 
          img {
             width: 100%;
@@ -21,14 +23,61 @@
       .previews {
          display: flex;
          flex-wrap: wrap;
-         max-width: 100%;
+         max-width: 90%;
          justify-content: center;
+         margin: 0 auto;
 
          img {
             height: 3em;
             object-fit: cover;
             margin: 3px;
             border: 1px solid white;
+         }
+      }
+   }
+
+   .pinfo {
+      .pdesc {
+         width: 90%;
+         margin: 2em auto;
+         text-align: center;
+         font-size: 1.1em;
+         color: white !important;
+      }
+
+      .params {
+         width: 90%;
+         height: fit-content;
+         border: 2px solid $color1;
+         margin: 2em auto;
+
+         table {
+            width: 100%;
+            color: $color1;
+            border: none;
+            border-collapse: collapse;
+            font-weight: 500;
+
+            tr {
+               height: 3em;
+
+               &:nth-child(odd) {
+                  background-color: #323232;
+               }
+
+               td {
+                  width: 50%;
+                  padding: 0 2em;
+
+                  &:nth-child(odd) {
+                     text-align: right;
+                  }
+
+                  &:nth-child(even) {
+                     text-align: left;
+                  }
+               }
+            }
          }
       }
    }
@@ -64,23 +113,28 @@
       color: $color3;
       margin: 0 auto;
       vertical-align: middle;
-      i {
-         font-size: 4vw;
-         width: fit-content;
+      padding-bottom: 10px;
+
+      .ctrl {
+
+         width: 4vw;
+         height: 4vw;
          cursor: pointer;
          transition: color .3s ease-in-out;
          animation-fill-mode: both;
-         &.fa-arrow-left {
-            padding-right: 3em;
+
+         &.left {
+            margin-right: 3em;
          }
 
-         &.fa-arrow-right {
-             padding-left: 3em;
+         &.right {
+            margin-left: 3em;
          }
 
-         &.fa-times {
+         &.close {
          }
-         &:hover{
+
+         &:hover {
             color: $color1;
          }
       }
@@ -101,13 +155,14 @@
          }
       }
    }
-   .overlay{
-      .controls{
+   .overlay {
+      .controls {
          position: absolute;
          bottom: 0;
          width: 90%;
          margin: 1% 5%;
-         i{
+
+         i {
             font-size: 5em;
          }
       }
