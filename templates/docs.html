@@ -19,12 +19,16 @@
 <div class="page">
     <div class="header center"><p>Наші матеріали</p></div>
     {% for doc in docs %}
-        <div class="docs-page">
-            <a target="_blank" rel="noopener noreferrer" href="{% url 'pdf_view' doc.id %}" class="doc"><i class="fas fa-file-alt fa-5x"></i>
-                <p class="title">{{ doc.title }}</p></a>
+        <div class="docs-page" onclick="loadDoc('{{ doc.document.url }}')">
+            <div class="doc">
+                <i class="fas fa-file-alt fa-5x"></i>
+                <p class="title">{{ doc.title }}</p>
+            </div>
         </div>
     {% endfor %}
-
+    <div class="modal" id="modal">
+        <embed class="modal-content" id="modal-content" src="" type="application/pdf">
+    </div>
 </div>
 
 
@@ -39,6 +43,24 @@
         ease: 'ease-out',
         anchorPlacement: 'top-bottom'
     });
+</script>
+<script>
+    function loadDoc(url) {
+
+        document.getElementById("modal").classList.add('active')
+        document.getElementById("modal-content").src = url
+
+        /*
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("modal-content").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "/document/" + id, true);
+        xhttp.send();
+        */
+    }
 </script>
 </body>
 </html>
