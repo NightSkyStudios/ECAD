@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-21 21:19+0300\n"
+"POT-Creation-Date: 2019-04-23 15:06+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,145 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: templates/about.html:6 templates/about.html:24 templates/footer.html:6
 #: templates/nav.html:114
 msgid "Про нас"
 msgstr "About Us"
+
+#: templates/blog.html:7 templates/footer.html:12 templates/nav.html:141
+msgid "Блог"
+msgstr "Blog"
+
+#: templates/blog.html:23
+msgid "Наш блог"
+msgstr "Our Blog"
+
+#: templates/blog.html:34 templates/events.html:37 templates/index.html:447
+#: templates/index.html:467
+msgid "Детальніше"
+msgstr "Learn More"
+
+#: templates/docs.html:21
+msgid "Наші матеріали"
+msgstr "Our Documents"
+
+#: templates/equipment.html:8 templates/equipment.html:19
+#: templates/footer.html:8 templates/nav.html:122
+msgid "Обладнання"
+msgstr "Equipment"
+
+#: templates/event_post.html:29
+msgid "Дата та час"
+msgstr "Data and time"
+
+#: templates/events.html:40 templates/index.html:449
+msgid "Відбулося"
+msgstr "Took place at"
+
+#: templates/events.html:41 templates/index.html:450
+msgid "Відбудеться"
+msgstr "Will take place"
+
+#: templates/footer.html:7 templates/nav.html:115 templates/projects.html:8
+msgid "Проекти"
+msgstr "Projects"
+
+#: templates/footer.html:9 templates/nav.html:130
+msgid "Події"
+msgstr "Events"
+
+#: templates/footer.html:10 templates/nav.html:139
+msgid "Матеріали"
+msgstr "Documents"
+
+#: templates/footer.html:11 templates/nav.html:140 templates/normbase.html:6
+#: templates/normbase.html:23
+msgid "Нормативна база"
+msgstr "Normative base"
+
+#: templates/index.html:31
+msgid "Наші переваги"
+msgstr "Our Advantages"
+
+#: templates/index.html:62 templates/projects.html:21
+msgid "Наші проекти"
+msgstr "Our Projects"
+
+#: templates/index.html:431
+msgid "Наші Партнери"
+msgstr "Our Partners"
+
+#: templates/index.html:439
+msgid "Останні Новини"
+msgstr "Last News"
+
+#: templates/index.html:455
+msgid "Вибачте подій ще немає"
+msgstr "Sorry, there are no events at the moment"
+
+#: templates/index.html:475 templates/index.html:476 templates/index.html:477
+#: templates/index.html:478
+msgid "Вибачте новин ще немає"
+msgstr "Sorry, there are no news at the momment"
+
+#: templates/index.html:491
+msgid "Ваше ім'я"
+msgstr "Your name"
+
+#: templates/index.html:492
+msgid "Ваш номер телефону"
+msgstr "Your phone number"
+
+#: templates/index.html:493
+msgid "Ваш e-mail"
+msgstr "Your e-mail"
+
+#: templates/index.html:494
+msgid "Назва організації"
+msgstr "Organisation name"
+
+#: templates/index.html:495
+msgid "Повідомлення"
+msgstr "Message"
+
+#: templates/index.html:496
+msgid "Відправити"
+msgstr "Submit"
+
+#: templates/project_post.html:62
+msgid "Розташування"
+msgstr "Location"
+
+#: templates/project_post.html:66
+msgid "Площа"
+msgstr "Area"
+
+#: templates/project_post.html:67
+msgid "Га"
+msgstr "ha"
+
+#: templates/project_post.html:70 templates/project_post.html:74
+msgid "Пікова потужність"
+msgstr "Peak power"
+
+#: templates/project_post.html:71
+msgid "МВт"
+msgstr "MWt"
+
+#: templates/project_post.html:75
+msgid "ГВт.г/рік."
+msgstr ""
+
+#: templates/project_post.html:78
+msgid "Інсоляція"
+msgstr "Insolation"
+
+#: templates/project_post.html:79
+msgid "kWh/kWp/year"
+msgstr "kWh/kWp/year"
+
+#~ msgid "блог"
+#~ msgstr "blog"
+
+#~ msgid "Обладнаня"
+#~ msgstr "Equipment"

@@ -41,7 +41,7 @@ def get_area_name(name):
 
 def get_nav_items(ctx):
     nav_events = Event.objects.all().order_by('-date')[0:3]
-    nav_projects = Project.objects.all().order_by('power')[0:3]
+    nav_projects = Project.objects.all().order_by('-power')[0:3]
     nav_equipment = Equipment.objects.all()[0:3]
 
     temp = {
