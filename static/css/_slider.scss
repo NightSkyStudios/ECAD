@@ -9,16 +9,19 @@
 
 .slider {
    position: relative;
-   height: fit-content;
+   height: 600px;
    background-color: black;
 
    .slide-images {
+      height: 100%;
       width: 100%;
 
       img {
-         position: relative;
+         position: absolute;
          display: none;
          width: 100%;
+         top: 50%;
+         transform: translateY(-50%);
          animation: slideFade 0.5s linear;
 
          &.active {
@@ -70,6 +73,8 @@
          img {
             position: relative;
             display: none;
+            top: 0;
+            transform: none;
             animation: slideFade 0.5s linear;
 
             &.active {
