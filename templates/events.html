@@ -22,7 +22,7 @@
     <div class="events">
         {% for event in events %}
             {% if event.isHidden == False %}
-                <div class="pad" data-aos="flip-left" data-aos-duration="1000">
+                <div class="pad" onclick="" data-aos="flip-left" data-aos-duration="1000">
                     <div class="pimg">
                         {% if event.video %}
                             <video autoplay="autoplay" loop="loop">
