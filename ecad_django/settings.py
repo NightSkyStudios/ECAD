@@ -20,12 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lp$xka$7l8mgjl1p3@=7f#o!12332v20i92%8^zp@e$4-=6cub'
+SECRET_KEY = 'xv&6%m=mcj&%0=(nqp%i_!9fs55_-7ebnn#08$kyvl&#qs6n#5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = False
+PREPEND_WWW = True
+BASE_URL = "https://www.ecad.energy"
+ALLOWED_HOSTS = ['ecad.energy',
+                 'www.ecad.energy']
 
 # Application definition
 
@@ -51,6 +53,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
 ]
+
+CSRF_COOKIE_SECURE = True
+X_FRAME_OPTIONS = "DENY"
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 ROOT_URLCONF = 'ecad_django.urls'
 
@@ -117,7 +126,7 @@ MODELTRANSLATION_DEFAULT_LANGUAGE = 'uk'
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
@@ -139,17 +148,17 @@ EMAIL_HOST_PASSWORD = ''
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = '/home2/ecadener/public_html/static'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/home2/ecadener/public_html/media'
 
-# TinyMCE
-TINYMCE_JS_URL = os.path.join("", "js/tinymce/tinymce.min.js")
-TINYMCE_JS_ROOT = os.path.join("", "js/tinymce")
+#TinyMCE
+TINYMCE_JS_URL = os.path.join('', "js/tinymce/tinymce.min.js")
+TINYMCE_JS_ROOT = os.path.join('', "js/tinymce")
 TINYMCE_DEFAULT_CONFIG = {
     'height': 400,
     'width': 1120,
@@ -178,13 +187,3 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
     }
-
-#EMAIL config
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-EMAIL_USE_SSL = True
-EMAIL_HOST = 'euvip01.twinservers.net'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = 'noreply@ecad.energy'
-EMAIL_HOST_PASSWORD = 'Fr5912kp34'
