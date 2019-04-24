@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +16,7 @@
             margin: 0;
         }
         a{
-            text-decoration: none;
-            color:inherit;
-            cursor: pointer;
+            position: relative;
         }
         #notfound {
             position: relative;
@@ -119,13 +116,15 @@
     </style>
 </head>
 <body>
+
     <div id="notfound">
 		<div class="notfound">
 			<div class="notfound-404">
 				<h3>Упс! Сторінка не доступна</h3>
 				<h1><span>4</span><span>0</span><span>4</span></h1>
 			</div>
-            <a href="{% url "index" %}"><h2>Повернутись на головну</h2></a>
+            <br><br><br>
+            <a href="https://ecad.energy"><img src="https://i.ibb.co/jvvFYc7/Screenshot-3.png" width="50%" height=""    alt="Screenshot-3" border="0"></a>
 		</div>
 	</div>
 
