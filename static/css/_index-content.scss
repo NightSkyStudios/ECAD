@@ -272,21 +272,28 @@
             height: fit-content;
             margin: 3em 0;
             padding-left: 3em;
+            border-collapse: collapse;
 
             .number {
                font-size: 1.3em;
-               line-height: 1.7em;
-
+               line-height: 2em;
                .title {
                   color: $color1;
                   font-weight: 700;
+                  width: fit-content;
                }
 
                .num {
-                  display: inline-block;
                   color: $color2;
                   font-weight: 400;
                   padding-left: 0.5em;
+                  a{
+                     text-decoration: none;
+                     color: $color2;
+                     &:hover{
+                        color: $color1;
+                     }
+                  }
                }
             }
          }
@@ -340,10 +347,6 @@
 @media only screen and (max-width: 800px) {
    body {
       font-size: 12px;
-   }
-   .slider {
-      height: 80vh;
-      margin-top: 70px;
    }
    .content {
       .header {

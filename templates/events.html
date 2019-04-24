@@ -25,7 +25,7 @@
                 <div class="pad" data-aos="flip-left" data-aos-duration="1000">
                     <div class="pimg">
                         {% if event.video %}
-                            <video width="530" height="440" controls playsinline>
+                            <video autoplay="autoplay" loop="loop">
                                 <source src="{{ event.video.url }}" type="video/mp4">
                             </video>
                         {% else %}
