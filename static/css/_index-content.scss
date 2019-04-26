@@ -227,6 +227,8 @@
                   color: $color2;
                   font-family: Roboto, sans-serif;
                   font-weight: 300;
+                  -webkit-appearance: none;
+                  border-radius: 0;
 
                   &.submit {
                      background-color: $color1;
@@ -238,11 +240,12 @@
                      box-sizing: content-box;
 
                      //tut buv danya
-                     transition: color .3s, background-color .3s; //
+                     transition: all .3s; //
 
                      &:hover { //
-                        background-color: white; //
-                        color: black; //
+                        background-color: $color2; //
+                        color: $color1; //
+                        border: 2px solid $color2;
                      }
 
                      //
@@ -259,6 +262,8 @@
                   font-family: Roboto, sans-serif;
                   font-size: 1em;
                   font-weight: 300;
+                  -webkit-appearance: none;
+                  border-radius: 0;
                }
 
                input:focus, textarea:focus {

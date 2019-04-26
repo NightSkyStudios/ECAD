@@ -439,7 +439,7 @@
         <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>{%  trans 'Останні Новини' %}</p></div>
         <div class="newspanel">
             {% if big %}
-                <div class="pad main" data-aos="flip-left" data-aos-duration="1000">
+                <div class="pad main" onclick="" data-aos="flip-left" data-aos-duration="1000">
                     <div class="pimg"><img src="{{ big.image.url }}" alt="">
                         <div class="ptitle"><p>{{ big.title }}</p></div>
                         <div class="pinfo">
@@ -458,7 +458,7 @@
             <div class="sm">
                 {% if small %}
                     {% for sm in small %}
-                        <div class="pad" data-aos="flip-left" data-aos-duration="1000">
+                        <div class="pad" onclick="" data-aos="flip-left" data-aos-duration="1000">
                             <div class="pimg">
                                 <img src="{{ sm.image.url }}" alt="">
                                 <div class="ptitle"><p>{{ sm.title }}</p></div>
