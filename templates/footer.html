@@ -1,15 +1,15 @@
-{% load static %}
+{% load static i18n %}
 <div class="footer">
     <div class="links">
         <img src="{% static "/images/Logo2.svg" %}" alt="" onclick="return location.href = '{% url 'index' %}'">
         <div>
-            <a href="{% url "about" %}">Про нас</a>
-            <a href="{% url "projects" %}">Проекти</a>
-            <a href="{% url "equipment" %}">Обладнання</a>
-            <a href="{% url "events" %}">Події</a>
-            <a href="{% url "docs" %}">Матеріали</a>
-            <a href="{% url "normbase" %}">Нормативна база</a>
-            <a href="{% url 'blog' %}">Блог</a>
+            <a href="{% url "about" %}">{% trans 'Про нас' %}</a>
+            <a href="{% url "projects" %}">{% trans 'Проекти' %}</a>
+            <a href="{% url "equipment" %}">{% trans 'Обладнання' %}</a>
+            <a href="{% url "events" %}">{% trans 'Події' %}</a>
+            <a href="{% url "docs" %}">{% trans 'Матеріали' %}</a>
+            <a href="{% url "normbase" %}">{% trans 'Нормативна база' %}</a>
+            <a href="{% url 'blog' %}">{% trans 'Блог' %}</a>
         </div>
     </div>
     <div class="credits"><p>2019 Developed by <a href="http://www.night-sky-studios.com" target="_blank">Night

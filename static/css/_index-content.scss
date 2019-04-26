@@ -105,7 +105,8 @@
                      a {
                         text-decoration: none;
                         color: black;
-                        &:hover{
+
+                        &:hover {
                            color: $color1;
                         }
                      }
@@ -150,29 +151,30 @@
       padding-bottom: 4em;
       height: fit-content;
 
-      .pad {
-         &.main {
-            height: 25em;
-            .ptitle {
-               position: absolute;
-               font-weight: 400;
-               font-size: 2em;
-               padding: 5px;
-               line-height: 0.8em;
-               color: white;
-               text-shadow: 0px 0px 1px #000000;
-               background-color: rgba(0, 0, 0, 0.6);
-            }
+      .pad.main {
+         height: 100%;
+         box-sizing: border-box;
+
+         .ptitle {
+            position: absolute;
+            font-weight: 400;
+            font-size: 2em;
+            padding: 5px;
+            line-height: 0.8em;
+            color: white;
+            text-shadow: 0px 0px 1px #000000;
+            background-color: rgba(0, 0, 0, 0.6);
          }
       }
 
-      .nonews{
+      .nonews {
          position: relative;
          width: 100%;
          height: 25em;
          background-color: $color2;
          border: 0.23em solid $color1;
-         p{
+         box-sizing: border-box;
+         p {
             position: absolute;
             color: $color1;
             font-size: 2em;
@@ -188,11 +190,17 @@
          grid-template-columns: 1fr 1fr;
          grid-template-rows: 1fr 1fr;
          grid-gap: 1em;
-         .pad{
+
+         .pad {
             height: 12.5em;
-            .pimg{
-               font-size: 0.8em;
+
+            .pimg {
+               font-size: 0.7em;
             }
+         }
+
+         .nonews {
+            height: 100%;
          }
       }
    }
@@ -219,6 +227,8 @@
                   color: $color2;
                   font-family: Roboto, sans-serif;
                   font-weight: 300;
+                  -webkit-appearance: none;
+                  border-radius: 0;
 
                   &.submit {
                      background-color: $color1;
@@ -230,11 +240,12 @@
                      box-sizing: content-box;
 
                      //tut buv danya
-                     transition: color .3s, background-color .3s; //
+                     transition: all .3s; //
 
                      &:hover { //
-                        background-color: white; //
-                        color: black; //
+                        background-color: $color2; //
+                        color: $color1; //
+                        border: 2px solid $color2;
                      }
 
                      //
@@ -251,6 +262,8 @@
                   font-family: Roboto, sans-serif;
                   font-size: 1em;
                   font-weight: 300;
+                  -webkit-appearance: none;
+                  border-radius: 0;
                }
 
                input:focus, textarea:focus {
@@ -264,21 +277,28 @@
             height: fit-content;
             margin: 3em 0;
             padding-left: 3em;
+            border-collapse: collapse;
 
             .number {
                font-size: 1.3em;
-               line-height: 1.7em;
-
+               line-height: 2em;
                .title {
                   color: $color1;
                   font-weight: 700;
+                  width: fit-content;
                }
 
                .num {
-                  display: inline-block;
                   color: $color2;
                   font-weight: 400;
                   padding-left: 0.5em;
+                  a{
+                     text-decoration: none;
+                     color: $color2;
+                     &:hover{
+                        color: $color1;
+                     }
+                  }
                }
             }
          }
@@ -333,10 +353,6 @@
    body {
       font-size: 12px;
    }
-   .slider {
-      height: 80vh;
-      margin-top: 70px;
-   }
    .content {
       .header {
          margin: 0 auto;
@@ -372,6 +388,7 @@
 
       .newspanel {
          grid-template-columns: 1fr;
+         grid-template-rows: 1fr 1fr;
       }
 
       .contacts {

@@ -15,12 +15,10 @@
 <body>
 {% include 'nav.html' %}
 
-<div class="page" style="min-height: unset;"><div class="header center"><p>Назва обладнання</p></div>
+<div class="page" style="min-height: unset;"><div class="header center"><p>{{ equipment_post.name }}</p></div>
    <div class="eqpost">
-        <div class="image"><img src="{% static 'images/obl1.png' %}" alt=""></div>
-        <div class="descript">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, blanditiis ex nihil quas suscipit tempore tenetur voluptates. Accusantium consequatur cupiditate, debitis esse expedita illum inventore ipsum, laborum quaerat quisquam reprehenderit soluta totam ut veniam voluptas! Atque aut eaque et, ex facere impedit ipsam itaque maiores nostrum optio quidem repellat reprehenderit vel, vitae voluptas. Doloribus explicabo nihil qui quo reprehenderit. Aut autem consequatur cum eos esse magni modi mollitia, non, nostrum officiis optio placeat quasi veniam. Accusantium amet, atque beatae consectetur doloremque fuga fugiat hic laboriosam molestiae, non quis, ullam. Accusamus aliquid cupiditate eos necessitatibus placeat, quas quasi quis repudiandae? Nihil!
-        </div>
+        <div class="image"><img src="{{ equipment_post.image.url }}" alt=""></div>
+        <div class="descript">{{ equipment_post.description }}</div>
    </div>
 </div>
 

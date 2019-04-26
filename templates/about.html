@@ -1,9 +1,10 @@
-{% load static %}
+{% load static i18n%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Про нас</title>
+    <title>{%  trans 'Про нас' %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity=""
           crossorigin="anonymous">
@@ -21,7 +22,7 @@
 <div class="page" data-parallax="scroll" data-ios-fix="true" data-android-fix="true"
      data-image-src="{% static 'images/about.jpg' %}">
 
-    <div class="header center" style="color: white;text-shadow: 0px 0px 5px #000000;"><p>Про нас</p></div>
+    <div class="header center" style="color: white;text-shadow: 0px 0px 5px #000000;"><p>{% trans 'Про нас' %}</p></div>
 
     <table class="about">
         <tr class="line">

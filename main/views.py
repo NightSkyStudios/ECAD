@@ -41,7 +41,7 @@ def get_area_name(name):
 
 def get_nav_items(ctx):
     nav_events = Event.objects.all().order_by('-date')[0:3]
-    nav_projects = Project.objects.all().order_by('power')[0:3]
+    nav_projects = Project.objects.all().order_by('-power')[0:3]
     nav_equipment = Equipment.objects.all()[0:3]
 
     temp = {
@@ -49,8 +49,6 @@ def get_nav_items(ctx):
         'nav_projects': nav_projects,
         'nav_equipment': nav_equipment,
     }
-
-    print(temp)
 
     ctx.update(temp)
 
@@ -120,8 +118,11 @@ def equipment(request):
     return render(request, 'equipment.html', ctx)
 
 
-def equipment_post(request):
-    ctx = {}
+def equipment_post(request, id):
+    equipment_post = Equipment.objects.get(pk=id)
+    ctx = {
+        'equipment_post': equipment_post
+    }
     get_nav_items(ctx)
     return render(request, 'equipment_post.html', ctx)
 

@@ -1,9 +1,9 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Нормативна база</title>
+    <title>{% trans 'Нормативна база' %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity=""
           crossorigin="anonymous">
@@ -20,7 +20,7 @@
 
 <div class="page">
 
-    <div class="header center"><p>Нормативна база</p></div>
+    <div class="header center"><p>{% trans 'Нормативна база' %}</p></div>
 
     <div class="docs-page">
             <div class="doc">

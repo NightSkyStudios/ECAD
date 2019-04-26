@@ -8,7 +8,7 @@ from django.db.models.signals import post_delete, pre_delete
 from django.dispatch import receiver
 from datetime import date
 from tinymce import models as tinymce_models
-from filepreviews import FilePreviews
+
 
 DEFAULT_IMAGE_PATH = 'img/default.jpg'
 

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+FILE_UPLOAD_PERMISSIONS = 0o644
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -19,12 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lp$xka$7l8mgjl1p3@=7f#o!12332v20i92%8^zp@e$4-=6cub'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ecad.enegry']
+ALLOWED_HOSTS = ['192.168.1.37']
 
 # Application definition
 
@@ -146,9 +146,9 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-#TinyMCE
-TINYMCE_JS_URL = os.path.join(os.path.join(BASE_DIR, "static"), "js/tinymce/tinymce.min.js")
-TINYMCE_JS_ROOT = os.path.join(os.path.join(BASE_DIR, "static"), "js/tinymce")
+# TinyMCE
+TINYMCE_JS_URL = os.path.join("", "js/tinymce/tinymce.min.js")
+TINYMCE_JS_ROOT = os.path.join("", "js/tinymce")
 TINYMCE_DEFAULT_CONFIG = {
     'height': 400,
     'width': 1120,

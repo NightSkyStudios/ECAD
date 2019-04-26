@@ -30,12 +30,27 @@
    background-color: white;
    border: 2px solid $color1;
    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
-   padding: 2em;
+   padding: 4em 2em 2em 2em;
    color: $color2;
    p {
       margin: 0;
    }
-
+   .vid{
+      position: absolute;
+      background-color: $color2;
+      width: 100%;
+      text-align: center;
+      top: 0;
+      right: 0;
+      a{
+         display: block;
+         text-decoration: none;
+         font-size: 1.3em;
+         color: white;
+         font-weight: 300;
+         margin: 10px;
+      }
+   }
    .desctxt {
       font-size: 1.1em;
    }

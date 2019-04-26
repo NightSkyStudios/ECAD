@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,24 +59,24 @@
             <div class="params">
                 <table>
                     <tr>
-                        <td>Розташування:</td>
+                        <td>{% trans 'Розташування' %}:</td>
                         <td>{{ project.location }}</td>
                     </tr>
                     <tr>
-                        <td>Площа:</td>
-                        <td>{{ project.square }} Га</td>
+                        <td>{% trans 'Площа' %}:</td>
+                        <td>{{ project.square }} {% trans 'Га' %}</td>
                     </tr>
                     <tr>
-                        <td>Пікова потужність:</td>
-                        <td>{{ project.power }} МВт.</td>
+                        <td>{% trans 'Пікова потужність' %}:</td>
+                        <td>{{ project.power }} {% trans 'МВт' %}.</td>
                     </tr>
                     <tr>
-                        <td>Виробництво електроенергії:</td>
-                        <td>{{ project.development_energy }} ГВт.г/рік.</td>
+                        <td>{% trans 'Пікова потужність' %}:</td>
+                        <td>{{ project.development_energy }} {% trans 'ГВт.г/рік.' %}</td>
                     </tr>
                     <tr>
-                        <td>Інсоляція:</td>
-                        <td>{{ project.insolation }} kWh/kWp/year</td>
+                        <td>{% trans 'Інсоляція' %}:</td>
+                        <td>{{ project.insolation }} {% trans 'kWh/kWp/year' %}</td>
                     </tr>
                 </table>
             </div>

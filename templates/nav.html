@@ -112,14 +112,14 @@
     <a class="navdd" href="javascript:void(0)" onclick="dropDown()"><i class="fas fa-bars"></i></a>
     <ul class="menu">
         <li><a href="{% url "about" %}">{% trans 'Про нас' %}</a></li>
-        <li><a href="{% url "projects" %}" class="dd">Проекти <i class="pointer fas fa-angle-down"></i></a>
+        <li><a href="{% url "projects" %}" class="dd">{% trans 'Проекти' %} <i class="pointer fas fa-angle-down"></i></a>
             <ul class="submenu">
                 {% for project in nav_projects %}
                     <li><a href="{% url 'project_post' project.id %}">{{ project.title }}</a></li>
                 {% endfor %}
             </ul>
         </li>
-        <li><a href="{% url "equipment" %}" class="dd">Обладнання <i class="pointer fas fa-angle-down"></i></a>
+        <li><a href="{% url "equipment" %}" class="dd">{% trans 'Обладнання' %} <i class="pointer fas fa-angle-down"></i></a>
             <ul class="submenu">
                 {% for equipment in nav_equipment %}
                     <li><a href="{% url "project_post" equipment.id %}">{{ equipment.name }}</a></li>
@@ -127,7 +127,7 @@
             </ul>
         </li>
 
-        <li><a href="{% url "events" %}" class="dd">Події <i class="pointer fas fa-angle-down"></i></a>
+        <li><a href="{% url "events" %}" class="dd">{% trans 'Події' %} <i class="pointer fas fa-angle-down"></i></a>
             <ul class="submenu">
                 {% for event in nav_events %}
                     <li><a href="{% url "project_post" event.id %}">{{ event.title }}</a></li>
@@ -136,9 +136,11 @@
 
 
         </li>
-        <li><a href="{% url "docs" %}">Матеріали</a></li>
-        <li><a href="https://rada.gov.ua/">Нормативна база</a></li>
-        <li><a href="{% url 'blog' %}">Блог</a></li>
+        <li><a href="{% url "docs" %}">{% trans 'Матеріали' %}</a></li>
+        <li><a href="https://rada.gov.ua/">{% trans 'Нормативна база' %}</a></li>
+        <li><a href="{% url 'blog' %}">{% trans 'Блог' %}</a></li>
     </ul>
 
 </nav>
+
+<div class="upbtn"><i class="fas fa-arrow-up"></i></div>

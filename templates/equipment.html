@@ -1,11 +1,11 @@
-{% load static %}
+{% load static i18n %}
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Обладнання</title>
+    <title>{% trans 'Обладнання' %}</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity=""
           crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -16,28 +16,14 @@
 {% include 'nav.html' %}
 
 <div class="page">
-    <div class="header center"><p>Обладнання</p></div>
+    <div class="header center"><p>{% trans 'Обладнання' %}</p></div>
     <div class="eqlist">
+     {% for eq in equipment %}
         <div class="eq">
-            <div class="image"><img src="{% static 'images/obl.png' %}" alt=""></div>
-            <div class="title"><p><a href="{% url 'equipment-post' %}">Назва пристрою</a></p></div>
+            <div class="image"><img src="{{ eq.image.url }}" alt=""></div>
+            <div class="title"><p><a href="{% url 'equipment_post' eq.id %}">{{ eq.name }}</a></p></div>
         </div>
-        <div class="eq">
-            <div class="image"><img src="{% static 'images/obl1.png' %}" alt=""></div>
-            <div class="title"><p><a href="{% url 'equipment-post' %}">Назва пристрою</a></p></div>
-        </div>
-        <div class="eq">
-            <div class="image"><img src="{% static 'images/obl.png' %}" alt=""></div>
-            <div class="title"><p><a href="{% url 'equipment-post' %}">Назва пристрою</a></p></div>
-        </div>
-        <div class="eq">
-            <div class="image"><img src="{% static 'images/obl.png' %}" alt=""></div>
-            <div class="title"><p><a href="{% url 'equipment-post' %}">Назва пристрою</a></p></div>
-        </div>
-        <div class="eq">
-            <div class="image"><img src="{% static 'images/obl.png' %}" alt=""></div>
-            <div class="title"><p><a href="{% url 'equipment-post' %}">Назва пристрою</a></p></div>
-        </div>
+        {% endfor %}
     </div>
 
 </div>
