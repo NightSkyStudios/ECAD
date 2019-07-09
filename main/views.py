@@ -42,22 +42,21 @@ def get_area_name(name):
 
 
 def index(request):
-    fname = request.POST.get('name', '')
-    number = request.POST.get('number', '')
-    subject = request.POST.get('org', '')
-    message = request.POST.get('text', '')
-    from_email = request.POST.get('email', '')
-    messages = 'Name: {}\n  Number: {}\n{} \n\nFrom {}'.format(fname, number, message, from_email)
-    send_mail(subject, messages, 'noreply@ecad.energy', ['fexumiremo@easymail.top'],
-              fail_silently=False)
+    # fname = request.POST.get('name', '')
+    # number = request.POST.get('number', '')
+    # subject = request.POST.get('org', '')
+    # message = request.POST.get('text', '')
+    # from_email = request.POST.get('email', '')
+    # messages = 'Name: {}\n  Number: {}\n{} \n\nFrom {}'.format(fname, number, message, from_email)
+    # send_mail(subject, messages, 'noreply@ecad.energy', ['fexumiremo@easymail.top'], fail_silently=False)
 
-    # posts = (Post.objects.all().union(Event.objects.all()).order_by('-date'))
+    posts = (Post.objects.all().union(Event.objects.all()).order_by('-date'))
     posts = Post.objects.all().order_by('-date')
     sliders = Slider.objects.all()
     partners = Partner.objects.all()
 
     try:
-        big_post = events[0]
+        big_post = posts[0]
     except IndexError:
         big_post = None
     small_post = posts[1:5]
