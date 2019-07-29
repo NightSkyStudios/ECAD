@@ -103,6 +103,7 @@
          p {
             transform: translateY(0);
          }
+
       }
    }
 }
@@ -111,6 +112,7 @@
 @media only screen and (max-width: 800px) {
    .pad {
       font-size: 10px;
+      height: 25em;
    }
 }
 

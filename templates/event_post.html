@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +19,16 @@
 {% include 'nav.html' %}
 
 
-<div class="page" data-parallax="scroll" data-image-src="{{ event.image.url }}" >
+<div class="page" data-parallax="scroll" data-ios-fix="true" data-android-fix="true" data-image-src="{{ event.image.url }}" >
     <div class="header center etitle"><p>{{ event.title }}</p></div>
     <div class="epost">
-
+        <div class="vid"><a href="{{ event.video.url }}"><i class="far fa-play-circle"></i> Відео</a></div>
+        <div class="desctxt"><p>{{ event.text }}</p></div>
+        <div class="einfo">
+{#            <div class="prtcp"><p><span>Учасники:</span> Іван Іванов, Іван Іванов, Іван Іванов, Іван Іванов, Іван Іванов, Іван Іванов, Іван Іванов, Іван Іванов, Іван Іванов.</p></div>#}
+{#            <div class="place"><p><span>Місце проведення:</span> Округ жмеринки</p></div>#}
+            <div class="date"><p><span>{% trans 'Дата та час' %}:</span> {{ event.event_date }}</p></div>
+        </div>
     </div>
 </div>
 

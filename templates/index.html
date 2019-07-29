@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,9 +28,9 @@
     <div class="dots"></div>
 </div>
 <div class="content">
-    <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>Наші переваги</p></div>
-    <div class="pads">
-        <div class="pad" data-aos="fade-up" data-aos-duration="1500">
+    <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>{% trans 'Наші переваги' %}</p></div>
+    <div class="apads">
+        <div class="apad" data-aos="fade-up" data-aos-duration="1500">
             <div class="icon"><i class="fas fa-solar-panel"></i></div>
             <div class="title">LOREM IPSUM</div>
             <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium adipisci
@@ -39,7 +39,7 @@
                 Aut, cumque illo iure nisi quibusdam tenetur.
             </div>
         </div>
-        <div class="pad" data-aos="fade-up" data-aos-duration="1500">
+        <div class="apad" data-aos="fade-up" data-aos-duration="1500">
             <div class="icon"><i class="fas fa-bolt"></i></div>
             <div class="title">LOREM IPSUM</div>
             <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium adipisci
@@ -48,7 +48,7 @@
                 Aut, cumque illo iure nisi quibusdam tenetur.
             </div>
         </div>
-        <div class="pad" data-aos="fade-up" data-aos-duration="1500">
+        <div class="apad" data-aos="fade-up" data-aos-duration="1500">
             <div class="icon"><i class="fas fa-chart-pie"></i></div>
             <div class="title">LOREM IPSUM</div>
             <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium adipisci
@@ -59,7 +59,7 @@
         </div>
     </div>
     <div class="mapsector">
-        <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>Наші проекти</p></div>
+        <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>{% trans 'Наші проекти' %}</p></div>
         <div class="grid">
             <div class="info" id="project-info">
 
@@ -428,7 +428,7 @@
         </div>
     </div>
     <div class="partners">
-        <div class="header"><p>Наші партнери</p></div>
+        <div class="header"><p>{% trans 'Наші Партнери' %}</p></div>
         <div class="partnerlist">
             {% for partner in partners %}
                 <div class="partner"><img src="{{ partner.image.url }}" alt="{{ partner.name }}"></div>
@@ -436,40 +436,47 @@
         </div>
     </div>
     <div class="news">
-        <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>Останні новини</p></div>
+        <div class="header" data-aos="fade-right" data-aos-duration="1000"><p>{%  trans 'Останні Новини' %}</p></div>
         <div class="newspanel">
-            <div class="pad main" data-aos="flip-left" data-aos-duration="1000">
-                {% if big %}
+            {% if big %}
+                <div class="pad main" onclick="" data-aos="flip-left" data-aos-duration="1000">
                     <div class="pimg"><img src="{{ big.image.url }}" alt="">
                         <div class="ptitle"><p>{{ big.title }}</p></div>
                         <div class="pinfo">
                             <p>{{ big.preview_text }}</p>
-                            <a class="plink" href="{% url 'blogpost' big.id %}">Детальніше <i
+                            <a class="plink" href="{% url 'blogpost' big.id %}">{% trans 'Детальніше' %} <i
                                     class="fas fa-arrow-right"></i></a>
-                            <a class="pdate"> {% if big.is_past %} Відбулося: {% else %}
-                            Відбудеться: {% endif %}{{ big.event_date|date:"d M Y" }}</a>
+                            <a class="pdate"> {% if event.is_past %} {% trans 'Відбулося' %}: {% else %}
+                                {% trans 'Відбудеться' %}: {% endif %}{{ event.event_date|date:"d M Y" }}</a>
                         </div>
                     </div>
-                    </div>
-                {% else %}
-                    <h1>Ще немає новин</h1>
-                {% endif %}
+                </div>
+            {% else %}
+                <div class="nonews"><p>{% trans 'Вибачте подій ще немає' %}</p></div>
+            {% endif %}
 
             <div class="sm">
-                {% for sm in small %}
-                    <div class="pad" data-aos="flip-left" data-aos-duration="1000">
-                        <div class="pimg">
-                            <img src="{{ sm.image.url }}" alt="">
-                            <div class="ptitle"><p>{{ sm.title }}</p></div>
-                            <div class="pinfo">
-                                <p>{{ sm.preview_text }}</p>
-                                <a class="plink" href="{% url 'blogpost' sm.id %}">Детальніше <i
-                                        class="fas fa-arrow-right"></i></a>
-                                <a class="pdate">{{ sm.date }}</a>
+                {% if small %}
+                    {% for sm in small %}
+                        <div class="pad" onclick="" data-aos="flip-left" data-aos-duration="1000">
+                            <div class="pimg">
+                                <img src="{{ sm.image.url }}" alt="">
+                                <div class="ptitle"><p>{{ sm.title }}</p></div>
+                                <div class="pinfo">
+                                    <p>{{ sm.preview_text }}</p>
+                                    <a class="plink" href="{% url 'blogpost' sm.id %}">{% trans 'Детальніше' %} <i
+                                            class="fas fa-arrow-right"></i></a>
+                                    <a class="pdate">{{ sm.date }}</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                {% else %}
+                    <div class="nonews four"><p>{% trans 'Вибачте новин ще немає' %}</p></div>
+                    <div class="nonews four"><p>{% trans 'Вибачте новин ще немає' %}</p></div>
+                    <div class="nonews four"><p>{% trans 'Вибачте новин ще немає' %}</p></div>
+                    <div class="nonews four"><p>{% trans 'Вибачте новин ще немає' %}</p></div>
+                {% endif %}
             </div>
 
 
@@ -481,31 +488,27 @@
             <div class="form" data-aos="flip-right" data-aos-duration="1000">
                 <form action="" method="post">
                     {% csrf_token %}
-                    <input type="text" name="name" placeholder="Ваше ім'я"><br>
-                    <input type="tel" name="number" placeholder="Ваш номер телефону"><br>
-                    <input type="email" name="email" placeholder="Ваш e-mail"><br>
-                    <input type="text" name="org" placeholder="Назва організації"><br>
-                    <textarea name="text" placeholder="Повідомлення"></textarea>
-                    <input type="submit" class="submit" name="submit" value="Відправити">
+                    <input type="text" name="name" placeholder="{% trans "Ваше ім'я" %}"><br>
+                    <input type="tel" name="number" placeholder="{% trans 'Ваш номер телефону' %}"><br>
+                    <input type="email" name="email" placeholder="{% trans 'Ваш e-mail' %}"><br>
+                    <input type="text" name="org" placeholder="{% trans 'Назва організації' %}"><br>
+                    <textarea name="text" placeholder="{% trans 'Повідомлення' %}"></textarea>
+                    <input type="submit" class="submit" name="submit" value="{% trans 'Відправити' %}">
                 </form>
             </div>
             <div class="numbers" data-aos="fade-zoom-in" data-aos-duration="1000">
                 <table>
                     <tr class="number">
-                        <td class="title">Головний офіс:</td>
-                        <td class="num"> +380-(000)-0000-000</td>
+                        <td class="title">E-mail:</td>
+                        <td class="num"><a href="mailto:office@ecad.energy?subject=Питання з сайту"> office@ecad.energy </a></td>
                     </tr>
                     <tr class="number">
-                        <td class="title">Тех підтримка:</td>
-                        <td class="num"> +380-(000)-0000-000</td>
+                        <td class="title">Номер телефону:</td>
+                        <td class="num"><a href="tel:+380958611971"> +380 (95) 861 19 71 </a></td>
                     </tr>
                     <tr class="number">
-                        <td class="title">Замовлення:</td>
-                        <td class="num"> +380-(000)-0000-000</td>
-                    </tr>
-                    <tr class="number">
-                        <td class="title">Ще один номер:</td>
-                        <td class="num"> +380-(000)-0000-000</td>
+                        <td class="title">Адреса:</td>
+                        <td class="num"> 01030, Україна, м. Київ,<br> вул. Володимирська, 54.</td>
                     </tr>
                 </table>
             </div>

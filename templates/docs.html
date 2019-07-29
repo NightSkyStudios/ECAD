@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,14 +18,18 @@
 {% include 'nav.html' %}
 
 <div class="page">
-    <div class="header center"><p>Наші матеріали</p></div>
-    {% for doc in docs %}
-        <div class="docs-page">
-            <a target="_blank" rel="noopener noreferrer" href="{% url 'pdf_view' doc.id %}" class="doc"><i class="fas fa-file-alt fa-5x"></i>
-                <p class="title">{{ doc.title }}</p></a>
-        </div>
-    {% endfor %}
+    <div class="header center"><p>{% trans 'Наші матеріали' %}</p></div>
 
+    <div class="docs-page">
+        {% for doc in docs %}
+            <div class="doc">
+                <div class="prw">
+                    <img src="{% static 'images/document.svg' %}" alt="">
+                </div>
+                <div class="title"><p><a target="_blank" rel="noopener noreferrer" href="{% url 'pdf_view' doc.id %}">{{ doc.title }}</a></p></div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
 

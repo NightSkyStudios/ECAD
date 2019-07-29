@@ -9,6 +9,7 @@ from django.dispatch import receiver
 from datetime import date
 from tinymce import models as tinymce_models
 
+
 DEFAULT_IMAGE_PATH = 'img/default.jpg'
 
 
@@ -116,11 +117,9 @@ class Event(models.Model):
     def __str__(self):
         return self.title
 
-
     @property
     def is_past(self):
         return date.today() > self.event_date.date()
-
 
     class Meta:
         verbose_name = 'Подія'
@@ -203,8 +202,18 @@ class Project(models.Model):
     text = tinymce_models.HTMLField('Текст',
                                     help_text='Цей текст буде з форматуванням відображатись на океремій сторінці '
                                               'відведеній для цього проекту')
-    power = models.IntegerField('Потужність',
-                                help_text="Потужність у ватах даного проекту")
+    power = models.FloatField('Пікова Потужність',
+                                help_text="Потужність у МВт даного проекту")
+    location = models.CharField('Розташування',
+                                max_length=255,
+                                blank=False,
+                                help_text="Розташування об'єкта", )
+    development_energy = models.FloatField('Виробництво електроенергії',
+                                             help_text='Виробництво електроенергії у ГВт.г/рік')
+    insolation = models.FloatField('Інсоляція',
+                                     help_text='Інсоляція проекту у kWh/kWp/year')
+    square = models.FloatField('Площа',
+                               help_text='Площа проекту у гектарах')
     date = models.DateTimeField('Дата публікації проекту',
                                 default=datetime.now,
                                 blank=True,
@@ -272,6 +281,12 @@ class Document(models.Model):
                                    help_text="Поставте галочку для того что <b>приховати</b> цей документ у списку "
                                              "документів")
 
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
+    #     fp = FilePreviews(api_key='43fabpmHTEhXmjXtNbDffTh7rTlT5i')
+    #     preview = fp.generate(self.document.)
+    #     print(preview)
+
     def __str__(self):
         return self.title
 
@@ -296,25 +311,6 @@ class Partner(models.Model):
     class Meta:
         verbose_name = 'Партнер'
         verbose_name_plural = 'Партнери'
-
-
-class Gallery(models.Model):
-    name = models.CharField(max_length=64)
-    image = models.ImageField('Image',
-                              upload_to='img',
-                              null=False,
-                              blank=False,
-                              help_text='')
-    project_key = models.ForeignKey(Project,
-                                    default=None,
-                                    on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = 'Фото'
-        verbose_name_plural = 'Фотографії'
 
 
 class Equipment(models.Model):
@@ -343,6 +339,16 @@ class Equipment(models.Model):
         if bool(self.image) is False:
             self.image = DEFAULT_IMAGE_PATH
         super().save(*args, **kwargs)
+
+
+class Photo(models.Model):
+    image = models.ImageField('Зображення',
+                              upload_to='img',
+                              null=True,
+                              blank=True,
+                              # default='default.jpg',
+                              help_text='Зображення буде відображатись на слайдері головної сторінки')
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
 
 
 @receiver(post_delete)

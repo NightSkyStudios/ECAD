@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+FILE_UPLOAD_PERMISSIONS = 0o644
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +21,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'lp$xka$7l8mgjl1p3@=7f#o!12332v20i92%8^zp@e$4-=6cub'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -132,7 +132,8 @@ EMAIL_USE_SSL = True
 EMAIL_HOST = 'euvip01.twinservers.net'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'noreply@ecad.energy'
-EMAIL_HOST_PASSWORD = 'Fr5912kp34'
+EMAIL_HOST_PASSWORD = ''
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
@@ -145,9 +146,9 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-#TinyMCE
-TINYMCE_JS_URL = os.path.join(STATIC_URL, "js/tinymce/tinymce.min.js")
-TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "js/tinymce")
+# TinyMCE
+TINYMCE_JS_URL = os.path.join("", "js/tinymce/tinymce.min.js")
+TINYMCE_JS_ROOT = os.path.join("", "js/tinymce")
 TINYMCE_DEFAULT_CONFIG = {
     'height': 400,
     'width': 1120,
@@ -176,3 +177,13 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
     }
+
+#EMAIL config
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'euvip01.twinservers.net'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'noreply@ecad.energy'
+EMAIL_HOST_PASSWORD = 'Fr5912kp34'
