@@ -9,7 +9,7 @@ from django.dispatch import receiver
 from datetime import date
 from tinymce import models as tinymce_models
 
-DEFAULT_IMAGE_PATH = 'img/default.jpg'
+DEFAULT_IMAGE_PATH = ''
 
 
 # Create your models here.
@@ -191,8 +191,11 @@ class Project(models.Model):
                               upload_to='img',
                               null=True,
                               blank=True,
-                              default='default.jpg',
                               help_text='Зображення для цього проекту')
+    video = models.FileField(upload_to='videos',
+                             null=True,
+                             blank=True,
+                             help_text=mark_safe("Якщо для публікації потрібне відео"))
     area = models.CharField('Область',
                             max_length=2,
                             choices=AREA_CHOICES,

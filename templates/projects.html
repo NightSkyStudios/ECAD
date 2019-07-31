@@ -26,8 +26,13 @@
                 <a href="{% url 'project_post' project.id %}" class="project-tile" data-aos="flip-left"
                    data-aos-duration="1000">
                     <div class="img">
-                        <img src="{{ project.image.url }}" alt="">
-
+                        {% if project.image %}
+                            <img src="{{ project.image.url }}" alt="">
+                        {% else %}
+                            <video playsinline loop>
+                                <source src="{{ project.video.url }}" type="video/mp4">
+                            </video>
+                        {% endif %}
                         <div class="text">
                             <p class="title">{{ project.title }}</p>
                             <p class="power"><i class="fas fa-bolt"></i>{{ project.power }} Вт</p>

@@ -45,7 +45,12 @@
         <div class="gallery">
             <div class="header center" style="color: white;margin-bottom:3em;"><p>{{ project.title }}</p></div>
             <div class="mainphoto">
+                {% if project.image %}
                 <img src="{{ project.image.url }}" number="0" alt="">
+                {% else %}
+                    <video autoplay loop muted src="{{ project.video.url }}" number="0" alt="">
+                    </video>
+                {% endif %}
             </div>
             <div class="previews">
                 {% for photo in gallery %}
