@@ -9,7 +9,6 @@ from django.dispatch import receiver
 from datetime import date
 from tinymce import models as tinymce_models
 
-
 DEFAULT_IMAGE_PATH = 'img/default.jpg'
 
 
@@ -203,15 +202,15 @@ class Project(models.Model):
                                     help_text='Цей текст буде з форматуванням відображатись на океремій сторінці '
                                               'відведеній для цього проекту')
     power = models.FloatField('Пікова Потужність',
-                                help_text="Потужність у МВт даного проекту")
+                              help_text="Потужність у МВт даного проекту")
     location = models.CharField('Розташування',
                                 max_length=255,
                                 blank=False,
                                 help_text="Розташування об'єкта", )
     development_energy = models.FloatField('Виробництво електроенергії',
-                                             help_text='Виробництво електроенергії у ГВт.г/рік')
+                                           help_text='Виробництво електроенергії у ГВт.г/рік')
     insolation = models.FloatField('Інсоляція',
-                                     help_text='Інсоляція проекту у kWh/kWp/year')
+                                   help_text='Інсоляція проекту у kWh/kWp/year')
     square = models.FloatField('Площа',
                                help_text='Площа проекту у гектарах')
     date = models.DateTimeField('Дата публікації проекту',
@@ -281,18 +280,40 @@ class Document(models.Model):
                                    help_text="Поставте галочку для того что <b>приховати</b> цей документ у списку "
                                              "документів")
 
-    # def save(self, *args, **kwargs):
-    #     super().save(*args, **kwargs)
-    #     fp = FilePreviews(api_key='43fabpmHTEhXmjXtNbDffTh7rTlT5i')
-    #     preview = fp.generate(self.document.)
-    #     print(preview)
-
     def __str__(self):
         return self.title
 
     class Meta:
         verbose_name = 'Документ'
         verbose_name_plural = 'Документи'
+
+
+class Normbase(models.Model):
+    title = models.CharField('Назва документа',
+                             max_length=70,
+                             help_text='Назва вашого документа, яка буде відображатись на титульній сторінці')
+    document = models.FileField('Документ',
+                                upload_to='docs',
+                                null=False,
+                                blank=True,
+                                help_text='Завантажте документ')
+    link = models.URLField('URL',
+                           null=False,
+                           blank=True,
+                           help_text='Вставте сюда url вашого документа, яке обов\`язкво повинно закінчуватись на <b>.pdf</b>. Наприклад: example.com/filename.pdf',
+                           default='')
+
+    isHidden = models.BooleanField('Приховати документ',
+                                   default=False,
+                                   help_text="Поставте галочку для того что <b>приховати</b> цей документ у списку "
+                                             "документів")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Документ Нормативної бази'
+        verbose_name_plural = 'Документи нормативної бази'
 
 
 class Partner(models.Model):

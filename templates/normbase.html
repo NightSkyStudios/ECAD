@@ -23,17 +23,30 @@
     <div class="header center"><p>{% trans 'Нормативна база' %}</p></div>
 
     <div class="docs-page">
+        {% for doc in docs %}
             <div class="doc">
                 <div class="prw">
-                    <img src="{% static 'images/cin-configuration-training-document-21-638.jpg' %}" alt="">
+                    {% if doc.link %}
+                         <object src="{{ doc.link }}">
+                            <embed height="300px" src="{{ doc.link }}#toolbar=0">
+                        </object>
+                    {% else %}
+                        <object src="{{ doc.document.url }}">
+                            <embed height="300px" src="{{ doc.document.url }}#toolbar=0">
+                        </object>
+                    {% endif %}
                 </div>
-                <div class="title">
-                    <p>
-                        <a target="_blank" rel="noopener noreferrer" href="">Назва документу</a>
-                    </p>
-                </div>
+             {% if doc.link %}
+                <div class="title"><p><a target="_blank" rel="noopener noreferrer"
+                                         href="{{ doc.link }}">{{ doc.title }}</a></p></div>
+            {% else %}
+                 <div class="title"><p><a target="_blank" rel="noopener noreferrer"
+                                         href="{{ doc.document.url }}">{{ doc.title }}</a></p></div>
+            {% endif %}
             </div>
+        {% endfor %}
     </div>
+
 
 </div>
 

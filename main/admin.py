@@ -48,5 +48,6 @@ admin.site.register(Project, ProjectAdmin)
 admin.site.register(Slider)
 admin.site.register(Partner)
 admin.site.register(Document)
+admin.site.register(Normbase)
 admin.site.register(Equipment, EquipmentAdmin)
 

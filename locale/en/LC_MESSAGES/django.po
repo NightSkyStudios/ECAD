@@ -3,25 +3,128 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:06+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2019-07-29 20:31+0300\n"
+"PO-Revision-Date: 2019-07-29 20:19+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2.3\n"
 
-#: templates/about.html:6 templates/about.html:24 templates/footer.html:6
+#: templates/about.html:7 templates/about.html:25 templates/footer.html:6
 #: templates/nav.html:114
 msgid "Про нас"
 msgstr "About Us"
+
+#: templates/about.html:39
+msgid "Компанія Консалтинг Девелопмент Енергетики"
+msgstr "Company Consulting Development Energy"
+
+#: templates/about.html:40
+msgid ""
+"на сьогоднішній день є одним із лідерів ринку девелопменту в сфері сонячної "
+"енергетики України."
+msgstr ""
+"today is one of the leaders of the development market in the field of solar "
+"energy in Ukraine."
+
+#: templates/about.html:53
+msgid "Ідея проекту зародилася в групи фахівців галузі та однодумців ще у "
+msgstr "Project idea was originated by a group of experts and supporters "
+
+#: templates/about.html:53
+msgid "2012 році"
+msgstr "in 2012"
+
+#: templates/about.html:67
+msgid "Діяльність компанії зосереджена на висококваліфікованому підході до "
+msgstr "The company focuses on a highly qualified approach to "
+
+#: templates/about.html:67
+msgid "підготовки "
+msgstr "preparation "
+
+#: templates/about.html:68
+msgid "проектів будівництва сонячних електростанцій «під ключ». А також"
+msgstr ""
+"of projects for the construction of solar power plants on “turn-key” basis. "
+"As well as"
+
+#: templates/about.html:69
+msgid "супровід"
+msgstr "support "
+
+#: templates/about.html:69
+msgid "проектів до введення в експлуатацію та отримання «зеленого» тарифу."
+msgstr "of projects for commissioning and receiving of the “green tariff”."
+
+#: templates/about.html:83
+msgid "Команда, що працює вже понад "
+msgstr "The team that has been working more than "
+
+#: templates/about.html:83
+msgid "7 років"
+msgstr "7 years"
+
+#: templates/about.html:83
+msgid " на ринку альтернативної енергетики."
+msgstr " in the alternative energy market."
+
+#: templates/about.html:96
+msgid "Більш як"
+msgstr "More than"
+
+#: templates/about.html:96
+msgid "250 МВт"
+msgstr "250 Mw"
+
+#: templates/about.html:96
+msgid "встановленої потужності СЕС."
+msgstr "of SPP installed capacity."
+
+#: templates/about.html:109
+msgid "Співпраця з "
+msgstr "Collaboration with "
+
+#: templates/about.html:109
+msgid "кращими"
+msgstr "the best"
+
+#: templates/about.html:109
+msgid " ЕРС-контракторами України."
+msgstr " EMF contractors in Ukraine."
+
+#: templates/about.html:112
+msgid "Наші послуги"
+msgstr "Services"
+
+#: templates/about.html:125
+msgid "Договір оренди земельної ділянки з відповідним цільовим призначенням."
+msgstr "Lease agreement for a land plot with appropriate purpose."
+
+#: templates/about.html:138
+msgid "Технічні умови та Договір на підключення до електричних мереж."
+msgstr ""
+"Technical conditions and contract for connection to the electric networks."
+
+#: templates/about.html:151
+msgid ""
+"Готові Проекти на будівництво СЕС та підключення до електричних мереж з "
+"усіма погодженнями та експертизою."
+msgstr ""
+"Ready-made projects for SPP construction and connection to electrical "
+"networks with all approvals and expertise."
+
+#: templates/about.html:164
+msgid "Дозвіл (декларація) на початок будівельних робіт."
+msgstr "Permission (Declaration) to begin construction works."
 
 #: templates/blog.html:7 templates/footer.html:12 templates/nav.html:141
 msgid "Блог"
@@ -31,8 +134,8 @@ msgstr "Blog"
 msgid "Наш блог"
 msgstr "Our Blog"
 
-#: templates/blog.html:34 templates/events.html:37 templates/index.html:447
-#: templates/index.html:467
+#: templates/blog.html:34 templates/events.html:37 templates/index.html:438
+#: templates/index.html:458
 msgid "Детальніше"
 msgstr "Learn More"
 
@@ -45,15 +148,15 @@ msgstr "Our Documents"
 msgid "Обладнання"
 msgstr "Equipment"
 
-#: templates/event_post.html:29
+#: templates/event_post.html:30
 msgid "Дата та час"
-msgstr "Data and time"
+msgstr "Date and time"
 
-#: templates/events.html:40 templates/index.html:449
+#: templates/events.html:40 templates/index.html:440
 msgid "Відбулося"
-msgstr "Took place at"
+msgstr "Was taken place"
 
-#: templates/events.html:41 templates/index.html:450
+#: templates/events.html:41 templates/index.html:441
 msgid "Відбудеться"
 msgstr "Will take place"
 
@@ -78,50 +181,121 @@ msgstr "Normative base"
 msgid "Наші переваги"
 msgstr "Our Advantages"
 
-#: templates/index.html:62 templates/projects.html:21
+#: templates/index.html:35
+msgid "Про Компанію"
+msgstr "About Us"
+
+#: templates/index.html:36
+msgid ""
+"Компанія Консалтинг Девелопмент Енергетики «ECAD» на сьогоднішній день є "
+"одним із лідерів ринку девелопменту в сфері сонячної енергетики України."
+msgstr ""
+"Company Consulting Development Energy «ECAD» today is one of the leaders of "
+"the development market in the field of solar energy in Ukraine."
+
+#: templates/index.html:41
+msgid "Ідея"
+msgstr "Idea"
+
+#: templates/index.html:42
+msgid ""
+"Ідея проекту зародилася в групи фахівців галузі та однодумців ще у 2012 році"
+msgstr ""
+"Project idea was originated by a group of experts and supporters in 2012"
+
+#: templates/index.html:47
+msgid "Діяльність"
+msgstr "Activity"
+
+#: templates/index.html:48
+msgid ""
+"Діяльність компанії зосереджена на висококваліфікованому підході до "
+"підготовки проектів будівництва сонячних електростанцій «під ключ». А також "
+"супровід проектів до введення в експлуатацію та отримання «зеленого» тарифу."
+msgstr ""
+"The company focuses on a highly qualified approach to preparation of "
+"projects for the construction of solar power plants on “turn-key” basis. As "
+"well as support of projects for commissioning and receiving of the “green "
+"tariff”."
+
+#: templates/index.html:53 templates/projects.html:21
 msgid "Наші проекти"
 msgstr "Our Projects"
 
-#: templates/index.html:431
+#: templates/index.html:422
 msgid "Наші Партнери"
 msgstr "Our Partners"
 
-#: templates/index.html:439
+#: templates/index.html:430
 msgid "Останні Новини"
 msgstr "Last News"
 
-#: templates/index.html:455
+#: templates/index.html:446
 msgid "Вибачте подій ще немає"
 msgstr "Sorry, there are no events at the moment"
 
-#: templates/index.html:475 templates/index.html:476 templates/index.html:477
-#: templates/index.html:478
+#: templates/index.html:466 templates/index.html:467 templates/index.html:468
+#: templates/index.html:469
 msgid "Вибачте новин ще немає"
-msgstr "Sorry, there are no news at the momment"
+msgstr "Sorry, there are no news at the moment"
 
-#: templates/index.html:491
+#: templates/index.html:477
+msgid "Контакти"
+msgstr "Contacts"
+
+#: templates/index.html:482
 msgid "Ваше ім'я"
 msgstr "Your name"
 
-#: templates/index.html:492
+#: templates/index.html:483
 msgid "Ваш номер телефону"
 msgstr "Your phone number"
 
-#: templates/index.html:493
+#: templates/index.html:484
 msgid "Ваш e-mail"
 msgstr "Your e-mail"
 
-#: templates/index.html:494
+#: templates/index.html:485
 msgid "Назва організації"
 msgstr "Organisation name"
 
-#: templates/index.html:495
+#: templates/index.html:486
 msgid "Повідомлення"
 msgstr "Message"
 
-#: templates/index.html:496
+#: templates/index.html:487
 msgid "Відправити"
 msgstr "Submit"
+
+#: templates/index.html:497
+msgid "Номер телефону:"
+msgstr "Your phone number:"
+
+#: templates/index.html:501
+msgid "Адреса:"
+msgstr "Address:"
+
+#: templates/index.html:502
+msgid "01030, Україна, м. Київ"
+msgstr "01030, Ukraine, Kyiv"
+
+#: templates/index.html:502
+msgid "вул. Володимирська, 54."
+msgstr "str. Volodymyrska, 54."
+
+#: templates/map_projects.html:7
+#, fuzzy
+#| msgid "МВт"
+msgid "Вт"
+msgstr "Wt"
+
+#: templates/map_projects.html:11
+msgid "Проекти у цій області відсутні"
+msgstr "There are no projects in this area"
+
+#: templates/map_projects.html:14
+msgid "MBт"
+msgstr "MWt"
 
 #: templates/project_post.html:62
 msgid "Розташування"
@@ -133,7 +307,7 @@ msgstr "Area"
 
 #: templates/project_post.html:67
 msgid "Га"
-msgstr "ha"
+msgstr "Ha"
 
 #: templates/project_post.html:70 templates/project_post.html:74
 msgid "Пікова потужність"
@@ -145,7 +319,7 @@ msgstr "MWt"
 
 #: templates/project_post.html:75
 msgid "ГВт.г/рік."
-msgstr ""
+msgstr "GWt.g/year."
 
 #: templates/project_post.html:78
 msgid "Інсоляція"
@@ -154,9 +328,3 @@ msgstr "Insolation"
 #: templates/project_post.html:79
 msgid "kWh/kWp/year"
 msgstr "kWh/kWp/year"
-
-#~ msgid "блог"
-#~ msgstr "blog"
-
-#~ msgid "Обладнаня"
-#~ msgstr "Equipment"

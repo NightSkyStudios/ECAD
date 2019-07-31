@@ -109,7 +109,6 @@ LANGUAGE_CODE = 'uk-uk'
 LANGUAGES = (
     ('uk', 'Ukrainian'),
     ('en', 'English'),
-    ('pl', 'Polish'),
 )
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'uk'
@@ -124,17 +123,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-#EMAIL config
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-EMAIL_USE_SSL = True
-EMAIL_HOST = 'euvip01.twinservers.net'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = 'noreply@ecad.energy'
-EMAIL_HOST_PASSWORD = ''
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 STATIC_URL = '/static/'
@@ -147,6 +135,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # TinyMCE
+
 TINYMCE_JS_URL = os.path.join("", "js/tinymce/tinymce.min.js")
 TINYMCE_JS_ROOT = os.path.join("", "js/tinymce")
 TINYMCE_DEFAULT_CONFIG = {
@@ -176,9 +165,9 @@ TINYMCE_DEFAULT_CONFIG = {
     'contextmenu': 'formats | link image',
     'menubar': True,
     'statusbar': True,
-    }
+}
 
-#EMAIL config
+# EMAIL config
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 

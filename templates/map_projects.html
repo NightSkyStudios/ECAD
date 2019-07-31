@@ -1,13 +1,14 @@
+{% load i18n %}
 <div class="title">{{ area_name }} </div>
 <div class="projects">
 {% if projects|length %}
     <ul>
         {% for prj in projects %}
-            <li><a href="{% url 'project_post' prj.id %}">{{ prj.title }} - {{ prj.power }}Вт</a></li>
+            <li><a href="{% url 'project_post' prj.id %}">{{ prj.title }} - {{ prj.power }}{% trans 'Вт' %}</a></li>
         {% endfor %}
     </ul>
 {% else %}
-    Проекти у цій області відсутні
+    {% trans 'Проекти у цій області відсутні' %}
 {% endif %}
 </div>
-<div class="stats"><i class="fas fa-bolt"></i>{{ power }}Bт</div>
+<div class="stats"><i class="fas fa-bolt"></i>{{ power }}{% trans 'MBт' %}</div>

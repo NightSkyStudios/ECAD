@@ -130,7 +130,10 @@ def about(request):
 
 
 def normbase(request):
-    ctx = {}
+    docs = Normbase.objects.all()
+    ctx = {
+        'docs': docs
+    }
     get_nav_items(ctx)
     return render(request, 'normbase.html', ctx)
 
