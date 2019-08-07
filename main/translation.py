@@ -17,4 +17,6 @@ class PostTranslationOptions(TranslationOptions):
 class PostTranslationOptions(TranslationOptions):
     fields = ('title', 'text')
 
-
+@register(Equipment)
+class PostTranslationOptions(TranslationOptions):
+    fields = ('name', 'description')

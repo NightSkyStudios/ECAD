@@ -12,7 +12,6 @@ from tinymce import models as tinymce_models
 DEFAULT_IMAGE_PATH = ''
 
 
-# Create your models here.
 def compress(image):
     im = Image.open(image)
     im = im.convert('RGB')
@@ -51,8 +50,6 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         if bool(self.image) and self.image.name.find('/') == -1:
-            print(self.image)
-            print('rgb')
             new_image = compress(self.image)
             self.image = new_image
 
@@ -104,8 +101,6 @@ class Event(models.Model):
 
     def save(self, *args, **kwargs):
         if bool(self.image) and self.image.name.find('/') == -1:
-            print(self.image)
-            print('rgb')
             new_image = compress(self.image)
             self.image = new_image
 
@@ -228,8 +223,6 @@ class Project(models.Model):
 
     def save(self, *args, **kwargs):
         if bool(self.image) and self.image.name.find('/') == -1:
-            print(self.image)
-            print('rgb')
             new_image = compress(self.image)
             self.image = new_image
 
@@ -255,8 +248,6 @@ class Slider(models.Model):
 
     def save(self, *args, **kwargs):
         if bool(self.image) and self.image.name.find('/') == -1:
-            print(self.image)
-            print('rgb')
             new_image = compress(self.image)
             self.image = new_image
 
@@ -355,8 +346,6 @@ class Equipment(models.Model):
 
     def save(self, *args, **kwargs):
         if bool(self.image) and self.image.name.find('/') == -1:
-            print(self.image)
-            print('rgb')
             new_image = compress(self.image)
             self.image = new_image
 

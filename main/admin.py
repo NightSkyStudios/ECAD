@@ -38,7 +38,7 @@ class DocumentAdmin(TabbedTranslationAdmin):
     list_filter = ('title', 'isHidden')
 
 
-class EquipmentAdmin(admin.ModelAdmin):
+class EquipmentAdmin(TabbedTranslationAdmin):
     list_display = ['name']
 
 

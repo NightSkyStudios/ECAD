@@ -72,7 +72,6 @@ def index(request):
     except IndexError:
         big_post = None
     small_post = posts[1:5]
-    # nav_items = events[0:3]
 
     partners = Partner.objects.all()
     ctx = {
